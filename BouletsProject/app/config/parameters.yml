@@ -1,7 +1,7 @@
 # This file is auto-generated during the composer install
 parameters:
     database_host: tatiana.inow.fr
-    database_port: 80
+    database_port: 3306
     database_name: boulets
     database_user: boulets
     database_password: PfsGqR

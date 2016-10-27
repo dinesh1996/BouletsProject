@@ -45,14 +45,14 @@ class Machine
     /**
      * @var int
      *
-     * @ORM\Column(name="ram", type="int", length=10)
+     * @ORM\Column(name="ram", type="integer", length=10)
      */
     private $ram;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="disque", type="int", length=10)
+     * @ORM\Column(name="disque", type="integer", length=10)
      */
     private $disque;
 
@@ -163,7 +163,7 @@ class Machine
     /**
      * Set ram
      *
-     * @param \int $ram
+     * @param integer $ram
      *
      * @return Machine
      */
@@ -177,7 +177,7 @@ class Machine
     /**
      * Get ram
      *
-     * @return \int
+     * @return int
      */
     public function getRam()
     {
@@ -187,7 +187,7 @@ class Machine
     /**
      * Set disque
      *
-     * @param \int $disque
+     * @param integer $disque
      *
      * @return Machine
      */
@@ -201,7 +201,7 @@ class Machine
     /**
      * Get disque
      *
-     * @return \int
+     * @return int
      */
     public function getDisque()
     {
