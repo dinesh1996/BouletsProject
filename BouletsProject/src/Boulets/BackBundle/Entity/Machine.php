@@ -83,6 +83,17 @@ class Machine
      *
      * @return int
      */
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id_salle", type="integer")
+
+     */
+    private $id_salle;
+
+
+
     public function getId()
     {
         return $this->id;
@@ -278,6 +289,30 @@ class Machine
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set date
+     *
+     * @param int $id_salle
+     *
+     * @return Machine
+     */
+    public function setId_salle($id_salle)
+    {
+        $this->id_salle = $id_salle;
+
+        return $this;
+    }
+
+    /**
+     * Get id_salle
+     *
+     * @return int
+     */
+    public function getId_salle()
+    {
+        return $this->id_salle;
     }
 }
 
