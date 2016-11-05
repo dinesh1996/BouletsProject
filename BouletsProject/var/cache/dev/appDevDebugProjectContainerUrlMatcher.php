@@ -27,6 +27,48 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/css/d39fe82')) {
+            // _assetic_d39fe82
+            if ($pathinfo === '/css/d39fe82.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'd39fe82',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_d39fe82',);
+            }
+
+            if (0 === strpos($pathinfo, '/css/d39fe82_')) {
+                // _assetic_d39fe82_0
+                if ($pathinfo === '/css/d39fe82_bootstrap_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'd39fe82',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_d39fe82_0',);
+                }
+
+                // _assetic_d39fe82_1
+                if ($pathinfo === '/css/d39fe82_responsive_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'd39fe82',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_d39fe82_1',);
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/js/e017c7d')) {
+            // _assetic_e017c7d
+            if ($pathinfo === '/js/e017c7d.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e017c7d',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_e017c7d',);
+            }
+
+            if (0 === strpos($pathinfo, '/js/e017c7d_')) {
+                // _assetic_e017c7d_0
+                if ($pathinfo === '/js/e017c7d_jquery-1.9.1.min_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'e017c7d',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_e017c7d_0',);
+                }
+
+                // _assetic_e017c7d_1
+                if ($pathinfo === '/js/e017c7d_bootstrap-alert_2.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'e017c7d',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_e017c7d_1',);
+                }
+
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -116,6 +158,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             return array (  '_controller' => 'Boulets\\FrontBundle\\Controller\\DefaultController::indexAction',  '_route' => 'front_homepage',);
+        }
+
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::loginAction',  '_route' => 'login',);
+        }
+
+        // create
+        if ($pathinfo === '/create') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::createAction',  '_route' => 'create',);
         }
 
         // homepage

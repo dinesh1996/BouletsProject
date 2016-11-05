@@ -1,0 +1,29 @@
+{%extends "FrontBundle::layout.html.twig"%}
+
+{%block title%}
+    Profil
+{%endblock%}
+
+{% block content %}
+    <div class="container">
+
+        {%for u in utilisateur%}
+            <td>{{u.nom}}</td>
+            <br>
+            <td>{{u.mail}}</td>
+        {%endfor%}
+
+        {% if nom is defined and mail is defined %}
+        <h1>Nom</h1>
+        {{utilisteur.nom}}
+        <h1>Mail</h>
+            {{ utilisateur.mail }}
+         {% else %}
+            <p>Il n'a rien. Vous n'êtes pas connecté.</p>
+             <form action="/web/app_dev.php/login">
+                 <input type="submit" class="btn btn-primary" value="Se connecter" />
+             </form>
+        {%  endif%}
+
+    </div>
+{%endblock%}
