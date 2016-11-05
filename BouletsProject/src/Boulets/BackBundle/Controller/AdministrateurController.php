@@ -14,7 +14,7 @@ class AdministrateurController extends Controller
     {
         return $this->render('BackBundle:Default:index.html.twig');
     }
-
+    //Création d'un user
     public function createAction(Request $request)
     {
         if($request->isMethod('POST')){
@@ -87,14 +87,57 @@ class AdministrateurController extends Controller
         }
 
     }
-    public function profilAction(Request $request)
+    //Login
+    public function loginAction(Request $request)
     {
-        if ($request->isMethod('GET')) {
-            $session = new Session();
-            $session-> migrate();
-            $response = $this->get('templating')
-                ->render('FrontBundle:Administrateur:profil.html.twig',array('nom'=> $session->get('nom'),'mail'=>$session->get('mail')));
+        if ($request->isMethod('POST')) {
+            $mail = $request->request->get("mail");
+            $mdp = $request->request->get("mdp");
+
+            if(!empty($mdp) && !empty($mail)){
+                $mdp = $mdp.crypt($mdp, CRYPT_BLOWFISH);
+                $mdp = hash('md5', $mdp);
+                //Consulter la bdd
+                //Première possibilité de consultation de bdd
+                $repo= $this->getDoctrine()->getRepository('BackBundle:Administrateur');
+                $utilisateur = $repo->findOneBy( array('mail' => $mail,'password' => $mdp ) );
+
+                if($utilisateur){
+                    $session = new Session();
+                    //  $attributeBag = new AttributeBag('hoho');
+                    //$attributeBag->setName('user');
+                    //$session->registerBag($attributeBag);
+                    $session->set('name',$utilisateur->getNom());
+                    $session->set('mail',$utilisateur->getMail());
+
+                    return $this->redirectToRoute("profil");
+
+                }else{
+                    $erreur = "Mot de passe ou Email incorrect";
+                    $response = $this->get('templating')
+                        ->render('FrontBundle:Administrateur:logIn.html.twig',array('error'=> $erreur));
+                    return new Response($response);
+                }
+            }else{
+                $erreur = "Les champs ne sont pas tous remplis";
+                $response = $this->get('templating')
+                    ->render('FrontBundle:Administrateur:logIn.html.twig',array('error'=> $erreur));
                 return new Response($response);
+            }
+        }elseif ($request->isMethod('GET')){
+            return $this->render('FrontBundle:Administrateur:logIn.html.twig');
         }
+    }
+    //LogOut
+    public function logoutAction(){
+            $this->get('session')->invalidate();
+            return $this->redirectToRoute("login");
+    }
+    //Profil
+    public function profilAction()
+    {
+                $response = $this->get('templating')
+                    ->render('FrontBundle:Administrateur:profil.html.twig',array('nom'=> $this->get('session')->get('name'),'mail'=>$this->get('session')->get('mail')));
+                return new Response($response);
     }
 }
