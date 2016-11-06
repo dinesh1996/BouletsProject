@@ -13,3 +13,6 @@ profil:
 logout:
     path: /logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
+AllAdmin:
+    path: /admin/list
+    defaults:  { _controller: BackBundle:Administrateur:allAdmin}

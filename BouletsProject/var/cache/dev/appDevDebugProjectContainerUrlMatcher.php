@@ -180,6 +180,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::logoutAction',  '_route' => 'logout',);
         }
 
+        // AllAdmin
+        if ($pathinfo === '/admin/list') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::allAdminAction',  '_route' => 'AllAdmin',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

@@ -104,7 +104,7 @@ class AdministrateurController extends Controller
 
                 if($utilisateur){
                     $session = new Session();
-                    //  $attributeBag = new AttributeBag('hoho');
+                    //$attributeBag = new AttributeBag('hoho');
                     //$attributeBag->setName('user');
                     //$session->registerBag($attributeBag);
                     $session->set('name',$utilisateur->getNom());
@@ -139,5 +139,12 @@ class AdministrateurController extends Controller
                 $response = $this->get('templating')
                     ->render('FrontBundle:Administrateur:profil.html.twig',array('nom'=> $this->get('session')->get('name'),'mail'=>$this->get('session')->get('mail')));
                 return new Response($response);
+    }
+    public function allAdminAction(){
+        $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
+        $utilisateurs = $repo->findAll();
+        $response = $this->get('templating')
+            ->render('FrontBundle:Administrateur:list.html.twig',array('utilisateurs'=> $utilisateurs));
+        return new Response($response);
     }
 }
