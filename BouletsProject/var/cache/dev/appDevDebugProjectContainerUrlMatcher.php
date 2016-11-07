@@ -190,6 +190,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::updateAction',  '_route' => 'update',);
         }
 
+        // desinscription
+        if ($pathinfo === '/signOff') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::deleteAction',  '_route' => 'desinscription',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

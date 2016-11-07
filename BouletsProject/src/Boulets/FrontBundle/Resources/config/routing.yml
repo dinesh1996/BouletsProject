@@ -19,3 +19,6 @@ AllAdmin:
 update:
     path: /update
     defaults:  { _controller: BackBundle:Administrateur:update}
+desinscription:
+    path: /signOff
+    defaults:  { _controller: BackBundle:Administrateur:delete}

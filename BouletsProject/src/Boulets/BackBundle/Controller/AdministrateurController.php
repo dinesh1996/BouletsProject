@@ -107,8 +107,6 @@ class AdministrateurController extends Controller
                 $utilisateur->setNom($nom);
                 $datacontext->flush();
                 $this->get('session')->set('name',$nom);
-                return $this->redirectToRoute("login");
-
             }
             if(!empty($mdp) && !empty($confmdp) && $mdp == $confmdp ){
 
@@ -117,9 +115,10 @@ class AdministrateurController extends Controller
 
                 $utilisateur->setPassword($mdp);
                 $datacontext->flush();
-                return $this->redirectToRoute("profil");
 
             }
+            return $this->redirectToRoute("profil");
+
         }
     }
 
@@ -200,12 +199,22 @@ class AdministrateurController extends Controller
 
     }
 
-    //Suppression route 
-    public function deleteAction()
+    //Suppression route
+    public function deleteAction(Request $request)
     {
+        if ($request->isMethod('POST')) {
+
+            $repo= $this->getDoctrine()->getRepository('BackBundle:Administrateur');
+            $utilisateur = $repo->findOneBy( array('mail' => $this->get('session')->get('mail')) );
+            $datacontext= $this->getDoctrine()->getEntityManager();
+            $datacontext->remove($utilisateur);
+            $datacontext->flush();
+            return $this->redirectToRoute("login");
+
+        }
+        return $this->redirectToRoute("login");
 
     }
-
     //Renvoie la liste des utilisateurs du site
     public function allAdminAction(){
         $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");

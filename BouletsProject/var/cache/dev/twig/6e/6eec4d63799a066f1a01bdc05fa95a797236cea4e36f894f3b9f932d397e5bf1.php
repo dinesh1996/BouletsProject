@@ -22,34 +22,34 @@ class __TwigTemplate_73941f77469419a3d8ad2b7d91a5c812d21392ba66663c55e49d36b525b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cce82c61d7308e66414b6ca09f59a8e73d2c4bae4a0e36fbc17bbe3da7356913 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_cce82c61d7308e66414b6ca09f59a8e73d2c4bae4a0e36fbc17bbe3da7356913->enter($__internal_cce82c61d7308e66414b6ca09f59a8e73d2c4bae4a0e36fbc17bbe3da7356913_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Administrateur:profil.html.twig"));
+        $__internal_43d7a07fe105313c6f1ec40e87a6ebf3394e193396aba4be73ee80abe34ae054 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_43d7a07fe105313c6f1ec40e87a6ebf3394e193396aba4be73ee80abe34ae054->enter($__internal_43d7a07fe105313c6f1ec40e87a6ebf3394e193396aba4be73ee80abe34ae054_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Administrateur:profil.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_cce82c61d7308e66414b6ca09f59a8e73d2c4bae4a0e36fbc17bbe3da7356913->leave($__internal_cce82c61d7308e66414b6ca09f59a8e73d2c4bae4a0e36fbc17bbe3da7356913_prof);
+        $__internal_43d7a07fe105313c6f1ec40e87a6ebf3394e193396aba4be73ee80abe34ae054->leave($__internal_43d7a07fe105313c6f1ec40e87a6ebf3394e193396aba4be73ee80abe34ae054_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_6873845eb5ea0859b0e8854775e2f93d0fa6e973acef2fd35fbcb4cc512eeae8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6873845eb5ea0859b0e8854775e2f93d0fa6e973acef2fd35fbcb4cc512eeae8->enter($__internal_6873845eb5ea0859b0e8854775e2f93d0fa6e973acef2fd35fbcb4cc512eeae8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:profil.html.twig"));
+        $__internal_d6a79608c824c3689468eac989ec66aacdd78b4f1954cba313bcedc2ffa2bd16 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d6a79608c824c3689468eac989ec66aacdd78b4f1954cba313bcedc2ffa2bd16->enter($__internal_d6a79608c824c3689468eac989ec66aacdd78b4f1954cba313bcedc2ffa2bd16_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:profil.html.twig"));
 
         // line 4
         echo "    Profil
 ";
         
-        $__internal_6873845eb5ea0859b0e8854775e2f93d0fa6e973acef2fd35fbcb4cc512eeae8->leave($__internal_6873845eb5ea0859b0e8854775e2f93d0fa6e973acef2fd35fbcb4cc512eeae8_prof);
+        $__internal_d6a79608c824c3689468eac989ec66aacdd78b4f1954cba313bcedc2ffa2bd16->leave($__internal_d6a79608c824c3689468eac989ec66aacdd78b4f1954cba313bcedc2ffa2bd16_prof);
 
     }
 
     // line 7
     public function block_content($context, array $blocks = array())
     {
-        $__internal_b3eb4736f43437834e229ec9c4f409397708dfe3a0c95198e9b8d3b2bf102af1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b3eb4736f43437834e229ec9c4f409397708dfe3a0c95198e9b8d3b2bf102af1->enter($__internal_b3eb4736f43437834e229ec9c4f409397708dfe3a0c95198e9b8d3b2bf102af1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:profil.html.twig"));
+        $__internal_7131928d645f7e6e32c4ced5461dfa5dea546747e79952af949066989322cea4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_7131928d645f7e6e32c4ced5461dfa5dea546747e79952af949066989322cea4->enter($__internal_7131928d645f7e6e32c4ced5461dfa5dea546747e79952af949066989322cea4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:profil.html.twig"));
 
         // line 8
         echo "    <div class=\"container\">
@@ -78,9 +78,13 @@ class __TwigTemplate_73941f77469419a3d8ad2b7d91a5c812d21392ba66663c55e49d36b525b
             <form action=\"/web/app_dev.php/admin/list\">
                 <input type=\"submit\" class=\"btn btn-primary\" value=\"Voir l'ensemble des utilisateurs\" />
             </form>
+            <form action=\"/web/app_dev.php/signOff\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Se désinscrire du site\" />
+            </form>
+
          ";
         } else {
-            // line 26
+            // line 30
             echo "            <p>Il n'a rien. Vous n'êtes pas connecté.</p>
              <form action=\"/web/app_dev.php/login\">
                  <input type=\"submit\" class=\"btn btn-primary\" value=\"Se connecter\" />
@@ -90,12 +94,12 @@ class __TwigTemplate_73941f77469419a3d8ad2b7d91a5c812d21392ba66663c55e49d36b525b
              </form>
         ";
         }
-        // line 34
+        // line 38
         echo "
     </div>
 ";
         
-        $__internal_b3eb4736f43437834e229ec9c4f409397708dfe3a0c95198e9b8d3b2bf102af1->leave($__internal_b3eb4736f43437834e229ec9c4f409397708dfe3a0c95198e9b8d3b2bf102af1_prof);
+        $__internal_7131928d645f7e6e32c4ced5461dfa5dea546747e79952af949066989322cea4->leave($__internal_7131928d645f7e6e32c4ced5461dfa5dea546747e79952af949066989322cea4_prof);
 
     }
 
@@ -111,7 +115,7 @@ class __TwigTemplate_73941f77469419a3d8ad2b7d91a5c812d21392ba66663c55e49d36b525b
 
     public function getDebugInfo()
     {
-        return array (  94 => 34,  84 => 26,  70 => 15,  65 => 13,  62 => 12,  60 => 11,  55 => 8,  49 => 7,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  98 => 38,  88 => 30,  70 => 15,  65 => 13,  62 => 12,  60 => 11,  55 => 8,  49 => 7,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -148,6 +152,10 @@ class __TwigTemplate_73941f77469419a3d8ad2b7d91a5c812d21392ba66663c55e49d36b525b
             <form action=\"/web/app_dev.php/admin/list\">
                 <input type=\"submit\" class=\"btn btn-primary\" value=\"Voir l'ensemble des utilisateurs\" />
             </form>
+            <form action=\"/web/app_dev.php/signOff\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Se désinscrire du site\" />
+            </form>
+
          {% else %}
             <p>Il n'a rien. Vous n'êtes pas connecté.</p>
              <form action=\"/web/app_dev.php/login\">
