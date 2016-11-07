@@ -16,6 +16,12 @@
             <form action="/web/app_dev.php/logout">
                 <input type="submit" class="btn btn-primary" value="Se deconnecter" />
             </form>
+            <form action="/web/app_dev.php/update">
+                <input type="submit" class="btn btn-primary" value="Modification du profil" />
+            </form>
+            <form action="/web/app_dev.php/admin/list">
+                <input type="submit" class="btn btn-primary" value="Voir l'ensemble des utilisateurs" />
+            </form>
          {% else %}
             <p>Il n'a rien. Vous n'êtes pas connecté.</p>
              <form action="/web/app_dev.php/login">

@@ -22,34 +22,34 @@ class __TwigTemplate_afe7f2677b14a102b87040dcb913a1ebb66a9491eb523f5abcb3cbe08a9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b4d6f4fd4e2108269cf0a71fd4a1a95650fd46f8f6f681311ee8a49eeef1f514 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b4d6f4fd4e2108269cf0a71fd4a1a95650fd46f8f6f681311ee8a49eeef1f514->enter($__internal_b4d6f4fd4e2108269cf0a71fd4a1a95650fd46f8f6f681311ee8a49eeef1f514_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Administrateur:logIn.html.twig"));
+        $__internal_5e0b38cd8b4645d8912a32e108c2ad4301211b08c1051d1fa7bc5db8ee9862c5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5e0b38cd8b4645d8912a32e108c2ad4301211b08c1051d1fa7bc5db8ee9862c5->enter($__internal_5e0b38cd8b4645d8912a32e108c2ad4301211b08c1051d1fa7bc5db8ee9862c5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FrontBundle:Administrateur:logIn.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b4d6f4fd4e2108269cf0a71fd4a1a95650fd46f8f6f681311ee8a49eeef1f514->leave($__internal_b4d6f4fd4e2108269cf0a71fd4a1a95650fd46f8f6f681311ee8a49eeef1f514_prof);
+        $__internal_5e0b38cd8b4645d8912a32e108c2ad4301211b08c1051d1fa7bc5db8ee9862c5->leave($__internal_5e0b38cd8b4645d8912a32e108c2ad4301211b08c1051d1fa7bc5db8ee9862c5_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_4fd3ff786eceae9603c37737da4e8c3e534e71470522cbfa98c69ae223c02c28 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4fd3ff786eceae9603c37737da4e8c3e534e71470522cbfa98c69ae223c02c28->enter($__internal_4fd3ff786eceae9603c37737da4e8c3e534e71470522cbfa98c69ae223c02c28_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:logIn.html.twig"));
+        $__internal_4514800358eb8674918b4472917b0e69d25948514aa7135c3558221d92cc2276 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4514800358eb8674918b4472917b0e69d25948514aa7135c3558221d92cc2276->enter($__internal_4514800358eb8674918b4472917b0e69d25948514aa7135c3558221d92cc2276_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:logIn.html.twig"));
 
         // line 4
         echo "    Login
 ";
         
-        $__internal_4fd3ff786eceae9603c37737da4e8c3e534e71470522cbfa98c69ae223c02c28->leave($__internal_4fd3ff786eceae9603c37737da4e8c3e534e71470522cbfa98c69ae223c02c28_prof);
+        $__internal_4514800358eb8674918b4472917b0e69d25948514aa7135c3558221d92cc2276->leave($__internal_4514800358eb8674918b4472917b0e69d25948514aa7135c3558221d92cc2276_prof);
 
     }
 
     // line 7
     public function block_content($context, array $blocks = array())
     {
-        $__internal_c201e9f0a7595ed6c5faca8336fa1d5a6c39247bb5dc8844007e2601f9ffce40 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c201e9f0a7595ed6c5faca8336fa1d5a6c39247bb5dc8844007e2601f9ffce40->enter($__internal_c201e9f0a7595ed6c5faca8336fa1d5a6c39247bb5dc8844007e2601f9ffce40_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:logIn.html.twig"));
+        $__internal_20100ddfc4b9b48623afcb542bfb48aefc19739f3f649fa2f674aff23997b3ed = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_20100ddfc4b9b48623afcb542bfb48aefc19739f3f649fa2f674aff23997b3ed->enter($__internal_20100ddfc4b9b48623afcb542bfb48aefc19739f3f649fa2f674aff23997b3ed_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "FrontBundle:Administrateur:logIn.html.twig"));
 
         // line 8
         echo "    <div class=\"container\">
@@ -63,27 +63,30 @@ class __TwigTemplate_afe7f2677b14a102b87040dcb913a1ebb66a9491eb523f5abcb3cbe08a9
             <br>
             <button class=\"btn btn-primary\">Valider</button>
         </form>
+        <form action=\"/web/app_dev.php/create\">
+            <input type=\"submit\" class=\"btn btn-primary\" value=\"S'inscrire\" />
+        </form>
     </div>
     ";
-        // line 20
+        // line 23
         if (array_key_exists("error", $context)) {
-            // line 21
+            // line 24
             echo "        <p style=\"color: red; \"> ";
             echo twig_escape_filter($this->env, (isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "html", null, true);
             echo " </p>
     ";
         }
-        // line 23
+        // line 26
         echo "    ";
         if (array_key_exists("success", $context)) {
-            // line 24
+            // line 27
             echo "        <p style=\"color: green; \"> ";
             echo twig_escape_filter($this->env, (isset($context["success"]) ? $context["success"] : $this->getContext($context, "success")), "html", null, true);
             echo " </p>
     ";
         }
         
-        $__internal_c201e9f0a7595ed6c5faca8336fa1d5a6c39247bb5dc8844007e2601f9ffce40->leave($__internal_c201e9f0a7595ed6c5faca8336fa1d5a6c39247bb5dc8844007e2601f9ffce40_prof);
+        $__internal_20100ddfc4b9b48623afcb542bfb48aefc19739f3f649fa2f674aff23997b3ed->leave($__internal_20100ddfc4b9b48623afcb542bfb48aefc19739f3f649fa2f674aff23997b3ed_prof);
 
     }
 
@@ -99,7 +102,7 @@ class __TwigTemplate_afe7f2677b14a102b87040dcb913a1ebb66a9491eb523f5abcb3cbe08a9
 
     public function getDebugInfo()
     {
-        return array (  80 => 24,  77 => 23,  71 => 21,  69 => 20,  55 => 8,  49 => 7,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  83 => 27,  80 => 26,  74 => 24,  72 => 23,  55 => 8,  49 => 7,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -129,6 +132,9 @@ class __TwigTemplate_afe7f2677b14a102b87040dcb913a1ebb66a9491eb523f5abcb3cbe08a9
             <input type=\"password\" class=\"form-control\" name=\"mdp\"/>
             <br>
             <button class=\"btn btn-primary\">Valider</button>
+        </form>
+        <form action=\"/web/app_dev.php/create\">
+            <input type=\"submit\" class=\"btn btn-primary\" value=\"S'inscrire\" />
         </form>
     </div>
     {% if error is defined%}

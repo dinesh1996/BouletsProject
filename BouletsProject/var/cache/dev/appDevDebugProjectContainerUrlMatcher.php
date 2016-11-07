@@ -185,6 +185,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::allAdminAction',  '_route' => 'AllAdmin',);
         }
 
+        // update
+        if ($pathinfo === '/update') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::updateAction',  '_route' => 'update',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

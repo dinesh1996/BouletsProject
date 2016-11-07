@@ -18,4 +18,4 @@ AllAdmin:
     defaults:  { _controller: BackBundle:Administrateur:allAdmin}
 update:
     path: /update
-    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
+    defaults:  { _controller: BackBundle:Administrateur:update}
