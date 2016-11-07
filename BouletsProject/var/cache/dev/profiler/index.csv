@@ -171,3 +171,5 @@ cc0e27,::1,GET,http://localhost/web/app_dev.php/logout,1478443785,,500
 ee4f26,::1,GET,http://localhost/web/app_dev.php/logout,1478443805,,302
 f3a1e7,::1,GET,http://localhost/web/app_dev.php/login,1478443805,,200
 9a66e7,::1,GET,http://localhost/web/app_dev.php/admin/list,1478444173,,200
+f27597,::1,GET,http://localhost/web/app_dev.php/login,1478506851,,200
+8e043c,::1,POST,http://localhost/web/app_dev.php/login,1478506854,,200

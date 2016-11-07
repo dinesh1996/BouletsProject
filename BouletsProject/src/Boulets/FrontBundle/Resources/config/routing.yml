@@ -16,3 +16,6 @@ logout:
 AllAdmin:
     path: /admin/list
     defaults:  { _controller: BackBundle:Administrateur:allAdmin}
+update:
+    path: /update
+    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
