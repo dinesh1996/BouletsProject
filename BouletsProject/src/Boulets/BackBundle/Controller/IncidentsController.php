@@ -12,8 +12,39 @@ namespace Boulets\BackBundle\Controller;
 class IncidentsController extends Controller
 {
 
+
+
+
+
+
+
+
+    public function profilAction(Request $request)
+    {
+
+        $session = $request->getSession();
+        $session->getName();
+        $nom = $session->get('name');
+        $mail = $session->get('mail');
+        if(empty($nom))
+        {
+            return $this->redirectToRoute("login");
+
+        }elseif (!empty($nom)){
+            $response = $this->get('templating')
+                ->render('BackBundle:Administrateur:profil.html.twig',array('nom'=>$nom,'mail'=>$mail));
+            return new Response($response);
+        }
+    }
+
     public function createIncidentAction(Request $request)
     {
+        $session = $request->getSession();
+        $session->getName();
+        $nom = $session->get('name');
+        if(!empty($nom)){
+
+
 
 
         if ($request->isMethod("POST")) {
@@ -66,59 +97,12 @@ class IncidentsController extends Controller
 
         }
 
+        }else {
 
+                return $this->redirectToRoute("login");
+
+            }
     }
-
-
-    /* public function formAction(Request $request)
-     {
-         if ($request->isMethod('GET')) {
-
-             $response = $this->get('templating')
-                 ->render('B2Bundle:Test:form.html.twig');
-
-             return new Response($response);
-
-         } else if ($request->isMethod('POST')) {
-
-             $nom = $request->request->get('nom');//- POST
-             $prenom = $request->request->get('prenom');//- POST
-
-             if ($nom == null || $prenom == null) {
-
-                 $response = $this->get('templating')
-                     ->render('B2Bundle:Test:form.html.twig', array('alerte' => "Une des champs n 'est pas rempli, meric de résseyer"));
-
-                 return new Response($response);
-
-             } else {
-
-                 //- MISE EN PLACE DE VARIABLES DE SESSIONS FLASH A USAGE UNIQUE, SE SUPPRIME APRES UTILISATION
-                 //- PEUT EN CREER PLUSIEURS DU MEME NOM
-                 $session = $request->getSession();
-                 $session->getFlashBag()->add('message', 'Saisie OK');
-                 $session->getFlashBag()->add('message', 'Je confirme, Saisie OK');
-
-                 //- REDIRECT VERS LA VIEW - VIEW
-                 return $this->redirectToRoute('B2_test_view_retour', array('nom' => $nom, 'prenom' => $prenom));
-
-             }
-
-         } else {
-
-             $response = new Response();
-             $response->setContent("Erreur d'accès");
-             $response->setStatusCode(Response::HTTP_NOT_FOUND);
-             return $response;
-
-         }
-
-     }
-    */
-
-
-
-
 
 
 
@@ -146,8 +130,11 @@ class IncidentsController extends Controller
     }
 
 
+
+
     public function incidentAction(Request $request, $id)
     {
+
 
         if ($request->isMethod('GET')) {
             $request->attributes->get('id');//- ROUTE
@@ -172,25 +159,30 @@ class IncidentsController extends Controller
 
     public function incidentendAction(Request $request, $id)
     {
+        $session = $request->getSession();
+        $session->getName();
+        $nom = $session->get('name');
+        if(!empty($nom))
+        {
+
+            if ($request->isMethod('GET')) {
 
 
-        if ($request->isMethod('GET')) {
+                $response = $this->get('templating')
+                    ->render('BackBundle:Incidents:incidentend.html.twig');
+                return new Response($response);
+            }
 
 
-            $response = $this->get('templating')
-                ->render('BackBundle:Incidents:incidentend.html.twig');
-            return new Response($response);
-        }
+            elseif ($request->isMethod("POST"))
+            {
 
 
-        elseif ($request->isMethod("POST")) {
+                $dateend = date_create($request->request->get("dateend"));
 
 
-            $dateend = date_create($request->request->get("dateend"));
-
-
-            $repo = $this->getDoctrine()->getRepository("BackBundle:Incident");
-            $incidentP = $repo->findOneBy(array('id' => $id));
+                $repo = $this->getDoctrine()->getRepository("BackBundle:Incident");
+                $incidentP = $repo->findOneBy(array('id' => $id));
 
 
 
@@ -198,39 +190,47 @@ class IncidentsController extends Controller
 
 
 
-            if ($incidentP != null) {
+                if ($incidentP != null) {
 
-                $em = $this->getDoctrine()->getManager();
-                $incidentE = $em->getRepository('BackBundle:Incident')->find($id);
+                    $em = $this->getDoctrine()->getManager();
+                    $incidentE = $em->getRepository('BackBundle:Incident')->find($id);
 
-                if (!$incidentE) {
-                    throw $this->createNotFoundException(
-                        'Pas incident trouvé pour cette id '.$id
-                    );
+                    if (!$incidentE) {
+                        throw $this->createNotFoundException(
+                            'Pas incident trouvé pour cette id '.$id
+                        );
+                    }
+
+                    $incidentE->setDatefin($dateend);
+                    $em->flush();
+
+
+
+                    return $this->redirectToRoute('back_indexallincidents', array('incident' => $incidentP));
+
+
+                } else {
+
+
+                    return $this->render('BackBundle:Incidents:allincidents.html.twig');
+
+
                 }
 
-                $incidentE->setDatefin($dateend);
-                $em->flush();
 
 
 
-                return $this->redirectToRoute('back_indexallincidents', array('incident' => $incidentP));
 
 
-            } else {
-
-
-                return $this->render('BackBundle:Incidents:allincidents.html.twig');
 
 
             }
 
 
 
-
-
-
-
+        }else
+        {
+            return $this->redirectToRoute("login");
 
         }
 

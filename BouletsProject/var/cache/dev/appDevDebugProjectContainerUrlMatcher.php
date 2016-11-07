@@ -209,8 +209,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // update
-            if ($pathinfo === '/back/updateAdmin') {
-                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::allAdminAction',  '_route' => 'update',);
+            if ($pathinfo === '/back/update') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\AdministrateurController::updateAction',  '_route' => 'update',);
             }
 
         }

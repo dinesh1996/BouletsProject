@@ -22,34 +22,34 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_5adde5b7e5475374c01148f60f6611be293c2e4709ac28289406501c8bd6d393 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5adde5b7e5475374c01148f60f6611be293c2e4709ac28289406501c8bd6d393->enter($__internal_5adde5b7e5475374c01148f60f6611be293c2e4709ac28289406501c8bd6d393_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:allincidents.html.twig"));
+        $__internal_5c6d9c463c0e728399af46f6fe86fc0e5db45023fab097433f3b623c8524feb8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5c6d9c463c0e728399af46f6fe86fc0e5db45023fab097433f3b623c8524feb8->enter($__internal_5c6d9c463c0e728399af46f6fe86fc0e5db45023fab097433f3b623c8524feb8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:allincidents.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_5adde5b7e5475374c01148f60f6611be293c2e4709ac28289406501c8bd6d393->leave($__internal_5adde5b7e5475374c01148f60f6611be293c2e4709ac28289406501c8bd6d393_prof);
+        $__internal_5c6d9c463c0e728399af46f6fe86fc0e5db45023fab097433f3b623c8524feb8->leave($__internal_5c6d9c463c0e728399af46f6fe86fc0e5db45023fab097433f3b623c8524feb8_prof);
 
     }
 
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        $__internal_f86a1bb633e680c34a43e622cb34a33f05f9e07788fbdac8dd50d9a6bb1c6e87 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f86a1bb633e680c34a43e622cb34a33f05f9e07788fbdac8dd50d9a6bb1c6e87->enter($__internal_f86a1bb633e680c34a43e622cb34a33f05f9e07788fbdac8dd50d9a6bb1c6e87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:allincidents.html.twig"));
+        $__internal_9bf01dc2972a462bc4f9179e350b63e93330f0917445bf908f43016a75923074 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9bf01dc2972a462bc4f9179e350b63e93330f0917445bf908f43016a75923074->enter($__internal_9bf01dc2972a462bc4f9179e350b63e93330f0917445bf908f43016a75923074_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:allincidents.html.twig"));
 
         // line 7
         echo "    Historique des incidents
 ";
         
-        $__internal_f86a1bb633e680c34a43e622cb34a33f05f9e07788fbdac8dd50d9a6bb1c6e87->leave($__internal_f86a1bb633e680c34a43e622cb34a33f05f9e07788fbdac8dd50d9a6bb1c6e87_prof);
+        $__internal_9bf01dc2972a462bc4f9179e350b63e93330f0917445bf908f43016a75923074->leave($__internal_9bf01dc2972a462bc4f9179e350b63e93330f0917445bf908f43016a75923074_prof);
 
     }
 
     // line 11
     public function block_content($context, array $blocks = array())
     {
-        $__internal_aaeca04f7cfc7260c4a8eb3be186a3519b97116d0c02ae7d8eb08fe01ed122b4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_aaeca04f7cfc7260c4a8eb3be186a3519b97116d0c02ae7d8eb08fe01ed122b4->enter($__internal_aaeca04f7cfc7260c4a8eb3be186a3519b97116d0c02ae7d8eb08fe01ed122b4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:allincidents.html.twig"));
+        $__internal_cf28aecb360254f973739964eea6f88daf11aa4cbafab950f086cd93dcc1d5d8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_cf28aecb360254f973739964eea6f88daf11aa4cbafab950f086cd93dcc1d5d8->enter($__internal_cf28aecb360254f973739964eea6f88daf11aa4cbafab950f086cd93dcc1d5d8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:allincidents.html.twig"));
 
         // line 12
         echo "
@@ -60,7 +60,7 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
 
                 <table class=\"table table-bordered table-striped table-hover\">
                     <tr>
-                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action=\"createincident\"><input type=\"submit\" value=\"Nouvel incident\" /></form></th>
+                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action=\"createincident\"><input class=\"btn \" type=\"submit\" value=\"Nouvel incident\" /></form></th>
 
 
                     </tr>
@@ -116,7 +116,7 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
             // line 44
             echo "                            <td><form action=\"incident/";
             echo twig_escape_filter($this->env, $this->getAttribute($context["i"], "id", array()), "html", null, true);
-            echo "\"><input type=\"submit\" value=\"Détails\" /></form></td>
+            echo "\"><input type=\"submit\"  class=\"btn \" value=\"Détails\" /></form></td>
                         </tr>
 
                     ";
@@ -131,7 +131,7 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
     </div>
 ";
         
-        $__internal_aaeca04f7cfc7260c4a8eb3be186a3519b97116d0c02ae7d8eb08fe01ed122b4->leave($__internal_aaeca04f7cfc7260c4a8eb3be186a3519b97116d0c02ae7d8eb08fe01ed122b4_prof);
+        $__internal_cf28aecb360254f973739964eea6f88daf11aa4cbafab950f086cd93dcc1d5d8->leave($__internal_cf28aecb360254f973739964eea6f88daf11aa4cbafab950f086cd93dcc1d5d8_prof);
 
     }
 
@@ -179,7 +179,7 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
 
                 <table class=\"table table-bordered table-striped table-hover\">
                     <tr>
-                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action=\"createincident\"><input type=\"submit\" value=\"Nouvel incident\" /></form></th>
+                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action=\"createincident\"><input class=\"btn \" type=\"submit\" value=\"Nouvel incident\" /></form></th>
 
 
                     </tr>
@@ -203,7 +203,7 @@ class __TwigTemplate_a84388f9278b037f7beb2bedf1e6f37cb556408dee6513603f0315c52ff
 
                                 <td>{{ i.datefin|date('d/m/Y') }}</td>
                             {% endif %}
-                            <td><form action=\"incident/{{ i.id }}\"><input type=\"submit\" value=\"Détails\" /></form></td>
+                            <td><form action=\"incident/{{ i.id }}\"><input type=\"submit\"  class=\"btn \" value=\"Détails\" /></form></td>
                         </tr>
 
                     {% endfor %}

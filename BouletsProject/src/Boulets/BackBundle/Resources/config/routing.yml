@@ -40,9 +40,10 @@ logout:
 AllAdmin:
     path: /admin/list
     defaults:  { _controller: BackBundle:Administrateur:allAdmin}
+
 update:
-    path: /updateAdmin
-    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
+    path: /update
+    defaults:  { _controller: BackBundle:Administrateur:update}
 
 
 

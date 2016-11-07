@@ -22,73 +22,76 @@ class __TwigTemplate_7fbec399fd8835933b3bd463bf698e5e176607c8d5ea7d6e41527d81fad
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f584cc3921753335a90f85cd059e90deac8ff45a70465a5ba6f88e473b99828a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f584cc3921753335a90f85cd059e90deac8ff45a70465a5ba6f88e473b99828a->enter($__internal_f584cc3921753335a90f85cd059e90deac8ff45a70465a5ba6f88e473b99828a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:createincident.html.twig"));
+        $__internal_5d987dbec60997eb3e76b55db35ce5097d4ff5b7314adcec4ae8df5b33cf3659 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5d987dbec60997eb3e76b55db35ce5097d4ff5b7314adcec4ae8df5b33cf3659->enter($__internal_5d987dbec60997eb3e76b55db35ce5097d4ff5b7314adcec4ae8df5b33cf3659_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:createincident.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f584cc3921753335a90f85cd059e90deac8ff45a70465a5ba6f88e473b99828a->leave($__internal_f584cc3921753335a90f85cd059e90deac8ff45a70465a5ba6f88e473b99828a_prof);
+        $__internal_5d987dbec60997eb3e76b55db35ce5097d4ff5b7314adcec4ae8df5b33cf3659->leave($__internal_5d987dbec60997eb3e76b55db35ce5097d4ff5b7314adcec4ae8df5b33cf3659_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_35a9d00cbda2fd0a920280cd7bedc8a14376ec7dea57343367a9df04e0dde99c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_35a9d00cbda2fd0a920280cd7bedc8a14376ec7dea57343367a9df04e0dde99c->enter($__internal_35a9d00cbda2fd0a920280cd7bedc8a14376ec7dea57343367a9df04e0dde99c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:createincident.html.twig"));
+        $__internal_3329ae1ef0db63e08bb02042f762863e05a4202466852be19a65c9e40a4a8ce8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3329ae1ef0db63e08bb02042f762863e05a4202466852be19a65c9e40a4a8ce8->enter($__internal_3329ae1ef0db63e08bb02042f762863e05a4202466852be19a65c9e40a4a8ce8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:createincident.html.twig"));
 
         // line 6
         echo "    Page de creation d'incident
 ";
         
-        $__internal_35a9d00cbda2fd0a920280cd7bedc8a14376ec7dea57343367a9df04e0dde99c->leave($__internal_35a9d00cbda2fd0a920280cd7bedc8a14376ec7dea57343367a9df04e0dde99c_prof);
+        $__internal_3329ae1ef0db63e08bb02042f762863e05a4202466852be19a65c9e40a4a8ce8->leave($__internal_3329ae1ef0db63e08bb02042f762863e05a4202466852be19a65c9e40a4a8ce8_prof);
 
     }
 
     // line 11
     public function block_content($context, array $blocks = array())
     {
-        $__internal_bc33514a4f9fc2d7363d79d591be709442b8e45bf60f02b7143d03e39fe55d30 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_bc33514a4f9fc2d7363d79d591be709442b8e45bf60f02b7143d03e39fe55d30->enter($__internal_bc33514a4f9fc2d7363d79d591be709442b8e45bf60f02b7143d03e39fe55d30_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:createincident.html.twig"));
+        $__internal_b069abb86a8747da728deeb734be4e7c36cbe2e4bd9135f5982fa8212871bd4d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b069abb86a8747da728deeb734be4e7c36cbe2e4bd9135f5982fa8212871bd4d->enter($__internal_b069abb86a8747da728deeb734be4e7c36cbe2e4bd9135f5982fa8212871bd4d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:createincident.html.twig"));
 
         // line 12
-        echo "<h1>Page de creation d'incident </h1>
+        echo "    <div class=\"container\">
+        <h1>Page de creation d'incident </h1>
 
-<div id=\"container\" class=\"col\">
+        <div id=\"container\" class=\"col\">
 
-    <h1>Cretion d'incident</h1>
+            <h1>Cretion d'incident</h1>
 
-    <form method=\"POST\" action=\"createincident\">
-        Titre :<br>
-        <input type=\"text\" name=\"nom\" placeholder=\"Titre\"><br><br>
-        Machine concerneé :<br>
-        <input type=\"text\" name=\"machine\" placeholder=\"Machine\"><br><br>
-        Type: <br>
-        <input type=\"text\" name=\"type\" placeholder=\"Type\"><br><br>
-        Explication :<br>
-        <textarea rows=\"4\" cols=\"50\" placeholder=\"Explication\" name=\"text\">
+            <form method=\"POST\" action=\"createincident\">
+                Titre :<br>
+                <input type=\"text\" name=\"nom\" placeholder=\"Titre\"><br><br>
+                Machine concerneé :<br>
+                <input type=\"text\" name=\"machine\" placeholder=\"Machine\"><br><br>
+                Type: <br>
+                <input type=\"text\" name=\"type\" placeholder=\"Type\"><br><br>
+                Explication :<br>
+                <textarea rows=\"4\" cols=\"50\" placeholder=\"Explication\" name=\"text\">
 
-        </textarea>
+                </textarea>
 
-        <input type=\"submit\">
+                <input type=\"submit\">
 
-    </form>
+            </form>
 
-    ";
-        // line 34
+            ";
+        // line 35
         if (array_key_exists("alerte", $context)) {
-            // line 35
-            echo "        <p>";
+            // line 36
+            echo "                <p>";
             echo twig_escape_filter($this->env, (isset($context["alerte"]) ? $context["alerte"] : $this->getContext($context, "alerte")), "html", null, true);
             echo "</p>
-    ";
+            ";
         }
-        // line 37
+        // line 38
         echo "
-</div>
+        </div>
+
+    </div>
 ";
         
-        $__internal_bc33514a4f9fc2d7363d79d591be709442b8e45bf60f02b7143d03e39fe55d30->leave($__internal_bc33514a4f9fc2d7363d79d591be709442b8e45bf60f02b7143d03e39fe55d30_prof);
+        $__internal_b069abb86a8747da728deeb734be4e7c36cbe2e4bd9135f5982fa8212871bd4d->leave($__internal_b069abb86a8747da728deeb734be4e7c36cbe2e4bd9135f5982fa8212871bd4d_prof);
 
     }
 
@@ -104,7 +107,7 @@ class __TwigTemplate_7fbec399fd8835933b3bd463bf698e5e176607c8d5ea7d6e41527d81fad
 
     public function getDebugInfo()
     {
-        return array (  87 => 37,  81 => 35,  79 => 34,  55 => 12,  49 => 11,  41 => 6,  35 => 5,  11 => 1,);
+        return array (  88 => 38,  82 => 36,  80 => 35,  55 => 12,  49 => 11,  41 => 6,  35 => 5,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -128,33 +131,36 @@ class __TwigTemplate_7fbec399fd8835933b3bd463bf698e5e176607c8d5ea7d6e41527d81fad
 
 
 {% block content %}
-<h1>Page de creation d'incident </h1>
+    <div class=\"container\">
+        <h1>Page de creation d'incident </h1>
 
-<div id=\"container\" class=\"col\">
+        <div id=\"container\" class=\"col\">
 
-    <h1>Cretion d'incident</h1>
+            <h1>Cretion d'incident</h1>
 
-    <form method=\"POST\" action=\"createincident\">
-        Titre :<br>
-        <input type=\"text\" name=\"nom\" placeholder=\"Titre\"><br><br>
-        Machine concerneé :<br>
-        <input type=\"text\" name=\"machine\" placeholder=\"Machine\"><br><br>
-        Type: <br>
-        <input type=\"text\" name=\"type\" placeholder=\"Type\"><br><br>
-        Explication :<br>
-        <textarea rows=\"4\" cols=\"50\" placeholder=\"Explication\" name=\"text\">
+            <form method=\"POST\" action=\"createincident\">
+                Titre :<br>
+                <input type=\"text\" name=\"nom\" placeholder=\"Titre\"><br><br>
+                Machine concerneé :<br>
+                <input type=\"text\" name=\"machine\" placeholder=\"Machine\"><br><br>
+                Type: <br>
+                <input type=\"text\" name=\"type\" placeholder=\"Type\"><br><br>
+                Explication :<br>
+                <textarea rows=\"4\" cols=\"50\" placeholder=\"Explication\" name=\"text\">
 
-        </textarea>
+                </textarea>
 
-        <input type=\"submit\">
+                <input type=\"submit\">
 
-    </form>
+            </form>
 
-    {% if alerte is defined %}
-        <p>{{ alerte }}</p>
-    {% endif %}
+            {% if alerte is defined %}
+                <p>{{ alerte }}</p>
+            {% endif %}
 
-</div>
+        </div>
+
+    </div>
 {%endblock%}
 
 

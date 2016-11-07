@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+
 class AdministrateurController extends Controller
 {
     public function indexAction()
@@ -88,7 +89,7 @@ class AdministrateurController extends Controller
     }
 
     //Update
-    public function update(Request $request)
+    public function updateAction(Request $request)
     {
         if($request->isMethod('GET')){
             return $this->render('BackBundle:Administrateur:update.html.twig');
@@ -103,24 +104,32 @@ class AdministrateurController extends Controller
             $datacontext= $this->getDoctrine()->getEntityManager();
 
             if(!empty($nom)){
+
                 $utilisateur->setNom($nom);
                 $datacontext->flush();
+                $this->get('session')->set('name',$nom);
+
 
             }
             if(!empty($mdp) && !empty($confmdp) && $mdp == $confmdp ){
+
                 $mdp = $mdp . crypt($mdp, CRYPT_BLOWFISH);
                 $mdp = hash('md5', $mdp);
 
                 $utilisateur->setPassword($mdp);
                 $datacontext->flush();
 
+
             }
+            return $this->redirectToRoute("profil");
         }
     }
-
     //Login
     public function loginAction(Request $request)
     {
+
+
+
         if ($request->isMethod('POST')) {
             //On récupère les données envoyées par le formulaire en post
             $mail = $request->request->get("mail");
@@ -139,13 +148,14 @@ class AdministrateurController extends Controller
 
                 if($utilisateur){
                     //On crée une nouvelle session
-                    $session = new Session();
+                     $session = $request->getSession();
                     //$attributeBag = new AttributeBag('hoho');
                     //$attributeBag->setName('user');
                     //$session->registerBag($attributeBag);
                     //On affection à cette session différentes valeur
                     $session->set('name',$utilisateur->getNom());
                     $session->set('mail',$utilisateur->getMail());
+
 
                     return $this->redirectToRoute("profil");
 
@@ -169,15 +179,32 @@ class AdministrateurController extends Controller
     }
     //LogOut
     public function logoutAction(){
-            $this->get('session')->invalidate();
+
+
+        /* pour tout supprimer */
+        $this->get('session')->clear();
             return $this->redirectToRoute("login");
     }
+
+
+
     //Profil de l'utilisateur
-    public function profilAction()
+    public function profilAction(Request $request)
     {
-                $response = $this->get('templating')
-                    ->render('BackBundle:Administrateur:profil.html.twig',array('nom'=> $this->get('session')->get('name'),'mail'=>$this->get('session')->get('mail')));
-                return new Response($response);
+
+        $session = $request->getSession();
+        $session->getName();
+        $nom = $session->get('name');
+        $mail = $session->get('mail');
+        if(empty($nom))
+        {
+            return $this->redirectToRoute("login");
+
+        }elseif (!empty($nom)){
+            $response = $this->get('templating')
+                ->render('BackBundle:Administrateur:profil.html.twig',array('nom'=>$nom,'mail'=>$mail));
+            return new Response($response);
+        }
     }
     //Renvoie la liste des utilisateurs du site
     public function allAdminAction(){

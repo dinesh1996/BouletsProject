@@ -17,7 +17,7 @@
 
                 <table class="table table-bordered table-striped table-hover">
                     <tr>
-                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action="createincident"><input type="submit" value="Nouvel incident" /></form></th>
+                        <th>Id</th><th>Nom</th><th>Type</th><th>Machine</th><th>Commencer le </th><th>Terminer le </th><th><form action="createincident"><input class="btn " type="submit" value="Nouvel incident" /></form></th>
 
 
                     </tr>
@@ -41,7 +41,7 @@
 
                                 <td>{{ i.datefin|date('d/m/Y') }}</td>
                             {% endif %}
-                            <td><form action="incident/{{ i.id }}"><input type="submit" value="Détails" /></form></td>
+                            <td><form action="incident/{{ i.id }}"><input type="submit"  class="btn " value="Détails" /></form></td>
                         </tr>
 
                     {% endfor %}

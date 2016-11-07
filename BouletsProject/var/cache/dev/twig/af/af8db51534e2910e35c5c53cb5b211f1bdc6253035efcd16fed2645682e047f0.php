@@ -22,34 +22,34 @@ class __TwigTemplate_5afd2e3527e3836bab7e26af713d95e3d4982e2c069be93fddb126e731d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_401ae1c76bf35ce764e846b44d86d8c1f7b389558831ac314bfd1c5a04fe962e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_401ae1c76bf35ce764e846b44d86d8c1f7b389558831ac314bfd1c5a04fe962e->enter($__internal_401ae1c76bf35ce764e846b44d86d8c1f7b389558831ac314bfd1c5a04fe962e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:incidentview.html.twig"));
+        $__internal_b0ec88fc1110550f027eb613c1194357d6aa9ab3b46dc9cd10a301d0ed89ce61 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b0ec88fc1110550f027eb613c1194357d6aa9ab3b46dc9cd10a301d0ed89ce61->enter($__internal_b0ec88fc1110550f027eb613c1194357d6aa9ab3b46dc9cd10a301d0ed89ce61_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Incidents:incidentview.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_401ae1c76bf35ce764e846b44d86d8c1f7b389558831ac314bfd1c5a04fe962e->leave($__internal_401ae1c76bf35ce764e846b44d86d8c1f7b389558831ac314bfd1c5a04fe962e_prof);
+        $__internal_b0ec88fc1110550f027eb613c1194357d6aa9ab3b46dc9cd10a301d0ed89ce61->leave($__internal_b0ec88fc1110550f027eb613c1194357d6aa9ab3b46dc9cd10a301d0ed89ce61_prof);
 
     }
 
     // line 12
     public function block_title($context, array $blocks = array())
     {
-        $__internal_4c3a0a4ebe691523fe124847161732d9d71460eae432b32882afc85a3c0ae3a8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4c3a0a4ebe691523fe124847161732d9d71460eae432b32882afc85a3c0ae3a8->enter($__internal_4c3a0a4ebe691523fe124847161732d9d71460eae432b32882afc85a3c0ae3a8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:incidentview.html.twig"));
+        $__internal_5e820c9e9b20ec688de9c29e407844a551e210c185cadb5d1cd07ff312179382 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5e820c9e9b20ec688de9c29e407844a551e210c185cadb5d1cd07ff312179382->enter($__internal_5e820c9e9b20ec688de9c29e407844a551e210c185cadb5d1cd07ff312179382_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:incidentview.html.twig"));
 
         // line 13
         echo "    Incident Détails
 ";
         
-        $__internal_4c3a0a4ebe691523fe124847161732d9d71460eae432b32882afc85a3c0ae3a8->leave($__internal_4c3a0a4ebe691523fe124847161732d9d71460eae432b32882afc85a3c0ae3a8_prof);
+        $__internal_5e820c9e9b20ec688de9c29e407844a551e210c185cadb5d1cd07ff312179382->leave($__internal_5e820c9e9b20ec688de9c29e407844a551e210c185cadb5d1cd07ff312179382_prof);
 
     }
 
     // line 18
     public function block_content($context, array $blocks = array())
     {
-        $__internal_11a8641148e82a7c3df3404f6402298d407e115210ac110e8109e7ce29983835 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_11a8641148e82a7c3df3404f6402298d407e115210ac110e8109e7ce29983835->enter($__internal_11a8641148e82a7c3df3404f6402298d407e115210ac110e8109e7ce29983835_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:incidentview.html.twig"));
+        $__internal_1b0e4ea01be081c3133de7e50667882b12ad8a8a4b8ef45794044d5588706d63 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1b0e4ea01be081c3133de7e50667882b12ad8a8a4b8ef45794044d5588706d63->enter($__internal_1b0e4ea01be081c3133de7e50667882b12ad8a8a4b8ef45794044d5588706d63_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "BackBundle:Incidents:incidentview.html.twig"));
 
         // line 19
         echo "
@@ -107,8 +107,8 @@ class __TwigTemplate_5afd2e3527e3836bab7e26af713d95e3d4982e2c069be93fddb126e731d
         <form action=\"../incidentend/";
         // line 44
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["incident"]) ? $context["incident"] : $this->getContext($context, "incident")), "id", array()), "html", null, true);
-        echo "\"><input type=\"submit\" value=\"Finaliser la fin de cette incident \" /></form>
-        <form action=\"../allincidents\"><input type=\"submit\" value=\"retour\" /></form>
+        echo " \"><input type=\"submit\" class=\"btn\" value=\"Finaliser la fin de cette incident \" /></form>
+        <form action=\"../allincidents\"><input type=\"submit\" class=\"btn\" value=\"retour\" /></form>
 
 
 
@@ -119,7 +119,7 @@ class __TwigTemplate_5afd2e3527e3836bab7e26af713d95e3d4982e2c069be93fddb126e731d
 
 ";
         
-        $__internal_11a8641148e82a7c3df3404f6402298d407e115210ac110e8109e7ce29983835->leave($__internal_11a8641148e82a7c3df3404f6402298d407e115210ac110e8109e7ce29983835_prof);
+        $__internal_1b0e4ea01be081c3133de7e50667882b12ad8a8a4b8ef45794044d5588706d63->leave($__internal_1b0e4ea01be081c3133de7e50667882b12ad8a8a4b8ef45794044d5588706d63_prof);
 
     }
 
@@ -191,8 +191,8 @@ class __TwigTemplate_5afd2e3527e3836bab7e26af713d95e3d4982e2c069be93fddb126e731d
         {% endif %}
 
 
-        <form action=\"../incidentend/{{ incident.id }}\"><input type=\"submit\" value=\"Finaliser la fin de cette incident \" /></form>
-        <form action=\"../allincidents\"><input type=\"submit\" value=\"retour\" /></form>
+        <form action=\"../incidentend/{{ incident.id }} \"><input type=\"submit\" class=\"btn\" value=\"Finaliser la fin de cette incident \" /></form>
+        <form action=\"../allincidents\"><input type=\"submit\" class=\"btn\" value=\"retour\" /></form>
 
 
 
