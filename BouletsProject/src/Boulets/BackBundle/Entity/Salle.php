@@ -56,7 +56,6 @@ class Salle
      */
     private $datecreation;
 
-
     /**
      * Get id
      *

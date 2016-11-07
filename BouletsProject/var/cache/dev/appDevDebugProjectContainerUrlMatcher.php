@@ -142,6 +142,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+<<<<<<< HEAD
         if (0 === strpos($pathinfo, '/back')) {
             // back_homepage
             if (rtrim($pathinfo, '/') === '/back') {
@@ -236,6 +237,26 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::deleteAction',  '_route' => 'back_machine_delete',);
             }
 
+=======
+        // back_homepage
+        if ($pathinfo === '/back') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
+>>>>>>> origin/Salle
+        }
+
+        // back_createsalle
+        if ($pathinfo === '/createSalle') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::createSalleAction',  '_route' => 'back_createsalle',);
+        }
+
+        // back_updatesalle
+        if ($pathinfo === '/updateSalle') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::updateSalleAction',  '_route' => 'back_updatesalle',);
+        }
+
+        // back_deletesalle
+        if ($pathinfo === '/deleteSalle') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::deleteSalleAction',  '_route' => 'back_deletesalle',);
         }
 
         // front_homepage

@@ -1,5 +1,5 @@
 back_homepage:
-    path:     /
+    path:     /back
     defaults: { _controller: BackBundle:Default:index }
 
 back_machine:
@@ -56,4 +56,16 @@ AllAdmin:
 update:
     path: /admin/update
     defaults:  { _controller: BackBundle:Administrateur:update}
+
+back_createsalle:
+    path:     /salle/create
+    defaults: { _controller: BackBundle:Salle:createSalle }
+
+back_updatesalle:
+    path:     /salle/update
+    defaults: { _controller: BackBundle:Salle:updateSalle }
+
+back_deletesalle:
+    path:     /salle/delete
+    defaults: { _controller: BackBundle:Salle:deleteSalle }
 
