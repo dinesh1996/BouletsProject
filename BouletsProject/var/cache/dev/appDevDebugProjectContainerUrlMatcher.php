@@ -120,6 +120,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::createAction',  '_route' => 'back_machine_create',);
             }
 
+            // back_machine_update
+            if ($pathinfo === '/back/machine/update') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::updateAction',  '_route' => 'back_machine_update',);
+            }
+
+            // back_machine_delete
+            if ($pathinfo === '/back/machine/delete') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::deleteAction',  '_route' => 'back_machine_delete',);
+            }
+
         }
 
         // front_homepage

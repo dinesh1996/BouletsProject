@@ -50,7 +50,69 @@ class MachineController extends Controller
         }
     }
 
-    public function  updateAction()
+    public function  updateAction(Request $request)
+    {
+        if($request->isMethod('GET'))
+        {
+            return $this->render('BackBundle:Machine:updatemachine.html.twig');
+        }
+        elseif($request->isMethod('POST'))
+        {
+            $ip=$request->request->get('ip');
+            $nom=$request->request->get('nom');
+            $type=$request->request->get('type');
+            $ram=$request->request->get('ram');
+            $disque=$request->request->get('disque');
+            $statut=$request->request->get('statut');
+            $id_salle=$request->request->get('id_salle');
+
+            $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
+            $machine = $repo->findOneBy(array('ip'=>$ip));
+            $datacontext = $this->getDoctrine()->getEntityManager();
+
+            if($machine == null){
+                return $this->render('BackBundle:Machine:updatemachine.html.twig');
+            }
+            else
+            {
+                if(!empty($nom))
+                {
+                    $machine->setNom($nom);
+                    $datacontext->flush();
+                }
+                if(!empty($type))
+                {
+                    $machine->setType($type);
+                    $datacontext->flush();
+                }
+                if(!empty($ram))
+                {
+                    $machine->setRam($ram);
+                    $datacontext->flush();
+                }
+                if(!empty($disque))
+                {
+                    $machine->setDisque($disque);
+                    $datacontext->flush();
+                }
+                if(!empty($statut))
+                {
+                    $machine->setStatut($statut);
+                    $datacontext->flush();
+                }
+                if(!empty($id_salle))
+                {
+                    $machine->setId_salle($id_salle);
+                    $datacontext->flush();
+                }
+
+                return $this->render('BackBundle:Machine:index.html.twig');
+            }
+
+        }
+    }
+
+    public function deleteAction()
     {
 
     }

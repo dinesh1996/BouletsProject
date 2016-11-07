@@ -13,3 +13,8 @@ back_machine_create:
 back_machine_update:
     path:     /back/machine/update
     defaults: { _controller: BackBundle:Machine:update }
+
+
+back_machine_delete:
+    path:     /back/machine/delete
+    defaults: { _controller: BackBundle:Machine:delete }
