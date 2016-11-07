@@ -88,9 +88,18 @@ class Machine
      * @var int
      *
      * @ORM\Column(name="id_salle", type="integer")
+<<<<<<< HEAD
      */
     private $id_salle;
 
+=======
+
+     */
+    private $id_salle;
+
+
+
+>>>>>>> origin/tableau_parc
     public function getId()
     {
         return $this->id;
@@ -298,8 +307,15 @@ class Machine
     public function setId_salle($id_salle)
     {
         $this->id_salle = $id_salle;
+<<<<<<< HEAD
         return $this;
     }
+=======
+
+        return $this;
+    }
+
+>>>>>>> origin/tableau_parc
     /**
      * Get id_salle
      *

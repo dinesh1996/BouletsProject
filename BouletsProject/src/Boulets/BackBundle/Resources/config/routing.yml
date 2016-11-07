@@ -69,3 +69,11 @@ back_deletesalle:
     path:     /salle/delete
     defaults: { _controller: BackBundle:Salle:deleteSalle }
 
+back_board:
+    path:     /board
+    defaults: { _controller: BackBundle:Dashboard:dashboard }
+
+
+back_dashboard:
+    path:     /dashboard/board
+    defaults: { _controller: BackBundle:Dashboard:dashboard }

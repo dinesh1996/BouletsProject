@@ -36,6 +36,14 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
         }
 
+<<<<<<< HEAD
+=======
+        // back_board
+        if ($pathinfo === '/board') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::boardAction',  '_route' => 'back_board',);
+        }
+
+>>>>>>> origin/tableau_parc
         // front_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

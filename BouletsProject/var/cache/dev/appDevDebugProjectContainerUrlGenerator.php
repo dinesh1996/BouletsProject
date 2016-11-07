@@ -44,6 +44,7 @@ class appDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
 <<<<<<< HEAD
 <<<<<<< HEAD
         'back_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+<<<<<<< HEAD
         'back_machine' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/machine',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'back_machine_create' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::createAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/machine/create',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'back_machine_update' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::updateAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/machine/update',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
@@ -54,6 +55,9 @@ class appDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'back_updatesalle' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::updateSalleAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/updateSalle',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'back_deletesalle' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::deleteSalleAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/deleteSalle',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
 >>>>>>> origin/Salle
+=======
+        'back_board' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::boardAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/board',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+>>>>>>> origin/tableau_parc
         'front_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\FrontBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
 =======
         'back_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),

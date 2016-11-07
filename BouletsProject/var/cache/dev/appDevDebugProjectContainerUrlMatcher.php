@@ -259,6 +259,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::deleteSalleAction',  '_route' => 'back_deletesalle',);
         }
 
+        // back_board
+        if ($pathinfo === '/board') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::boardAction',  '_route' => 'back_board',);
+        }
+
         // front_homepage
         if (rtrim($pathinfo, '/') === '/front') {
             if (substr($pathinfo, -1) !== '/') {

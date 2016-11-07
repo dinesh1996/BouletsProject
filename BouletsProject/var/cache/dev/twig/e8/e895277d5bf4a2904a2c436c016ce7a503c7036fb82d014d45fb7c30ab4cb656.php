@@ -15,8 +15,13 @@ class __TwigTemplate_e2a24a08a1fca77b8fed2f1165bfdfac6918dc0d8c14500ce8a3aa0b993
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_b699f9e69f72022264b4eda20c91dd943565ef397a9cd6a88220542ab1138057 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_b699f9e69f72022264b4eda20c91dd943565ef397a9cd6a88220542ab1138057->enter($__internal_b699f9e69f72022264b4eda20c91dd943565ef397a9cd6a88220542ab1138057_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/memory.svg"));
+=======
+        $__internal_5c159d3da413942c24036981640c4b7ccc0c624d92d676c1ad71f7227bc2f10f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5c159d3da413942c24036981640c4b7ccc0c624d92d676c1ad71f7227bc2f10f->enter($__internal_5c159d3da413942c24036981640c4b7ccc0c624d92d676c1ad71f7227bc2f10f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/memory.svg"));
+>>>>>>> origin/tableau_parc
 
         // line 1
         echo "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=\"preserve\">
@@ -26,7 +31,11 @@ class __TwigTemplate_e2a24a08a1fca77b8fed2f1165bfdfac6918dc0d8c14500ce8a3aa0b993
 </svg>
 ";
         
+<<<<<<< HEAD
         $__internal_b699f9e69f72022264b4eda20c91dd943565ef397a9cd6a88220542ab1138057->leave($__internal_b699f9e69f72022264b4eda20c91dd943565ef397a9cd6a88220542ab1138057_prof);
+=======
+        $__internal_5c159d3da413942c24036981640c4b7ccc0c624d92d676c1ad71f7227bc2f10f->leave($__internal_5c159d3da413942c24036981640c4b7ccc0c624d92d676c1ad71f7227bc2f10f_prof);
+>>>>>>> origin/tableau_parc
 
     }
 

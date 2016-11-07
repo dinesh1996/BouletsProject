@@ -64,10 +64,17 @@ class Machine extends \Boulets\BackBundle\Entity\Machine implements \Doctrine\OR
     public function __sleep()
     {
         if ($this->__isInitialized__) {
+<<<<<<< HEAD
             return ['__isInitialized__', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ip', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'nom', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'type', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ram', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'disque', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'statut', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'incident', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'date'];
         }
 
         return ['__isInitialized__', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ip', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'nom', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'type', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ram', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'disque', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'statut', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'incident', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'date'];
+=======
+            return ['__isInitialized__', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ip', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'nom', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'type', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ram', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'disque', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'statut', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'incident', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'date', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id_salle'];
+        }
+
+        return ['__isInitialized__', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ip', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'nom', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'type', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'ram', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'disque', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'statut', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'incident', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'date', '' . "\0" . 'Boulets\\BackBundle\\Entity\\Machine' . "\0" . 'id_salle'];
+>>>>>>> origin/tableau_parc
     }
 
     /**
@@ -364,4 +371,29 @@ class Machine extends \Boulets\BackBundle\Entity\Machine implements \Doctrine\OR
         return parent::getDate();
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * {@inheritDoc}
+     */
+    public function setId_salle($id_salle)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId_salle', [$id_salle]);
+
+        return parent::setId_salle($id_salle);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getId_salle()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId_salle', []);
+
+        return parent::getId_salle();
+    }
+
+>>>>>>> origin/tableau_parc
 }
