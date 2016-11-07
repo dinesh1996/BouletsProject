@@ -19,4 +19,9 @@ return array(
     'ParseError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
     'SqlFormatter' => $vendorDir . '/jdorn/sql-formatter/lib/SqlFormatter.php',
     'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+    'lessc' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
+    'lessc_formatter_classic' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
+    'lessc_formatter_compressed' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
+    'lessc_formatter_lessjs' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
+    'lessc_parser' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
 );
