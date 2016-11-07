@@ -15,14 +15,11 @@ class __TwigTemplate_99e4e346c19cf8d7e595c82e0bfed4d870ea125eb10bbae59b4e36d09a1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0d3a2bc82afa90aeb5be4d83de98b6f6da619e05f714b347f890e8a00fdabd4a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0d3a2bc82afa90aeb5be4d83de98b6f6da619e05f714b347f890e8a00fdabd4a->enter($__internal_0d3a2bc82afa90aeb5be4d83de98b6f6da619e05f714b347f890e8a00fdabd4a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Default:index.html.twig"));
+        $__internal_bf603cc6c56ca06c58d1d98cdaafcfdfe619f423a85dab3f2d91c19abf7b423e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bf603cc6c56ca06c58d1d98cdaafcfdfe619f423a85dab3f2d91c19abf7b423e->enter($__internal_bf603cc6c56ca06c58d1d98cdaafcfdfe619f423a85dab3f2d91c19abf7b423e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BackBundle:Default:index.html.twig"));
 
-        // line 1
-        echo "Hello World!
-";
         
-        $__internal_0d3a2bc82afa90aeb5be4d83de98b6f6da619e05f714b347f890e8a00fdabd4a->leave($__internal_0d3a2bc82afa90aeb5be4d83de98b6f6da619e05f714b347f890e8a00fdabd4a_prof);
+        $__internal_bf603cc6c56ca06c58d1d98cdaafcfdfe619f423a85dab3f2d91c19abf7b423e->leave($__internal_bf603cc6c56ca06c58d1d98cdaafcfdfe619f423a85dab3f2d91c19abf7b423e_prof);
 
     }
 
@@ -33,7 +30,7 @@ class __TwigTemplate_99e4e346c19cf8d7e595c82e0bfed4d870ea125eb10bbae59b4e36d09a1
 
     public function getDebugInfo()
     {
-        return array (  22 => 1,);
+        return array ();
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -46,7 +43,6 @@ class __TwigTemplate_99e4e346c19cf8d7e595c82e0bfed4d870ea125eb10bbae59b4e36d09a1
 
     public function getSourceContext()
     {
-        return new Twig_Source("Hello World!
-", "BackBundle:Default:index.html.twig", "C:\\wamp64\\www\\Project\\BouletsProject\\BouletsProject\\src\\Boulets\\BackBundle/Resources/views/Default/index.html.twig");
+        return new Twig_Source("", "BackBundle:Default:index.html.twig", "C:\\wamp64\\www\\Project\\BouletsProject\\BouletsProject\\src\\Boulets\\BackBundle/Resources/views/Default/index.html.twig");
     }
 }

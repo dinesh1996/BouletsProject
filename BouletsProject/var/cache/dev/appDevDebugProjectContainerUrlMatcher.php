@@ -109,6 +109,19 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/back/machine')) {
+            // back_machine
+            if ($pathinfo === '/back/machine') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::indexAction',  '_route' => 'back_machine',);
+            }
+
+            // back_machine_create
+            if ($pathinfo === '/back/machine/create') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\MachineController::createAction',  '_route' => 'back_machine_create',);
+            }
+
+        }
+
         // front_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

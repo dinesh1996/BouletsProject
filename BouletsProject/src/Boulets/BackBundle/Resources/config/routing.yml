@@ -1,3 +1,15 @@
 back_homepage:
     path:     /
     defaults: { _controller: BackBundle:Default:index }
+
+back_machine:
+    path:     /back/machine
+    defaults: { _controller: BackBundle:Machine:index }
+
+back_machine_create:
+    path:     /back/machine/create
+    defaults: { _controller: BackBundle:Machine:create }
+
+back_machine_update:
+    path:     /back/machine/update
+    defaults: { _controller: BackBundle:Machine:update }
