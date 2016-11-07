@@ -112,8 +112,28 @@ class MachineController extends Controller
         }
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
 
+
+        if($request->isMethod('GET'))
+        {
+            return $this->render('BackBundle:Machine:deletemachine.html.twig');
+        }
+        elseif($request->isMethod('POST'))
+        {
+            $ip=$request->request->get('ip');
+            $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
+            $machine = $repo->findOneBy(array('ip'=>$ip));
+            $datacontext = $this->getDoctrine()->getEntityManager();
+
+            if(!empty($ip))
+            {
+                $datacontext->remove($machine);
+                $datacontext->flush();
+                return $this->render('BackBundle:Machine:index.html.twig');
+            }
+
+        }
     }
 }

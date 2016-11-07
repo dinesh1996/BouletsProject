@@ -43,3 +43,7 @@ f707f0,::1,POST,http://localhost/project/bouletsproject/bouletsproject/web/app_d
 eab2d4,::1,GET,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/update,1478528134,,200
 286091,::1,GET,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/update,1478528191,,200
 02b9f3,::1,POST,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/update,1478528221,,200
+d8fc96,::1,GET,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/delete,1478529334,,200
+be6eed,::1,POST,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/delete,1478529352,,200
+844c7f,::1,GET,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/delete,1478529486,,200
+09b23c,::1,POST,http://localhost/project/bouletsproject/bouletsproject/web/app_dev.php/back/machine/delete,1478529491,,200
