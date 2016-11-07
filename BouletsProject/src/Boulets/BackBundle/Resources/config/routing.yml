@@ -5,3 +5,11 @@ back_homepage:
 back_createsalle:
     path:     /createSalle
     defaults: { _controller: BackBundle:Salle:createSalle }
+
+back_updatesalle:
+    path:     /updateSalle
+    defaults: { _controller: BackBundle:Salle:updateSalle }
+
+back_deletesalle:
+    path:     /deleteSalle
+    defaults: { _controller: BackBundle:Salle:deleteSalle }
