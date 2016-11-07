@@ -1,0 +1,30 @@
+{%extends "BackBundle::layout.html.twig"%}
+
+{%block title%}
+    Profil
+{%endblock%}
+
+{% block content %}
+    <div class="container">
+
+
+        {% if nom is defined and mail is defined %}
+        <h1>Nom</h1>
+        {{nom}}
+        <h1>Mail</h1>
+            {{ mail }}
+            <form action="logout">
+                <input type="submit" class="btn btn-primary" value="Se deconnecter" />
+            </form>
+         {% else %}
+            <p>Il n'a rien. Vous n'êtes pas connecté.</p>
+             <form action="/web/app_dev.php/login">
+                 <input type="submit" class="btn btn-primary" value="Se connecter" />
+             </form>
+             <form action="/web/app_dev.php/logout">
+                 <input type="submit" class="btn btn-primary" value="Se deconnecter" />
+             </form>
+        {%  endif%}
+
+    </div>
+{%endblock%}

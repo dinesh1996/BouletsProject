@@ -6,28 +6,43 @@ back_homepage:
 
 back_createincident:
     path:     /createincident
-    defaults: { _controller: BackBundle:Default:createincident }
+    defaults: { _controller: BackBundle:Incidents:createincident }
 
 back_indexallincidents:
     path:     /allincidents
-    defaults: { _controller: BackBundle:Default:allincidents }
+    defaults: { _controller: BackBundle:Incidents:allincidents }
 
 back_indexincident:
     path:     /incident/{id}
-    defaults: { _controller: BackBundle:Default:incident }
+    defaults: { _controller: BackBundle:Incidents:incident }
 
 
 back_incidentend:
     path:     /incidentend/{id}
-    defaults: { _controller: BackBundle:Default:incidentend }
+    defaults: { _controller: BackBundle:Incidents:incidentend }
 
 back_alladmins:
     path:     /incidentend/{id}
-    defaults: { _controller: BackBundle:Default:incidentend }
+    defaults: { _controller: BackBundle:Incidents:incidentend }
 
-
-
-
+login:
+    path: /login
+    defaults: {_controller: BackBundle:Administrateur:login}
+create:
+    path: /createAdmin
+    defaults: { _controller: BackBundle:Administrateur:create}
+profil:
+    path: /profilAdmin
+    defaults: { _controller: BackBundle:Administrateur:profil}
+logout:
+    path: /logout
+    defaults:  { _controller: BackBundle:Administrateur:logout}
+AllAdmin:
+    path: /admin/list
+    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
+update:
+    path: /updateAdmin
+    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
 
 
 
