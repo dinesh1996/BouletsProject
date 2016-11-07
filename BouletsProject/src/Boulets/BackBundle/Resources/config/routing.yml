@@ -1,3 +1,7 @@
 back_homepage:
-    path:     /
+    path:     /back
     defaults: { _controller: BackBundle:Default:index }
+
+back_createsalle:
+    path:     /createSalle
+    defaults: { _controller: BackBundle:Salle:createSalle }

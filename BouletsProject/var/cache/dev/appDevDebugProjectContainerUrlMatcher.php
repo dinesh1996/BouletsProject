@@ -101,12 +101,13 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // back_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'back_homepage');
-            }
-
+        if ($pathinfo === '/back') {
             return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
+        }
+
+        // back_createsalle
+        if ($pathinfo === '/createSalle') {
+            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\SalleController::createSalleAction',  '_route' => 'back_createsalle',);
         }
 
         // front_homepage
