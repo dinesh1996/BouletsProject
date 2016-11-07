@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1>Page de creation d'incident </h1>
+
+<div id="container" class="col">
+
+    <h1>Cretion d'incident</h1>
+
+    <form method="POST" action="createincident">
+        Titre :<br>
+        <input type="text" name="nom" placeholder="Titre"><br><br>
+        Machine concerneé :<br>
+        <input type="text" name="machine" placeholder="Machine"><br><br>
+        Type: <br>
+        <input type="text" name="type" placeholder="Type"><br><br>
+        Explication :<br>
+        <textarea rows="4" cols="50" placeholder="Explication" name="text">
+
+        </textarea>
+
+        <input type="submit">
+
+    </form>
+
+    {% if alerte is defined %}
+        <p>{{ alerte }}</p>
+    {% endif %}
+
+</div>
+
+
+</body>
+</html>
+

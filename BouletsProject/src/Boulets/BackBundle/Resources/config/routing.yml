@@ -1,3 +1,37 @@
 back_homepage:
     path:     /
     defaults: { _controller: BackBundle:Default:index }
+
+
+
+back_createincident:
+    path:     /createincident
+    defaults: { _controller: BackBundle:Default:createincident }
+
+back_indexallincidents:
+    path:     /allincidents
+    defaults: { _controller: BackBundle:Default:allincidents }
+
+back_indexincident:
+    path:     /incident/{id}
+    defaults: { _controller: BackBundle:Default:incident }
+
+
+back_incidentend:
+    path:     /incidentend/{id}
+    defaults: { _controller: BackBundle:Default:incidentend }
+
+back_alladmins:
+    path:     /incidentend/{id}
+    defaults: { _controller: BackBundle:Default:incidentend }
+
+
+
+
+
+
+
+
+
+
+

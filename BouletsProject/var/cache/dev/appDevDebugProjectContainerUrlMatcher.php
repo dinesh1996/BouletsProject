@@ -100,17 +100,51 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // back_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'back_homepage');
+        if (0 === strpos($pathinfo, '/back')) {
+            // back_homepage
+            if (rtrim($pathinfo, '/') === '/back') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'back_homepage');
+                }
+
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
             }
 
-            return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::indexAction',  '_route' => 'back_homepage',);
+            // back_createincident
+            if ($pathinfo === '/back/createincident') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::createincidentAction',  '_route' => 'back_createincident',);
+            }
+
+            // back_indexallincidents
+            if ($pathinfo === '/back/allincidents') {
+                return array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::allincidentsAction',  '_route' => 'back_indexallincidents',);
+            }
+
+            if (0 === strpos($pathinfo, '/back/incident')) {
+                // back_indexincident
+                if (preg_match('#^/back/incident/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_indexincident')), array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::incidentAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/back/incidentend')) {
+                    // back_incidentend
+                    if (preg_match('#^/back/incidentend/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_incidentend')), array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::incidentendAction',));
+                    }
+
+                    // back_alladmins
+                    if (preg_match('#^/back/incidentend/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'back_alladmins')), array (  '_controller' => 'Boulets\\BackBundle\\Controller\\DefaultController::incidentendAction',));
+                    }
+
+                }
+
+            }
+
         }
 
         // front_homepage
-        if (rtrim($pathinfo, '/') === '') {
+        if (rtrim($pathinfo, '/') === '/front') {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'front_homepage');
             }
