@@ -1,0 +1,47 @@
+
+{%extends "BackBundle::layout.html.twig"%}
+
+
+
+{%block title%}
+    Creation de machine
+{%endblock%}
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Page de creation de machine </h1>
+
+        <div id="container" class="col">
+
+            <h1>Cretion de machine</h1>
+
+            <form method="POST" action="">
+                Ip :<br>
+                <input type="text" name="ip" placeholder="IP"><br><br>
+                Nom:<br>
+                <input type="text" name="nom" placeholder="Nom"><br><br>
+                Type: <br>
+                <input type="text" name="type" placeholder="Type"><br><br>
+                Ram: <br>
+                <input type="text" name="ram" placeholder="Rame"><br><br>
+                Disque: <br>
+                <input type="text" name="disque" placeholder="Disque"><br><br>
+                Statut: <br>
+                <input type="text" name="statut" placeholder="Statut"><br><br>
+                Salle affecté: <br>
+                <input type="text" name="id_salle" placeholder="Salle"><br><br>
+
+                <input type="submit">
+
+            </form>
+
+            {% if alerte is defined %}
+                <p>{{ alerte }}</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+{%endblock%}

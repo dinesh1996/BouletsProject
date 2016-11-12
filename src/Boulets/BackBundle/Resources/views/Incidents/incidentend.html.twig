@@ -1,0 +1,28 @@
+{%extends "BackBundle::layout.html.twig"%}
+
+
+
+
+
+{%block title%}
+    Ajoute de la date de fin d'incident
+{%endblock%}
+
+
+
+{% block content %}
+
+    <div class="container">
+        <form method="POST" action="">
+            Date de la fin de l'incidents<br>
+
+
+            <input type="date" class="form-control"  name="dateend" placeholder="Titre"><br><br>
+            <input class="btn" type="submit">
+
+        </form>
+    </div>
+
+
+
+{%endblock%}

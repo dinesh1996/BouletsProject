@@ -1,0 +1,33 @@
+{%extends "BackBundle::layout.html.twig"%}
+
+
+
+{%block title%}
+    Suppression de machine
+{%endblock%}
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Page de suppressions de machine </h1>
+
+        <div id="container" class="col">
+
+            <h1>Suppressions de machine</h1>
+
+            <form method="POST" action="">
+                Ip :<br>
+                <input type="text" name="ip" placeholder="IP"><br><br>
+                <input type="submit">
+
+            </form>
+
+            {% if alerte is defined %}
+                <p>{{ alerte }}</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+{%endblock%}
