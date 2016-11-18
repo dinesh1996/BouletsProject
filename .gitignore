@@ -177,11 +177,7 @@ tags
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
 
-### Symfony Patch ###
-/web/css/
-/web/js/
 
-/
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
