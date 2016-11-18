@@ -24,6 +24,30 @@ class Salle
     /**
      * @var string
      *
+     * @ORM\Column(name="etat", type="string", length=50)
+     */
+    private $etat;
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nom", type="string", length=50)
      */
     private $nom;
@@ -38,9 +62,9 @@ class Salle
     /**
      * @var string
      *
-     * @ORM\Column(name="administrateurs", type="string", length=50)
+     * @ORM\Column(name="administrateur", type="string", length=50)
      */
-    private $administrateurs;
+    private $administrateur;
 
     /**
      * @var string
@@ -55,7 +79,6 @@ class Salle
      * @ORM\Column(name="datecreation", type="datetime")
      */
     private $datecreation;
-
 
     /**
      * Get id
@@ -116,27 +139,27 @@ class Salle
     }
 
     /**
-     * Set administrateurs
+     * Set administrateur
      *
-     * @param string $administrateurs
+     * @param string $administrateur
      *
      * @return Salle
      */
-    public function setAdministrateurs($administrateurs)
+    public function setAdministrateur($administrateur)
     {
-        $this->administrateurs = $administrateurs;
+        $this->administrateur = $administrateur;
 
         return $this;
     }
 
     /**
-     * Get administrateurs
+     * Get administrateur
      *
      * @return string
      */
-    public function getAdministrateurs()
+    public function getAdministrateur()
     {
-        return $this->administrateurs;
+        return $this->administrateur;
     }
 
     /**

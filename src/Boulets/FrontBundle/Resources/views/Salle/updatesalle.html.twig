@@ -1,0 +1,65 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Modification  de machine
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+
+
+        <div id="container" class="col">
+
+            <h1>Modificaation de machine</h1>
+
+            <form method="POST" action="">
+
+
+                <label for="nom">Nom actuelle {{ salle.nom }} </label>
+                <input type="text" class="form-control" name="nom" placeholder="En cas de chamgement de nom" required/>
+
+
+                <div class="radio active">
+                    <label><input type="radio" checked name="etat" value="Ouverte">Ouverte</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="etat" value="Fermer">Fermer</label>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="sel1">Un problème avec la salle ? </label>
+                    <select class="form-control" name="incident">
+                        <option value="">{{ salle.incident }} (actuellement)</option>
+                        <option value=Aucun>Aucun</option>
+                        <option value=Innodation>Innodation</option>
+                        <option value=Incendie>Incendie</option>
+                        <option value=Radioactive>Radioactive</option>
+                        <option value=Séismes‎>Séismes‎</option>
+                        <option value=Cyclone>Cyclone</option>
+                        <option value=Sunami>Sunami</option>
+
+                    </select>
+                </div>
+
+
+                <input class="btn" type="submit">
+
+            </form>
+
+            {% if error is defined %}
+                <p style="color: red; "> {{ error }} </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+    {% block jsapp %}
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+{% endblock %}

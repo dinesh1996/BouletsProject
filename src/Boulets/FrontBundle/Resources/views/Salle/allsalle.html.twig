@@ -1,0 +1,87 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+    {% block meta %}
+        <meta HTTP-EQUIV="Refresh" CONTENT="30">
+    {% endblock %}
+
+
+{% block title %}
+    Parc
+{% endblock %}
+
+
+{% block content %}
+
+
+    <h1>Gestionnaire du Parc
+        <form action={{ path('admin_profil') }}><input type="submit" class="btn " value="Voir profil"/></form>
+    </h1>
+    <div class="row">
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Etat</th>
+                <th>Nombre de machines</th>
+                <th>Dernière modification par</th>
+                <th>Incident</th>
+
+                <th>Date de création</th>
+                <th>
+                    <form action={{ path('back_machine_create') }}><input class="btn " type="submit"
+                                                                          value="Nouvelle Salle"/></form>
+                </th>
+
+
+            </tr>
+            {% for s in salles %}
+                {% set counter = 0 %}
+                <tr>
+                    <td>{{ s.id }}</td>
+                    <td>{{ s.nom }}</td>
+                    <td>{{ s.etat }}</td>
+                    {% for m in machines %}
+
+
+                        {% if  m.salle == s.nom %}
+
+                            {% set counter = counter + 1 %}
+
+                        {% endif %}
+                    {% endfor %}
+                    <td>{{ counter }}</td>
+
+
+                    <td>{{ s.administrateur }}</td>
+                    <td>{{ s.incident }}</td>
+                    <td>{{ s.datecreation|date('d/m/Y') }}</td>
+
+
+                    <td>
+
+                        <form action="../../salle/details/{{ s.id }}"><input type="submit" class="btn "
+                                                                             value="Détails"/>
+                        </form>
+                    </td>
+                </tr>
+
+
+            {% endfor %}
+        </table>
+
+    </div>
+
+{% endblock %}
+
+
+
+

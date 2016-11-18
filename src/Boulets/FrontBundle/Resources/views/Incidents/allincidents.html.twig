@@ -1,0 +1,75 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Historique des incidents
+{% endblock %}
+
+
+{% block content %}
+
+
+    <h1>Historique des incidents
+        <form action="../admin/profil"><input type="submit" class="btn " value="Voir profil"/></form>
+    </h1>
+    <div class="row">
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Ip</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Machine</th>
+                <th>Commencer le</th>
+                <th>Terminer le</th>
+                <th>
+                    <form action={{ path('back_create_incident') }}><input class="btn " type="submit"
+                                                                           value="Nouvel incident"/></form>
+                </th>
+
+
+            </tr>
+            {% for i in incidents %}
+
+
+
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.ip }}</td>
+                    <td>{{ i.nom }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>{{ i.machine }}</td>
+                    <td>{{ i.datedebut|date('d/m/Y') }}</td>
+
+                    {% if i.datefin == null %}
+
+                        <td>Non défini</td>
+
+
+                    {% else %}
+
+                        <td>{{ i.datefin|date('d/m/Y') }}</td>
+                    {% endif %}
+                    <td>
+                        <form action="details/{{ i.id }}"><input type="submit" class="btn " value="Détails"/></form>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+
+    </div>
+
+{% endblock %}
+
+
+
+

@@ -1,86 +1,58 @@
-back_homepage:
-     path:     /back
-     defaults: { _controller: BackBundle:Default:index }
+#Routes Machines  fini .....
 
-#Machine
-back_machine:
-     path:     /machine
-     defaults: { _controller: BackBundle:Machine:index }
-
-back_machine:
-    path:     /machine
-    defaults: { _controller: BackBundle:Machine:index }
-
-back_machine_create:
-    path:     /machine/create
-    defaults: { _controller: BackBundle:Machine:create }
-
-back_machine_update:
-    path:     /machine/update
-    defaults: { _controller: BackBundle:Machine:update }
-
-
+#Route Supprimer une  machine back fait
 back_machine_delete:
-    path:     /machine/delete
+    path:     /machine/delete/{id}
     defaults: { _controller: BackBundle:Machine:delete }
 
-#Incident
-back_createincident:
-    path:     /incident/create
-    defaults: { _controller: BackBundle:Incidents:createincident }
+back_machine_ping:
+    path:     /machine/ping/{id}
+    defaults: { _controller: BackBundle:Machine:ping }
 
-back_indexallincidents:
-    path:     /incident/affiche
-    defaults: { _controller: BackBundle:Incidents:allincidents }
+#Routes Salles
 
-back_indexincident:
-    path:     /incident/{id}
-    defaults: { _controller: BackBundle:Incidents:incident }
+#Suppression d'une salle ( a refaire ) back
+back_deletesalle:
+    path:     /salle/delete/{id}
+    defaults: { _controller: BackBundle:Salle:delete }
 
-
+#Route  Création des dates de fin d'incidents back
 back_incidentend:
     path:     /incident/end/{id}
     defaults: { _controller: BackBundle:Incidents:incidentend }
 
-#User
+#Routes Admin
+
+#Route  Login partie admin back
 login:
     path: /admin/login
     defaults: {_controller: BackBundle:Administrateur:login}
-create:
-    path: /admin/create
-    defaults: { _controller: BackBundle:Administrateur:create}
-profil:
-    path: /admin/profil
-    defaults: { _controller: BackBundle:Administrateur:profil}
-logout:
+
+#Route logout  admin back
+admin_logout:
     path: /admin/logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
+
+#Route  Création d'un admin back
+admin_create:
+    path: /admin/create
+    defaults: { _controller: BackBundle:Administrateur:create}
+
+#Route  Affiche profile  admin back
+admin_profil:
+    path: /admin/profil
+    defaults: { _controller: BackBundle:Administrateur:profil}
+
+#Route  Affiche tout les  admins back
 AllAdmin:
     path: /admin/list
     defaults:  { _controller: BackBundle:Administrateur:allAdmin}
 
-update:
+#Route  Mis a jour   admin back
+admin_update:
     path: /admin/update
     defaults:  { _controller: BackBundle:Administrateur:update}
-
-#Salle
-back_createsalle:
-    path:     /salle/create
-    defaults: { _controller: BackBundle:Salle:createSalle }
-
-back_updatesalle:
-    path:     /salle/update
-    defaults: { _controller: BackBundle:Salle:updateSalle }
-
-back_deletesalle:
-    path:     /salle/delete
-    defaults: { _controller: BackBundle:Salle:deleteSalle }
-
-#Dashboard
-back_board:
-    path:     /board
-    defaults: { _controller: BackBundle:Dashboard:dashboard }
-
-back_dashboard:
-    path:     /dashboard/board
-    defaults: { _controller: BackBundle:Dashboard:dashboard }
+#Route affichant le profil d'un utilisateur lambda
+admin_profilOther:
+    path: /admin/list/details
+    defaults:  { _controller: BackBundle:Administrateur:AdminDetails}

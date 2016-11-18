@@ -1,0 +1,95 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Liste de toutes les machines de la salle
+{% endblock %}
+
+
+{% block content %}
+
+
+    <h1> Liste de toutes les machines de la salle
+        <form action="../admin/profil"><input type="submit" class="btn " value="Voir profil"/></form>
+    </h1>
+    <div class="row">
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>Ip</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Mémoire vive</th>
+                <th>Stockage</th>
+                <th>Statut</th>
+                <th>Salle</th>
+                <th>Date de création</th>
+                <th>
+                    <form action="create"><input class="btn " type="submit" value="Nouvelle Machine"/></form>
+                </th>
+
+
+            </tr>
+            {% for m in machines %}
+
+
+
+                <tr>
+                    <td>{{ m.ip }}</td>
+                    <td>{{ m.nom }}</td>
+                    <td>{{ m.type }}</td>
+
+
+                    {% if m.ram == 512 %}
+
+                        <td>512 Mo</td>
+
+
+                    {% else %}
+
+                        <td>{{ m.ram }} Go</td>
+                    {% endif %}
+
+
+
+
+                    {% if m.disque == 500 %}
+
+                        <td>{{ m.disque }} Go</td>
+
+
+                    {% else %}
+
+                        <td>{{ m.disque }} To</td>
+                    {% endif %}
+
+
+                    <td>{{ m.statut }}</td>
+                    <td>{{ m.salle }}</td>
+                    <td>{{ m.date|date('d/m/Y') }}</td>
+
+
+                    <td>
+
+                        <form action="../../../machine/details/{{ m.id }}"><input type="submit" class="btn "
+                                                                                  value="Détails"/></form>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+
+    </div>
+
+{% endblock %}
+
+
+
+

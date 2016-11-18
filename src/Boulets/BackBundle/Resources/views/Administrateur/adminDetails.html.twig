@@ -1,18 +1,21 @@
 {%extends "BackBundle::layout.html.twig"%}
 
 {%block title%}
-    Profil
+    {% if user is defined %}
+         Profil de {{ user.nom }}
+        {% endif %}
 {%endblock%}
 
 {% block content %}
     <div class="container">
 
 
-        {% if nom is defined and mail is defined %}
-        <h1>Nom</h1>
-        {{nom}}
-        <h1>Mail</h1>
-            {{ mail }}
+        {% if user is defined %}
+            <h1>Nom</h1>
+            {{ user.nom }}
+            <h1>Mail</h1>
+            {{ user.mail }}
+
             <form action={{ path('admin_logout') }}>
                 <input type="submit" class="btn btn-primary" value="Se deconnecter" />
             </form>
