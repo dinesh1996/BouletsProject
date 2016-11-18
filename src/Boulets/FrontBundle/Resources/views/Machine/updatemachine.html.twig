@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -10,153 +10,149 @@
 
 
 {% block content %}
+
     <div class="container">
+    <div class="page-header">
+        <h1> Modificaation de machine
+            <form   action={{ path('front_machineall') }}><input type="submit" class="btn box"
+                                                                                value="Liste des machines"/></form>
+        </h1>
+</div>
 
 
-        <div id="container" class="col">
+        <form method="POST" action="">
 
-            <h1>Modificaation de machine</h1>
+            <label for="ip">Ip actuelle ({{ machine.ip }})</label>
 
-            <form method="POST" action="">
-
-                <label for="ip">Ip actuelle ({{machine.ip }})</label>
-
-                <input type="text" class="form-control" name="ip"   placeholder=" En cas de chamgement :xxx.xxx.xxx.xxx"
-                       pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25
+            <input type="text" class="form-control" name="ip" placeholder=" En cas de chamgement :xxx.xxx.xxx.xxx"
+                   pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25
                        [0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-                       title="XXX.XXX.XXX.XXX (ipv4)">
+                   title="XXX.XXX.XXX.XXX (ipv4)">
 
-                <label for="nom">Nom :</label>
-                <input type="text" class="form-control" name="nom" placeholder="Nom" required value= {{ machine.nom }} />
-
-
-                <div class="form-group">
-                    <label for="sel1">Type de machine </label>
-                    <select class="form-control"  name="type">
-                        <option  value="" >{{ machine.type }} (actuellement) </option>
-
-                        <option value="Microsoft Windows 10 (64bits)">Microsoft Windows 10 (64bits)</option>
-                        <option value="Microsoft Windows 10 (32bits)">Microsoft Windows 10 (32bits)</option>
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" name="nom" placeholder="Nom" required value= {{ machine.nom }}/>
 
 
-                        <option value="Linux Ubuntu (64bits)">Linux Ubuntu (64bits)</option>
-                        <option value="Linux Ubuntu (32bits)">Linux Ubuntu (32bits)</option>
+            <div class="form-group">
+                <label for="sel1">Type de machine </label>
+                <select class="form-control" name="type">
+                    <option value="">{{ machine.type }} (actuellement)</option>
+
+                    <option value="Microsoft Windows 10 (64bits)">Microsoft Windows 10 (64bits)</option>
+                    <option value="Microsoft Windows 10 (32bits)">Microsoft Windows 10 (32bits)</option>
 
 
-                        <option value="Linux Debian (64bits)">Linux Debian (64bits)</option>
-                        <option value="Linux Debian (32bits)">Linux Debian (32bits)</option>
+                    <option value="Linux Ubuntu (64bits)">Linux Ubuntu (64bits)</option>
+                    <option value="Linux Ubuntu (32bits)">Linux Ubuntu (32bits)</option>
 
 
-                        <option value="Mac OS X Yosemite (64bits)">Mac OS X Yosemite (64bits)</option>
-                        <option value="Mac OS X Yosemite (32bits)">Mac OS X Yosemite (32bits)</option>
+                    <option value="Linux Debian (64bits)">Linux Debian (64bits)</option>
+                    <option value="Linux Debian (32bits)">Linux Debian (32bits)</option>
 
 
-                        <option value="Mac OS X El Capitan (64bits)">Mac OS X El Capitan (64bits)</option>
-                        <option value="Mac OS X El Capitan (32bits)">Mac OS X El Capitan (32bits)</option>
+                    <option value="Mac OS X Yosemite (64bits)">Mac OS X Yosemite (64bits)</option>
+                    <option value="Mac OS X Yosemite (32bits)">Mac OS X Yosemite (32bits)</option>
 
 
-                        <option value="Mac OS X macOS Sierra (64bits)">Mac OS X macOS Sierra (64bits)</option>
-                        <option value="Mac OS X macOS Sierra (32bits)">Mac OS X macOS Sierra (32bits)</option>
+                    <option value="Mac OS X El Capitan (64bits)">Mac OS X El Capitan (64bits)</option>
+                    <option value="Mac OS X El Capitan (32bits)">Mac OS X El Capitan (32bits)</option>
 
 
-                    </select>
-                </div>
+                    <option value="Mac OS X macOS Sierra (64bits)">Mac OS X macOS Sierra (64bits)</option>
+                    <option value="Mac OS X macOS Sierra (32bits)">Mac OS X macOS Sierra (32bits)</option>
 
 
-                <div class="form-group">
-                    <label for="sel1">Ram :</label>
-                    <select class="form-control" name="ram">
+                </select>
+            </div>
 
 
-                        {% if machine.ram == 512 %}
-
-                            <option value=512>512 Mo</option>
-
-
-                        {% else %}
-
-                            <option value={{ machine.ram }}>{{ machine.ram }} Go ( actuellement )</option>
-                        {% endif %}
+            <div class="form-group">
+                <label for="sel1">Ram :</label>
+                <select class="form-control" name="ram">
 
 
-                        <option value=0.512>512 Mo</option>
-                        <option value=1>1 024 Mo (1 go)</option>
-                        <option value=2>2 048 Mo (2 go)</option>
-                        <option value=4>4 096 Mo (4 go)</option>
-                        <option value=6>6 144 Mo (6 go)</option>
-                        <option value=8>8 192 Mo (8 go)</option>
-                        <option value=16>16 384 Mo (16 go)</option>
-                        <option value=32>13 2768 Mo (32 go)</option>
-                        <option value=64>65 536 Mo (64 go)</option>
+                    {% if machine.ram == 512 %}
 
-                    </select>
-                </div>
+                        <option value=512>512 Mo</option>
 
 
-                <div class="form-group">
-                    <label for="sel1">Capacité du disque dur :</label>
-                    <select class="form-control" name="disque">
+                    {% else %}
+
+                        <option value={{ machine.ram }}>{{ machine.ram }} Go ( actuellement )</option>
+                    {% endif %}
 
 
-                        {% if machine.disque == 500 %}
+                    <option value=0.512>512 Mo</option>
+                    <option value=1>1 024 Mo (1 go)</option>
+                    <option value=2>2 048 Mo (2 go)</option>
+                    <option value=4>4 096 Mo (4 go)</option>
+                    <option value=6>6 144 Mo (6 go)</option>
+                    <option value=8>8 192 Mo (8 go)</option>
+                    <option value=16>16 384 Mo (16 go)</option>
+                    <option value=32>13 2768 Mo (32 go)</option>
+                    <option value=64>65 536 Mo (64 go)</option>
 
-                            <option value=500>500 Go</option>
-
-
-                        {% else %}
-
-                            <option value={{ machine.disque }}>{{ machine.disque }} To ( actuellement ) </option>
-                        {% endif %}
-
-
-                        <option value=0.5>500 Go</option>
-                        <option value=1>1 To</option>
-                        <option value=2>2 To</option>
-                        <option value=3>3 To</option>
-                        <option value=4>4 To</option>
-                        <option value=6>6 To</option>
-                        <option value=8>8 To</option>
-                        <option value=10>10 To</option>
-                    </select>
-                </div>
+                </select>
+            </div>
 
 
-                <div class="radio active">
-                    <label><input type="radio" value="Allumée" name="statut">Allumée</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" checked value="Eteinte" name="statut">Eteinte</label>
-                </div>
-                <div class="radio active">
-                    <label><input type="radio" value="En panne" name="statut">En panne</label>
-                </div>
+            <div class="form-group">
+                <label for="sel1">Capacité du disque dur :</label>
+                <select class="form-control" name="disque">
 
 
-                <div class="form-group">
-                    <label for="sel1">Choisir la salle d'affectation de la machine</label>
-                    <select class="form-control" id="sel1" name="salle">
-                        <option value={{ machine.salle }}>{{ machine.salle }} ( actuellement )</option>
+                    {% if machine.disque == 500 %}
 
-                        {% for  s in salles %}
-
-                            <option value={{ s.nom }}>{{ s.nom }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+                        <option value=500>500 Go</option>
 
 
-                <input class="btn" type="submit">
+                    {% else %}
 
-            </form>
+                        <option value={{ machine.disque }}>{{ machine.disque }} To ( actuellement )</option>
+                    {% endif %}
 
-            {% if error is defined %}
-                <p style="color: red; "> {{ error }} </p>
-            {% endif %}
 
-        </div>
+                    <option value=0.5>500 Go</option>
+                    <option value=1>1 To</option>
+                    <option value=2>2 To</option>
+                    <option value=3>3 To</option>
+                    <option value=4>4 To</option>
+                    <option value=6>6 To</option>
+                    <option value=8>8 To</option>
+                    <option value=10>10 To</option>
+                </select>
+            </div>
+
+
+            <div class="radio active">
+                <label><input type="radio" value="Allumée" name="statut">Allumée</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" checked value="Eteinte" name="statut">Eteinte</label>
+            </div>
+            <div class="radio active">
+                <label><input type="radio" value="En panne" name="statut">En panne</label>
+            </div>
+
+
+            <div class="form-group">
+                <label for="sel1">Choisir la salle d'affectation de la machine</label>
+                <select class="form-control" id="sel1" name="salle">
+                    <option value={{ machine.salle }}>{{ machine.salle }} ( actuellement )</option>
+
+                    {% for  s in salles %}
+
+                        <option value={{ s.nom }}>{{ s.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <input class="btn sub" type="submit">
+
+        </form>
+
 
     </div>
-    {% block jsapp %}
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    {% endblock %}
+
 {% endblock %}

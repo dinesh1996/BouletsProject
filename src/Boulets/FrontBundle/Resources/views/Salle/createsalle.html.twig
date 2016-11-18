@@ -1,0 +1,60 @@
+{% extends "FrontBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Modification  de Salle
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+
+
+
+        <div class="page-header">
+
+            <h1>Creation d'un salle  <form  action={{ path('front_allsalleaffiche') }}><input type="submit" class="btn box"
+                                                                                                value="Liste des salle"/></form></h1>
+
+        </div>
+
+
+
+
+
+
+            <form method="POST" action="">
+
+
+                <label for="nom">Nom  </label>
+                <input type="text" class="form-control" name="nom" placeholder="Nom de la salle" required/>
+
+
+                <div class="radio active">
+                    <label><input type="radio" checked name="etat" value="Ouverte">Ouverte</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="etat" value="Fermer">Fermer</label>
+                </div>
+
+
+
+
+                <input type="hidden"   name="incident"  value="Aucun"/>
+
+
+                <input class="btn sub" type="submit">
+
+            </form>
+
+
+        </div>
+
+
+    {% block jsapp %}
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+{% endblock %}

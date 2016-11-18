@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -13,15 +13,15 @@
     <div class="container">
 
 
-        <div id="container" class="col">
+
 
             <h1>Modificaation de machine</h1>
 
             <form method="POST" action="">
 
 
-                <label for="nom">Nom actuelle {{ salle.nom }} </label>
-                <input type="text" class="form-control" name="nom" placeholder="En cas de chamgement de nom" required/>
+                <label for="nom">Nom actuelle : {{ salle.nom }} </label>
+                <input type="text" class="form-control" name="nom" placeholder="En cas de chamgement de nom"  />
 
 
                 <div class="radio active">
@@ -48,18 +48,14 @@
                 </div>
 
 
-                <input class="btn" type="submit">
+                <input class="btn sub" type="submit">
 
             </form>
 
-            {% if error is defined %}
-                <p style="color: red; "> {{ error }} </p>
-            {% endif %}
 
-        </div>
+
+
 
     </div>
-    {% block jsapp %}
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    {% endblock %}
+
 {% endblock %}

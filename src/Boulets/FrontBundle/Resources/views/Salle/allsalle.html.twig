@@ -1,9 +1,9 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
     {% block meta %}
-        <meta HTTP-EQUIV="Refresh" CONTENT="30">
+        <meta HTTP-EQUIV="Refresh" CONTENT="30" xmlns="http://www.w3.org/1999/html">
     {% endblock %}
 
 
@@ -14,74 +14,66 @@
 
 {% block content %}
 
+    <div class="page-header">
+        <h1>Parc
 
-    <h1>Gestionnaire du Parc
-        <form action={{ path('admin_profil') }}><input type="submit" class="btn " value="Voir profil"/></form>
-    </h1>
-    <div class="row">
+            <form class="box" action={{ path('back_createsalle') }}><input class="btn " type="submit"
+                                                                           value="Nouvelle Salle"/>
+            </form>
+        </h1>
+    </div>
+
+
+
+    <div class="container">
         {% for flash_message in app.session.flashBag.get('Notification') %}
             <div class="flash-notice">
                 {{ flash_message }}
             </div>
         {% endfor %}
 
-        <table class="table table-bordered table-striped table-hover">
-            <tr>
-
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Etat</th>
-                <th>Nombre de machines</th>
-                <th>Dernière modification par</th>
-                <th>Incident</th>
-
-                <th>Date de création</th>
-                <th>
-                    <form action={{ path('back_machine_create') }}><input class="btn " type="submit"
-                                                                          value="Nouvelle Salle"/></form>
-                </th>
 
 
-            </tr>
-            {% for s in salles %}
-                {% set counter = 0 %}
-                <tr>
-                    <td>{{ s.id }}</td>
-                    <td>{{ s.nom }}</td>
-                    <td>{{ s.etat }}</td>
-                    {% for m in machines %}
 
 
-                        {% if  m.salle == s.nom %}
-
-                            {% set counter = counter + 1 %}
-
-                        {% endif %}
-                    {% endfor %}
-                    <td>{{ counter }}</td>
 
 
-                    <td>{{ s.administrateur }}</td>
-                    <td>{{ s.incident }}</td>
-                    <td>{{ s.datecreation|date('d/m/Y') }}</td>
+        {% for s in salles %}
+            {% set counter = 0 %}
 
 
-                    <td>
-
-                        <form action="../../salle/details/{{ s.id }}"><input type="submit" class="btn "
-                                                                             value="Détails"/>
-                        </form>
-                    </td>
-                </tr>
 
 
-            {% endfor %}
-        </table>
+            <div class=" container">
+                <div class="page-header">
+                    <h2> Nom : {{ s.nom }}, Etat {{ s.etat }}</h2>
+                </div>
 
+
+                {% for m in machines %}
+                    {% if  m.salle == s.nom %}
+                        {% set counter = counter + 1 %}
+                    {% endif %}
+                {% endfor %}
+                <p class=" col-md-3"> {{ s.id }}</p>
+
+                <p class=" col-md-3"> Nombre de machines : {{ counter }} </p>
+                <p class=" col-md-3"> Date de création : {{ s.datecreation|date('d/m/Y') }} </p>
+
+
+                <p>
+                <form class="col-md-3 " action="../../salle/details/{{ s.id }}"><input type="submit"
+                                                                                       class="btn box"
+                                                                                       value="Détails"/></form>
+                </p>
+            </div>
+
+
+
+        {% endfor %}
     </div>
 
+
+
+
 {% endblock %}
-
-
-
-

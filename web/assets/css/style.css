@@ -29,8 +29,13 @@ float: right;
 
 
 
+.sub{
+    width: 100%;
+}
+.container{
 
-
+    background: url(/web/assets/img/font.png) left top repeat;
+}
 
 
 

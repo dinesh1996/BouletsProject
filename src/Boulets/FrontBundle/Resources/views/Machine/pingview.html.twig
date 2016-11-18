@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -42,7 +42,7 @@
 
         <form method="post" action="../../../front/machine/details/{{ machine.id }} "><input type="submit" class="btn"
                                                                                            value="Retour"/></form>
-
+        <form  class="col-md-3" action={{ path('front_machineall') }}><input type="submit" class="btn" value="Liste des machines"/></form>
 
     </div>
 

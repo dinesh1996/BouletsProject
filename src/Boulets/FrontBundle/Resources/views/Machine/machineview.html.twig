@@ -1,7 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
-
-
-
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -45,7 +42,7 @@
                                                                                                            value="Effectuer un ping"/></form>
 
 
-        <form  class="col-md-3" action="../affiche"><input type="submit" class="btn" value="Liste des machines"/></form>
+        <form  class="col-md-3" action={{ path('front_machineall') }}><input type="submit" class="btn" value="Liste des machines"/></form>
 
 
         <p class="col-md-3"> Id: {{ machine.id }} </p>

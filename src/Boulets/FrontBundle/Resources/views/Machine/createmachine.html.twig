@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -10,125 +10,128 @@
 
 
 {% block content %}
-    <div class="container">
-        <h1>Page de creation de machine </h1>
 
-        <div id="container" class="col">
+    <div class="page-header">
 
-            <h1>Cretion de machine</h1>
-
-            {% for flash_message in app.session.flashBag.get('Notification') %}
-                <div class="flash-notice">
-                    {{ flash_message }}
-                </div>
-            {% endfor %}
-            <form method="POST" action="create">
-
-
-                <label for="ip">Ip :</label>
-                <input type="text" class="form-control" name="ip" placeholder="xxx.xxx.xxx.xxx"
-                       pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25
-                       [0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-                       title="255.255.255.255 (ipv4)">
-
-
-                <label for="nom">Nom :</label>
-                <input type="text" class="form-control" name="nom" placeholder="Nom" required>
-
-
-                <div class="form-group">
-                    <label for="sel1">Type de machine</label>
-                    <select class="form-control" name="type">
-
-                        <option value="Microsoft Windows 10 (64bits)">Microsoft Windows 10 (64bits)</option>
-                        <option value="Microsoft Windows 10 (32bits)">Microsoft Windows 10 (32bits)</option>
-
-
-                        <option value="Linux Ubuntu (64bits)">Linux Ubuntu (64bits)</option>
-                        <option value="Linux Ubuntu (32bits)">Linux Ubuntu (32bits)</option>
-
-
-                        <option value="Linux Debian (64bits)">Linux Debian (64bits)</option>
-                        <option value="Linux Debian (32bits)">Linux Debian (32bits)</option>
-
-
-                        <option value="Mac OS X Yosemite (64bits)">Mac OS X Yosemite (64bits)</option>
-                        <option value="Mac OS X Yosemite (32bits)">Mac OS X Yosemite (32bits)</option>
-
-
-                        <option value="Mac OS X El Capitan (64bits)">Mac OS X El Capitan (64bits)</option>
-                        <option value="Mac OS X El Capitan (32bits)">Mac OS X El Capitan (32bits)</option>
-
-
-                        <option value="Mac OS X macOS Sierra (64bits)">Mac OS X macOS Sierra (64bits)</option>
-                        <option value="Mac OS X macOS Sierra (32bits)">Mac OS X macOS Sierra (32bits)</option>
-
-
-                    </select>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="sel1">Ram :</label>
-                    <select class="form-control" name="ram">
-                        <option value=512>512 Mo</option>
-                        <option value=1>1 024 Mo (1 go)</option>
-                        <option value=2>2 048 Mo (2 go)</option>
-                        <option value=4>4 096 Mo (4 go)</option>
-                        <option value=6>6 144 Mo (6 go)</option>
-                        <option value=8>8 192 Mo (8 go)</option>
-                        <option value=16>16 384 Mo (16 go)</option>
-                        <option value=32>13 2768 Mo (32 go)</option>
-                        <option value=64>65 536 Mo (64 go)</option>
-
-                    </select>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="sel1">Capacité du disque dur :</label>
-                    <select class="form-control" name="disque">
-                        <option value=500>500 Go</option>
-                        <option value=1>1 To</option>
-                        <option value=2>2 To</option>
-                        <option value=3>3 To</option>
-                        <option value=4>4 To</option>
-                        <option value=6>6 To</option>
-                        <option value=8>8 To</option>
-                        <option value=10>10 To</option>
-                    </select>
-                </div>
-
-
-                <div class="radio active">
-                    <label><input type="radio" name="statut" value="Allumée">Allumée</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" checked name="statut" value="Eteinte">Eteinte</label>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="sel1">Choisir la salle d'affectation de la machine</label>
-                    <select class="form-control" id="sel1" name="salle">
-                        {% for  s in salles %}
-                            <option value= {{ s.nom }} >{{ s.nom }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <input class="btn" type="submit">
-
-            </form>
-
-            {% if error is defined %}
-                <p style="color: red; "> {{ error }} </p>
-            {% endif %}
-
-        </div>
+        <h1>Page de creation de machine <form  action={{ path('front_machineall') }}><input type="submit" class="btn box"
+                                                                                value="Liste des machines"/></form></h1>
 
     </div>
-    {% block jsapp %}
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    {% endblock %}
+
+
+
+    <div class="">
+
+
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+
+
+        <form method="POST" action="create">
+
+            <label for="ip">Ip :</label>
+            <input type="text" class="form-control" name="ip" placeholder="xxx.xxx.xxx.xxx"
+                   pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25
+                       [0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+                   title="255.255.255.255 (ipv4)"/>
+
+
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" name="nom" placeholder="Nom" required>
+
+
+            <div class="form-group">
+                <label for="sel1">Type de machine</label>
+                <select class="form-control" name="type">
+
+                    <option value="Microsoft Windows 10 (64bits)">Microsoft Windows 10 (64bits)</option>
+                    <option value="Microsoft Windows 10 (32bits)">Microsoft Windows 10 (32bits)</option>
+
+
+                    <option value="Linux Ubuntu (64bits)">Linux Ubuntu (64bits)</option>
+                    <option value="Linux Ubuntu (32bits)">Linux Ubuntu (32bits)</option>
+
+
+                    <option value="Linux Debian (64bits)">Linux Debian (64bits)</option>
+                    <option value="Linux Debian (32bits)">Linux Debian (32bits)</option>
+
+
+                    <option value="Mac OS X Yosemite (64bits)">Mac OS X Yosemite (64bits)</option>
+                    <option value="Mac OS X Yosemite (32bits)">Mac OS X Yosemite (32bits)</option>
+
+
+                    <option value="Mac OS X El Capitan (64bits)">Mac OS X El Capitan (64bits)</option>
+                    <option value="Mac OS X El Capitan (32bits)">Mac OS X El Capitan (32bits)</option>
+
+
+                    <option value="Mac OS X macOS Sierra (64bits)">Mac OS X macOS Sierra (64bits)</option>
+                    <option value="Mac OS X macOS Sierra (32bits)">Mac OS X macOS Sierra (32bits)</option>
+
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="sel1">Ram :</label>
+                <select class="form-control" name="ram">
+                    <option value=512>512 Mo</option>
+                    <option value=1>1 024 Mo (1 go)</option>
+                    <option value=2>2 048 Mo (2 go)</option>
+                    <option value=4>4 096 Mo (4 go)</option>
+                    <option value=6>6 144 Mo (6 go)</option>
+                    <option value=8>8 192 Mo (8 go)</option>
+                    <option value=16>16 384 Mo (16 go)</option>
+                    <option value=32>13 2768 Mo (32 go)</option>
+                    <option value=64>65 536 Mo (64 go)</option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="sel1">Capacité du disque dur :</label>
+                <select class="form-control" name="disque">
+                    <option value=500>500 Go</option>
+                    <option value=1>1 To</option>
+                    <option value=2>2 To</option>
+                    <option value=3>3 To</option>
+                    <option value=4>4 To</option>
+                    <option value=6>6 To</option>
+                    <option value=8>8 To</option>
+                    <option value=10>10 To</option>
+                </select>
+            </div>
+
+
+            <div class="radio active">
+                <label><input type="radio" name="statut" value="Allumée">Allumée</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" checked name="statut" value="Eteinte">Eteinte</label>
+            </div>
+
+
+            <div class="form-group">
+                <label for="sel1">Choisir la salle d'affectation de la machine</label>
+                <select class="form-control" id="sel1" name="salle">
+                    {% for  s in salles %}
+                        <option value= {{ s.nom }}>{{ s.nom }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <input class="btn sub" type="submit">
+
+
+        </form>
+
+
+    </div>
+
+
 {% endblock %}

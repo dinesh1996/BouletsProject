@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -21,7 +21,7 @@
 
 
 
-    <div class="row">
+    <div class="container">
         {% for flash_message in app.session.flashBag.get('Notification') %}
             <div class="flash-notice">
                 {{ flash_message }}

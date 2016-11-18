@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -13,7 +13,7 @@
     <div class="page-header">
         <h1>Liste de tout les machines
 
-            <form class="box" action={{ path('back_machine_create') }}><input class="btn " type="submit"
+            <form class="box" action={{ path('back_machine_create') }}><input class="btn box" type="submit"
                                                                               value="Nouvelle Machine"/>
             </form>
         </h1>
@@ -31,16 +31,21 @@
                 <div class="page-header">
                     <h2> Adresse Ip : {{ m.ip }}, Nom de la machine : {{ m.nom }}</h2>
                 </div>
-                <div class="">
+                <div>
 
-                    <p class=" col-md-4">
+
+
+
+                    <p class=" col-md-3">{{ m.id }}
+                    </p>
+                    <p class=" col-md-3">
                         Le statue : {{ m.statut }}
                     </p>
-                    <p class=" col-md-4">
+                    <p class=" col-md-3">
                         Dans la salle : {{ m.salle }}
 
                     </p>
-                    <form class="col-md-4" action="details/{{ m.id }}"><input type="submit" class="btn box"
+                    <form class="col-md-3" action="details/{{ m.id }}"><input type="submit" class="btn box"
                                                                               value="Détails"/>
                     </form>
                 </div>

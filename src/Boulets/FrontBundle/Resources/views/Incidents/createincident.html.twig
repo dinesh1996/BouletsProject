@@ -1,4 +1,4 @@
-{% extends "BackBundle::layout.html.twig" %}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -10,10 +10,11 @@
 
 {% block content %}
 
-    <h1>Page de creation d'incident </h1>
 
+<div class="page-header">
 
     <h1>Cretion d'incident</h1>
+    </div>
 
     <form method="POST" action="">
         <label for="nom">Titre :</label>
@@ -45,10 +46,11 @@
         </div>
 
 
-        <input class="btn" type="submit">
+        <input class="btn sub " type="submit">
     </form>
 
-    <form action="affiche"><input type="submit" class="btn" value="retour"/></form>
+    <form action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn box" value="Les des incidents"/></form>
+
 
 
 

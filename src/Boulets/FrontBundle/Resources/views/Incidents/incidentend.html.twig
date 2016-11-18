@@ -1,4 +1,4 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "FrontBundle::layout.html.twig" %}
 
 
 
@@ -18,9 +18,10 @@
 
 
             <input type="date" class="form-control"  name="dateend" placeholder="Titre"><br><br>
-            <input class="btn" type="submit">
+            <input class="btn sub" type="submit">
 
         </form>
+        <form action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn" value="Retour aux incidents"/></form>
     </div>
 
 
