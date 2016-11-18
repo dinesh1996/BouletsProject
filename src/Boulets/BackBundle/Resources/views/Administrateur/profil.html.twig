@@ -1,0 +1,43 @@
+{%extends "BackBundle::layout.html.twig"%}
+
+{%block title%}
+    Profil
+{%endblock%}
+
+{% block content %}
+    <div class="container">
+
+
+        {% if nom is defined and mail is defined %}
+        <h1>Nom</h1>
+        {{nom}}
+        <h1>Mail</h1>
+            {{ mail }}
+            <form action={{ path('admin_logout') }}>
+                <input type="submit" class="btn btn-primary" value="Se deconnecter" />
+            </form>
+
+
+
+
+            <form action="{{ path('admin_update') }}">
+                <input type="submit" class="btn btn-primary" value="Modifier votre profil " />
+            </form>
+
+            <form action="{{ path('front_allsalleaffiche') }}">
+                <input type="submit" class="btn btn-primary" value="DashBoard" />
+            </form>
+
+            <form action={{ path('front_indexallincidents') }}>
+                <input type="submit" class="btn btn-primary" value="Les incidents" />
+            </form>
+
+
+            <form action="{{ path('front_machineall') }}">
+                <input type="submit" class="btn btn-primary" value="Les machines" />
+            </form>
+
+        {%  endif%}
+
+    </div>
+{%endblock%}
