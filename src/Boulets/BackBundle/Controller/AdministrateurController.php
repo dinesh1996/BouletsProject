@@ -226,13 +226,11 @@
         public function AdminDetailsAction(Request $request){
             $id =  $request->request->get("id");
             $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
-
             if(empty($id)){
                 return $this->redirectToRoute("AllAdmin");
             }elseif (!empty($id)){
                 $user = $repo->findOneBy(array('id'=>$id));
                 if($user){
-
                     $response = $this->get('templating')
                         ->render('BackBundle:Administrateur:adminDetails.html.twig',array('user' => $user));
                     return new Response($response);
@@ -241,12 +239,9 @@
                 }
             }
         }
-
         public function deleteAction(Request $request){
-
             $id =  $request->request->get("id");
             $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
-
             if(empty($id)){
                 return $this->redirectToRoute("AllAdmin");
             } elseif (!empty($id)){
@@ -260,6 +255,5 @@
                     return $this->redirectToRoute("AllAdmin");
                 }
             }
-
         }
     }

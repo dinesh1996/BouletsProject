@@ -1,132 +1,64 @@
+#Routes Machines
 
+#Route Supprimer une  machine back fait
+back_machine_delete:
+    path:     /machine/delete/{id}
+    defaults: { _controller: BackBundle:Machine:delete }
 
-
-
-
-#efezfeef
-
-
-#Routes Machines  fini .....
-
-
-
-
-#bon
-
-
-#Route Affiche tout les machines front fait
-front_machineall:
-    path:     /machine/affiche
-    defaults: { _controller: FrontBundle:Machine:allmachines }
-
-
-
-#Route Création  d' machine back c est fait enfin
-back_machine_create:
-    path:     /machine/create
-    defaults: { _controller: BackBundle:Machine:create }
-
-
-#Route Mis a jour  d'une  machine (!!!!!a faire) back fait
-back_machine_update:
-    path:     /machine/update/{id}
-    defaults: { _controller: BackBundle:Machine:update }
-
-
-
-front_indexsalle_machines:
-    path:     /salle/details/{id}/machines
-    defaults: { _controller: FrontBundle:Salle:machinepre }
-
-
-#Route Affiche details d'un machine (!!!!a faitre) front fait
-front_indexmachine:
-    path:     /machine/details/{id}
-    defaults: { _controller: FrontBundle:Machine:machine }
-
+back_machine_ping:
+    path:     /machine/ping/{id}
+    defaults: { _controller: BackBundle:Machine:ping }
 
 #Routes Salles
 
+#Suppression d'une salle ( a refaire ) back
+back_deletesalle:
+    path:     /salle/delete/{id}
+    defaults: { _controller: BackBundle:Salle:delete }
 
-
-
-#cretation de salle (a refaire ) back fait
-back_createsalle:
-    path:     /salle/create
-    defaults: { _controller: BackBundle:Salle:create }
-
-
-#Mis a jour d'une salle  ( a refaire ) back fait
-back_updatesalle:
-    path:     /salle/update/{id}
-    defaults: { _controller: BackBundle:Salle:update }
-
-
-
-
-#Afficher tout les salle du parc   ( a refaire ) front fait
-front_allsalleaffiche:
-    path:     /salle/affiche/
-    defaults: { _controller: FrontBundle:Salle:allsalles }
-
-
-#Route Affiche details d'une salle (!!!!a faitre) front
-front_indexsalle:
-    path:     /salle/details/{id}
-    defaults: { _controller: FrontBundle:Salle:salle }
-
-
-
-
-
-
-
-
-#Routes Inccidents bons
-
-
-#Route Affiche tout les incidents front
-front_indexallincidents:
-    path:     /incident/affiche
-    defaults: { _controller: FrontBundle:Incidents:allincidents }
-
-
-
-#Route Affiche details d'un incidents front
-front_indexincident:
-    path:     /incident/details/{id}
-    defaults: { _controller: FrontBundle:Incidents:incident }
-
-
-
-#Route Création  d' incidents back
-back_create_incident:
-    path:     /incident/create
-    defaults: { _controller: BackBundle:Incidents:create }
-
-
-
-
-
-
-
-
+#Route Création des dates de fin d'incidents back
+back_incidentend:
+    path:     /incident/end/{id}
+    defaults: { _controller: BackBundle:Incidents:incidentend }
 
 #Routes Admin
 
-#Route  Login partie admin back
+#Route Login partie admin back
 login:
     path: /admin/login
     defaults: {_controller: BackBundle:Administrateur:login}
 
-
-
-#Route logout  admin back
+#Route logout admin back
 admin_logout:
     path: /admin/logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
 
+#Route Création d'un admin back
+admin_create:
+    path: /admin/create
+    defaults: { _controller: BackBundle:Administrateur:create}
 
+#Route Affiche profile  admin back
+admin_profil:
+    path: /admin/profil
+    defaults: { _controller: BackBundle:Administrateur:profil}
 
+#Route Affiche tout les  admins back
+AllAdmin:
+    path: /admin/list
+    defaults:  { _controller: BackBundle:Administrateur:allAdmin}
 
-#supp un admin ......
+#Route Mis à jour admin back
+admin_update:
+    path: /admin/update
+    defaults:  { _controller: BackBundle:Administrateur:update}
+
+#Route affichant le profil d'un utilisateur lambda
+admin_profilOther:
+    path: /admin/list/details
+    defaults:  { _controller: BackBundle:Administrateur:AdminDetails}
+
+#Route pour supprimer un admin
+admin_delete:
+    path: /admin/list/delete
+    defaults:  { _controller: BackBundle:Administrateur:delete}

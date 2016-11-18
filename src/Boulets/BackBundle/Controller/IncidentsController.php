@@ -1,6 +1,8 @@
 <?php
 
+
     namespace Boulets\BackBundle\Controller;
+
 
     use Boulets\BackBundle\Entity\Incident;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,12 +12,14 @@
     class IncidentsController extends Controller
     {
 
+
         public function createAction(Request $request)
         {
             $session = $request->getSession();
             $session->getName();
             $nom = $session->get('name');
             if (!empty($nom)) {
+
 
                 if ($request->isMethod("POST")) {
 
@@ -28,6 +32,7 @@
                     $repo = $this->getDoctrine()->getRepository("BackBundle:Incident");
                     $incidentP = $repo->findBy(array('nom' => $nom, 'ip' => $ip, 'datefin' => $testdatefin));
                     if ($incidentP == null) {
+
 
                         $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
                         $machine1 = $repo->findBy(array('ip' => $ip));
@@ -51,7 +56,7 @@
 
                             $this->addFlash(
                                 'Notification',
-                                "Succès de l'ajout"
+                                "L'ajoue a bien été effcetué "
                             );
                             return $this->redirectToRoute('front_indexallincidents');
 
@@ -60,7 +65,7 @@
 
                             $this->addFlash(
                                 'Notification',
-                                "Erreur:Echec de l'ajout. Veuillez réessayer"
+                                "L'ajoue n'est pas abouti veuillez resseyer"
                             );
 
 
@@ -72,7 +77,7 @@
                     } else {
                         $this->addFlash(
                             'Notification',
-                            "Erreur:Echec de l'ajout(Le même incident est déja présent.Veuillez réessayer.)"
+                            "L'ajoue n'est pas abouti le même incident est déja présent veuillez resseyer"
                         );
 
 
@@ -81,15 +86,18 @@
 
                 } elseif ($request->isMethod('GET')) {
 
+
                     $repoSalle = $this->getDoctrine()->getRepository("BackBundle:Salle");
                     $repoMachine = $this->getDoctrine()->getRepository("BackBundle:Machine");
                     $salles = $repoSalle->findAll();
                     $machines = $repoMachine->findAll();
 
+
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Incidents:createincident.html.twig',
                             array('salles' => $salles, 'machines' => $machines));
                     return new Response($reponse);
+
 
                 }
 
@@ -97,13 +105,15 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Erreur:Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
+
 
                 return $this->redirectToRoute("login");
 
             }
         }
+
 
         public function incidentendAction(Request $request, $id)
         {
@@ -113,6 +123,7 @@
             if (!empty($nom)) {
 
                 if ($request->isMethod('GET')) {
+
 
                     $response = $this->get('templating')
                         ->render('FrontBundle:Incidents:incidentend.html.twig');
@@ -134,7 +145,7 @@
 
                         if (!$incidentE) {
                             throw $this->createNotFoundException(
-                                'Pas d\'incident trouvé pour cette id'. $id
+                                'Pas incident trouvé pour cette id ' . $id
                             );
                         }
                         $incidentE->setDatefin($dateend);
@@ -147,15 +158,18 @@
 
                 }
 
+
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Erreur:Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
+
 
                 return $this->redirectToRoute("login");
 
             }
+
 
         }
 

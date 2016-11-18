@@ -11,6 +11,7 @@
     class MachineController extends Controller
     {
 
+
         public function createAction(Request $request)
         {
             $session = $request->getSession();
@@ -18,7 +19,9 @@
             $nom = $session->get('name');
             if (!empty($nom)) {
 
+
                 if ($request->isMethod("POST")) {
+
 
                     $ip = $request->request->get('ip');
                     $nom = $request->request->get('nom');
@@ -28,8 +31,10 @@
                     $statut = $request->request->get('statut');
                     $salle = $request->request->get('salle');
 
+
                     $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
                     $machine = $repo->findOneBy(array('ip' => $ip));
+
 
                     $isValid = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 
@@ -53,12 +58,14 @@
 
                         $this->addFlash(
                             'Notification',
-                            "La machine a bien été ajoutée"
+                            "La machine   a bien été ajoutée"
                         );
 
                         return $this->redirectToRoute('front_machineall');
 
+
                     } else {
+
                         $this->addFlash(
                             'Notification',
                             "La machine n'a pas pu être ajoutée, réessayer"
@@ -69,21 +76,25 @@
 
                 } elseif ($request->isMethod('GET')) {
 
+
                     $repoSalle = $this->getDoctrine()->getRepository("BackBundle:Salle");
                     $salles = $repoSalle->findAll();
+
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Machine:createmachine.html.twig',
                             array('salles' => $salles));
                     return new Response($reponse);
 
+
                 }
 
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
+
 
                 return $this->redirectToRoute("login");
 
@@ -95,6 +106,7 @@
         public function updateAction(Request $request, $id)
         {
 
+
             $session = $request->getSession();
             $session->getName();
             $nom = $session->get('name');
@@ -102,8 +114,10 @@
 
                 if ($request->isMethod('GET')) {
 
+
                     $repoSalle = $this->getDoctrine()->getRepository("BackBundle:Salle");
                     $salles = $repoSalle->findAll();
+
 
                     $machinesR = $this->getDoctrine()->getRepository("BackBundle:Machine");
                     $machine = $machinesR->findOneBy(array('id' => $id));
@@ -114,6 +128,7 @@
 
                 } elseif ($request->isMethod("POST")) {
 
+
                     $ip = $request->request->get('ip');
                     $nom = $request->request->get('nom');
                     $type = $request->request->get('type');
@@ -122,19 +137,26 @@
                     $statut = $request->request->get('statut');
                     $salle = $request->request->get('salle');
 
+
                     $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
                     $machineSame2 = $repo->findBy(array('ip' => $ip));
 
+
                     if ($machineSame2 == null) {
+
 
                         $em = $this->getDoctrine()->getManager();
                         $machineE = $em->getRepository('BackBundle:Machine')->find($id);
 
+
+
                         if ($machineE != null) {
+
 
                             if (!empty($ip)) {
                                 $machineE->setIp($ip);
                                 $em->flush();
+
                             }
                             if (!empty($nom)) {
                                 $machineE->setNom($nom);
@@ -161,9 +183,10 @@
                                 $em->flush();
                             }
 
+
                             $this->addFlash(
                                 'Notification',
-                                "La machine a bien été modifiée."
+                                "La machine  a bien été modifiée "
                             );
 
 
@@ -176,18 +199,26 @@
 
                     $this->addFlash(
                         'Notification',
-                        "Erreur: L'ip donnée est déjà attribuée à une autre machine."
+                        "Une machine qui comporte l'ip donnée est déja attribuéé "
                     );
 
 
                     return $this->redirectToRoute('front_machineall');
+
+
                 }
+
+
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
+
+
                 //  return $this->redirectToRoute("login");
+
+
             }
 
         }
@@ -217,7 +248,7 @@
 
                         $this->addFlash(
                             'Notification',
-                            "La machine a été retirée."
+                            "La machine a été  retirée."
                         );
 
 
@@ -227,7 +258,7 @@
 
                     $this->addFlash(
                         'Notification',
-                        "Erreur: Echec du retrait de la machine."
+                        "La machine qui comporte l'ip n'a pas pu être retirée."
                     );
 
 
@@ -239,7 +270,7 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
 
 
@@ -298,6 +329,7 @@
                                 "Echec du ping"
                             );
                             return $this->redirectToRoute('front_machineall');
+
                         }
                     }
                 } else {
@@ -309,8 +341,10 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
+
+
                 return $this->redirectToRoute("login");
 
             }

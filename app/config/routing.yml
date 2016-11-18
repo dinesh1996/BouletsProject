@@ -1,10 +1,10 @@
 back:
     resource: "@BackBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /back
 
 front:
     resource: "@FrontBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /front
 
 app:
     resource: "@AppBundle/Controller/"

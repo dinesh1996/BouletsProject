@@ -1,7 +1,7 @@
 {%extends "BackBundle::layout.html.twig"%}
 
 {%block title%}
-Liste de tous les utilisateurs
+
 {%endblock%}
 
 {% block content %}
@@ -10,24 +10,14 @@ Liste de tous les utilisateurs
             <div class="col-lg-6">
                 <table class="table table-bordered table-striped table-hover">
                     <tr>
-                        <th>Nom</th><th>Prénom</th>
+                        <th>Nom</th><th>Prénom</th><th>Mail</th><th>Création</th>
                     </tr>
                     {%for u in utilisateurs%}
                         <tr>
                             <td>{{u.nom}}</td>
+                            <td>toto</td>
                             <td>{{u.mail}}</td>
-                            <td>
-                            <form method="post" action="{{ path('admin_profilOther') }}">
-                                <input type="submit" value="Details">
-                                <input type="hidden" name="id" value="{{ u.id }}">
-                            </form>
-                            </td>
-                            <td>
-                            <form method="post" action="{{ path('admin_delete') }}">
-                                <input type="submit" value="Supprimer">
-                                <input type="hidden" name="id" value="{{ u.id }}">
-                            </form>
-                            </td>
+                            <td>Taratata</td>
                         </tr>
                     {%endfor%}
                 </table>

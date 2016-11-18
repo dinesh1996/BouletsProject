@@ -1,6 +1,14 @@
 <?php
-namespace Boulets\BackBundle\Controller;
-use Boulets\BackBundle\Entity\Salle;
+    /**
+     * Created by PhpStorm.
+     * User: root
+     * Date: 07/11/16
+     * Time: 11:53
+     */
+
+    namespace Boulets\BackBundle\Controller;
+
+    use Boulets\BackBundle\Entity\Salle;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
@@ -8,6 +16,7 @@ use Boulets\BackBundle\Entity\Salle;
 
     class SalleController extends Controller
     {
+
 
         public function createAction(Request $request)
         {
@@ -19,7 +28,7 @@ use Boulets\BackBundle\Entity\Salle;
 
                 if ($request->isMethod("POST")) {
 
-                    //On récupère les données venant du formulaire
+
                     $nom = $request->request->get('nom');
                     $etat = $request->request->get('etat');
                     $incident = $request->request->get('incident');
@@ -32,7 +41,6 @@ use Boulets\BackBundle\Entity\Salle;
 
                     if ($salle == null) {
 
-                        //On crée un objet salle auquel on lui affecte différentes valeur
                         $s = new Salle();
                         $s->setNom($nom);
                         $s->setAdministrateur($admin);
@@ -41,22 +49,24 @@ use Boulets\BackBundle\Entity\Salle;
                         $s->setEtat($etat);
                         $s->setIncident($incident);
 
+
                         $datacontext = $this->getDoctrine()->getEntityManager();
                         $datacontext->persist($s);
                         $datacontext->flush();
 
                         $this->addFlash(
                             'Notification',
-                            "La salle a bien été ajoutée."
+                            "La salle  a bien été ajoutée"
                         );
 
                         return $this->redirectToRoute('front_allsalleaffiche');
+
 
                     } else {
 
                         $this->addFlash(
                             'Notification',
-                            "Erreur: Echce de l'ajout de la salle.Veuillez réessayer."
+                            "La salle n'a pas pu être ajoutée, réessayer"
                         );
                         return $this->redirectToRoute('back_createsalle');
 
@@ -64,21 +74,29 @@ use Boulets\BackBundle\Entity\Salle;
 
                 } elseif ($request->isMethod('GET')) {
 
+
                     $repoSalle = $this->getDoctrine()->getRepository("BackBundle:Salle");
                     $salles = $repoSalle->findAll();
+
+
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Salle:createsalle.html.twig',
                             array('salles' => $salles));
                     return new Response($reponse);
+
+
                 }
 
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
 
+
                 return $this->redirectToRoute("login");
+
+
             }
         }
 
@@ -93,11 +111,15 @@ use Boulets\BackBundle\Entity\Salle;
 
                     $repoSalle = $this->getDoctrine()->getRepository("BackBundle:Salle");
                     $salle = $repoSalle->findOneBy(array('id' => $id));
+
+
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Salle:updatesalle.html.twig', array('salle' => $salle));
                     return new Response($reponse);
 
+
                 } elseif ($request->isMethod("POST")) {
+
 
                     $nom = $request->request->get('nom');
                     $etat = $request->request->get('etat');
@@ -125,8 +147,9 @@ use Boulets\BackBundle\Entity\Salle;
                             if (!empty($incident)) {
                                 $salleE->setIncident($incident);
                                 $em->flush();
-                            }
 
+
+                            }
                             if (!empty($nom)) {
                                 $salleE->setNom($nom);
                                 $em->flush();
@@ -147,7 +170,7 @@ use Boulets\BackBundle\Entity\Salle;
 
                     $this->addFlash(
                         'Notification',
-                        "Erreur: Une salle porte déjà ce nom.Veuillez réessayer."
+                        "Une salle comporte déja ce nom, réessayer. "
                     );
 
 
@@ -160,7 +183,7 @@ use Boulets\BackBundle\Entity\Salle;
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
 
 
@@ -204,7 +227,7 @@ use Boulets\BackBundle\Entity\Salle;
 
                     $this->addFlash(
                         'Notification',
-                        "Erreur: Echec du retrait de la salle."
+                        "La salle n'a pas pu être retirée."
                     );
 
 
@@ -216,7 +239,7 @@ use Boulets\BackBundle\Entity\Salle;
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecter pour accéder à la page demandée.'
+                    'Vous devez vous connecté pour accedé à la page demandée'
                 );
 
 
