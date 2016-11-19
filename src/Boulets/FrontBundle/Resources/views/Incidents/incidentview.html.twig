@@ -1,0 +1,61 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+{% block title %}
+Détails de l'incident
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="container">
+        <h1>Détails de l'incident</h1>
+
+        <p class=" col-md-4">
+            Nom de l'incident: {{ i.nom }}
+        </p>
+
+        <p class=" col-md-4">
+            Ip de la machine : {{ i.ip }}
+        </p>
+
+        <p class=" col-md-4">
+            Nom de la machine impliquée :  {{ i.machine }}
+        </p>
+
+
+        <p class=" col-md-4">
+            {% if i.datefin == null %}
+                Date de fin : Non défini
+            {% else %}
+                Date de fin :{{ i.datefin|date('d/m/Y') }}
+            {% endif %}
+        </p>
+
+
+
+        <p> Id: {{ incident.id }} </p>
+        <p> Nom: {{ incident.nom }}</p>
+        <p> Ip: {{ incident.ip }}</p>
+        <p> Type: {{ incident.type }}</p>
+        <p> Machine: {{ incident.machine }}</p>
+        <p> Salle: {{ incident.salle }}</p>
+        <p> Explication: {{ incident.text }}</p>
+        <p> Commencer le : {{ incident.datedebut|date('d/m/Y') }}</p>
+
+
+        {% if incident.datefin == null %}
+            <p>Fin le: Non défini</p>
+        {% else %}
+            <p> Fin le: {{ incident.datefin|date('d/m/Y') }}</p>
+        {% endif %}
+
+        <form action="../../../back/incident/end/{{ incident.id }} "><input type="submit" class="btn"
+                                                                            value="Finaliser la fin de cet incident "/>
+        </form>
+        <form action="../affiche"><input type="submit" class="btn" value="retour"/></form>
+    </div>
+
+
+{% endblock %}

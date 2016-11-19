@@ -1,0 +1,78 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Historique des incidents
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Historique des incidents
+
+            <form class="box" action={{ path('back_create_incident') }}><input class="btn " type="submit"
+                                                                               value="Nouvelle Incident"/>
+            </form>
+        </h1>
+    </div>
+
+
+
+    <div class="row">
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+        {% for i in incidents %}
+
+
+        <div class=" container">
+            <div class="page-header">
+                <h2> Nom de l'incident: {{ i.nom }}, concernant la machine {{ i.machine }}</h2>
+            </div>
+            <div class="">
+
+                <p class=" col-md-3">
+                    {{ i.id }}
+                </p>
+
+                <p class=" col-md-3">
+                    Type: {{ i.type }}
+
+                </p>
+
+
+                <p class=" col-md-3">
+                   Date de création : {{ i.datedebut|date('d/m/Y') }}
+
+                </p>
+
+
+
+
+
+
+
+                <form class="col-md-3" action="details/{{ i.id }}"><input type="submit" class="btn box"
+                                                                          value="Détails"/>
+                </form>
+            </div>
+        </div>
+
+
+
+            {% endfor %}
+
+
+    </div>
+
+{% endblock %}
+
+
+
+

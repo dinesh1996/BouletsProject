@@ -1,0 +1,49 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+{% block title %}
+    Salle Détails
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="container">
+        <h1>Salle Détails</h1>
+
+
+        <p>Id : {{ salle.id}}</p>
+        <p>Nom : {{ salle.nom}}</p>
+        <p>Etat :{{ salle.etat}}</p>
+
+        {% set counter = 0 %}
+        {% for m in machines %}
+        {% if  m.salle == salle.nom %}
+
+            {% set counter = counter + 1 %}
+
+        {% endif %}
+        {% endfor %}
+
+        <p>Nombre de machines : {{ counter }}</p>
+        <p>Dernière modification par :{{salle.administrateur}} </p>
+        <p>Incident :{{  salle.incident}} </p>
+
+
+        <p> Date de création : {{ salle.datecreation|date('d/m/Y') }}</p>
+
+
+        <form action="../update/{{ salle.id }} "><input type="submit" class="btn"
+                                                        value="Modifier la salle"/></form>
+
+        <form method="post" action="../../../back/salle/delete/{{ salle.id }} "><input type="submit" class="btn" value="Supprimer la salle"/></form>
+        <form method="post" action="{{ salle.id }}/machines"><input type="submit" class="btn" value="Machines associées à cette salle"/></form>
+
+        <form action="../affiche"><input type="submit" class="btn" value="retour"/></form>
+
+
+    </div>
+
+
+{% endblock %}

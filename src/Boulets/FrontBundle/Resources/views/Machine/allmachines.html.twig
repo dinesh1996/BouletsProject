@@ -1,0 +1,58 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+
+{% block title %}
+    Liste de toutes les machines
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Liste de toutes les machines
+
+            <form class="box" action={{ path('back_machine_create') }}><input class="btn " type="submit"
+                                                                              value="Nouvelle Machine"/>
+            </form>
+        </h1>
+    </div>
+    <div>
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+
+        {% for m in machines %}
+            <div class=" container">
+                <div class="page-header">
+                    <h2> Adresse Ip : {{ m.ip }}, Nom de la machine : {{ m.nom }}</h2>
+                </div>
+                <div class="">
+
+                    <p class=" col-md-4">
+                        Le statut : {{ m.statut }}
+                    </p>
+                    <p class=" col-md-4">
+                        Dans la salle : {{ m.salle }}
+
+                    </p>
+                    <form class="col-md-4" action="details/{{ m.id }}"><input type="submit" class="btn box"
+                                                                              value="Détails"/>
+                    </form>
+                </div>
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}
+
+
+
+

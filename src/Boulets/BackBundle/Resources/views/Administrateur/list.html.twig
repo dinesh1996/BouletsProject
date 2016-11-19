@@ -1,0 +1,38 @@
+{%extends "BackBundle::layout.html.twig"%}
+
+{%block title%}
+
+{%endblock%}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>Nom</th><th>Mail</th>
+                    </tr>
+                    {%for u in utilisateurs%}
+                        <tr>
+                            <td>{{u.nom}}</td>
+                           <td>{{u.mail}}</td>
+                            <td>
+                                <form action={{ path('admin_details') }}>
+                                    <input type="submit" class="btn btn-primary" value="Details">
+                                    <input type="hidden" class="btn btn-primary" value="{{ u.id }}">
+                                </form>
+                            </td>
+                            <td>
+                                <form action={{ path('admin_deleteUser') }}>
+                                    <input type="submit" class="btn btn-primary" value="Supprimer">
+                                    <input type="hidden" class="btn btn-primary" value="{{ u.id }}">
+
+                                </form>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock%}

@@ -1,0 +1,66 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+
+
+{% block title %}
+    Page de creation d'incident
+{% endblock %}
+
+
+
+{% block content %}
+
+    <h1>Page de creation d'incident </h1>
+
+
+    <h1>Création d'incidents</h1>
+
+    <form method="POST" action="">
+        <label for="nom">Titre :</label>
+        <input type="text" class="form-control" name="nom" placeholder="Titre"><br><br>
+
+
+        <div class="form-group">
+            <label for="sel1">Machine concernée:</label>
+            <select class="form-control" id="sel1" name="ip">
+                {% for  m in machines %}
+
+
+
+
+                    <option value={{ m.ip }}>{{ m.nom }} {{ m.ip }} dans la salle : {{ m.salle }}  </option>
+
+                {% endfor %}
+
+            </select>
+        </div>
+
+
+        <label for="type">Type :</label>
+        <input type="text" class="form-control" name="type" placeholder="Type"><br><br>
+
+        <div class="form-group">
+            <label for="explication">Explication:</label>
+            <textarea class="form-control" rows="5" placeholder="Explication" id="comment" name="text"></textarea>
+        </div>
+
+
+        <input class="btn" type="submit">
+    </form>
+
+    <form action="affiche"><input type="submit" class="btn" value="retour"/></form>
+
+
+
+
+    {% if alerte is defined %}
+        <p>{{ alerte }}</p>
+    {% endif %}
+
+
+
+{% endblock %}
+
+
+
+
