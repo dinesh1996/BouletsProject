@@ -83,7 +83,7 @@
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Machine:createmachine.html.twig',
-                            array('salles' => $salles));
+                            array('salles' => $salles,'nom'=>$nom));
                     return new Response($reponse);
 
 
@@ -119,7 +119,7 @@
                     $machine = $machinesR->findOneBy(array('id' => $id));
                     $response = $this->get('templating')
                         ->render('FrontBundle:Machine:updatemachine.html.twig',
-                            array('machine' => $machine, 'salles' => $salles));
+                            array('machine' => $machine, 'salles' => $salles,'nom'=>$nom));
                     return new Response($response);
 
                 } elseif ($request->isMethod("POST")) {
@@ -246,16 +246,19 @@
 
 
                         return $this->redirectToRoute('front_machineall');
+                    }else{
+
+
+                        $this->addFlash(
+                            'Notification',
+                            "Erreur:Echec du retrait de la machine."
+                        );
+
+
+                        return $this->redirectToRoute('front_machineall');
                     }
 
 
-                    $this->addFlash(
-                        'Notification',
-                        "Erreur:Echec du retrait de la machine."
-                    );
-
-
-                    return $this->redirectToRoute('front_machineall');
                 }
 
 
