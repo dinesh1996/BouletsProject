@@ -1,8 +1,20 @@
 {%extends "BackBundle::layout.html.twig"%}
 
 {%block title%}
-
+Liste des utilisateurs
 {%endblock%}
+
+{% block navContent %}
+    {% if nom is not null %}
+        <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+            </a></li>
+    {% elseif nom is null %}
+        <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Sign In
+            </a></li>
+        <li><a href={{ path('admin_create') }}><span class="glyphicon glyphicon-log-out"></span> Sign Up
+            </a></li>
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -17,16 +29,15 @@
                             <td>{{u.nom}}</td>
                            <td>{{u.mail}}</td>
                             <td>
-                                <form action={{ path('admin_details') }}>
+                                <form method="post" action={{ path('admin_details') }}>
                                     <input type="submit" class="btn btn-primary" value="Details">
-                                    <input type="hidden" class="btn btn-primary" value="{{ u.id }}">
+                                    <input type="hidden" name="id" class="btn btn-primary" value="{{ u.id }}">
                                 </form>
                             </td>
                             <td>
-                                <form action={{ path('admin_deleteUser') }}>
+                                <form method="post" action={{ path('admin_deleteUser') }}>
                                     <input type="submit" class="btn btn-primary" value="Supprimer">
-                                    <input type="hidden" class="btn btn-primary" value="{{ u.id }}">
-
+                                    <input type="hidden" name="id" class="btn btn-primary" value="{{ u.id }}">
                                 </form>
                             </td>
                         </tr>

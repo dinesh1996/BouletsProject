@@ -37,8 +37,9 @@
                 <li><a href={{ path('front_allsalleaffiche') }}>Crédit</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ path('admin_create')}}><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% block navContent %}
+                {% endblock %}
+
             </ul>
         </div>
     </div>

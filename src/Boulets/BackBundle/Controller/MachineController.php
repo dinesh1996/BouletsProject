@@ -58,7 +58,7 @@
 
                         $this->addFlash(
                             'Notification',
-                            "La machine   a bien été ajoutée"
+                            "La machine a bien été ajoutée"
                         );
 
                         return $this->redirectToRoute('front_machineall');
@@ -68,7 +68,7 @@
 
                         $this->addFlash(
                             'Notification',
-                            "La machine n'a pas pu être ajoutée, réessayer"
+                            "Erreur: Echec de l'ajout de la machine.Veuillez recommencer."
                         );
                         return $this->redirectToRoute('back_machine_create');
 
@@ -92,13 +92,9 @@
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
-
-
                 return $this->redirectToRoute("login");
-
-
             }
         }
 
@@ -186,7 +182,7 @@
 
                             $this->addFlash(
                                 'Notification',
-                                "La machine  a bien été modifiée "
+                                "La machine a bien été modifiée."
                             );
 
 
@@ -199,7 +195,7 @@
 
                     $this->addFlash(
                         'Notification',
-                        "Une machine qui comporte l'ip donnée est déja attribuéé "
+                        "Erreur:L'adresse IP donnée a déjà été attribuée.Veuillez recommencer."
                     );
 
 
@@ -212,11 +208,8 @@
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
-
-
-                //  return $this->redirectToRoute("login");
 
 
             }
@@ -248,7 +241,7 @@
 
                         $this->addFlash(
                             'Notification',
-                            "La machine a été  retirée."
+                            "La machine a été retirée."
                         );
 
 
@@ -258,7 +251,7 @@
 
                     $this->addFlash(
                         'Notification',
-                        "La machine qui comporte l'ip n'a pas pu être retirée."
+                        "Erreur:Echec du retrait de la machine."
                     );
 
 
@@ -270,12 +263,10 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
-
                 return $this->redirectToRoute("login");
-
             }
         }
 
@@ -297,7 +288,6 @@
 
                     if (isset ($machine)) {
                         $select_ip = $machine->getIp();
-
 
                         exec("ping -c 2 " . $select_ip, $output, $result);
 
@@ -341,10 +331,8 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
-
-
                 return $this->redirectToRoute("login");
 
             }

@@ -4,6 +4,11 @@
     Login
 {%endblock%}
 
+{% block navContent %}
+    <li><a href={{ path('admin_create')}}><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+{% endblock %}
+
 {% block content %}
     <div class="container">
 

@@ -4,6 +4,18 @@
     Profil
 {%endblock%}
 
+{% block navContent %}
+    {% if nom is not null %}
+        <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+            </a></li>
+    {% elseif nom is null %}
+        <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Sign In
+            </a></li>
+        <li><a href={{ path('admin_create') }}><span class="glyphicon glyphicon-log-out"></span> Sign Up
+            </a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="container">
 

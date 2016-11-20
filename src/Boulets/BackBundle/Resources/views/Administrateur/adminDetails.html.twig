@@ -6,6 +6,18 @@
     {% endif %}
 {%endblock%}
 
+{% block navContent %}
+    {% if nom is not null %}
+        <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+            </a></li>
+    {% elseif nom is null %}
+        <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Sign In
+            </a></li>
+        <li><a href={{ path('admin_create') }}><span class="glyphicon glyphicon-log-out"></span> Sign Up
+            </a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="container">
 
@@ -13,29 +25,9 @@
         {% if user is defined %}
             <h1>Nom</h1>
             {{ user.nom }}
+
             <h1>Mail</h1>
             {{ user.mail }}
-
-            <form action={{ path('admin_logout') }}>
-                <input type="submit" class="btn btn-primary" value="Se deconnecter" />
-            </form>
-
-            <form action={{ path('admin_update') }}>
-                <input type="submit" class="btn btn-primary" value="Modifier votre profil " />
-            </form>
-
-            <form action="../salle/affiche">
-                <input type="submit" class="btn btn-primary" value="DashBoard" />
-            </form>
-
-            <form action="../incident/affiche">
-                <input type="submit" class="btn btn-primary" value="Les incidents" />
-            </form>
-
-
-            <form action="../machine/affiche">
-                <input type="submit" class="btn btn-primary" value="Les machines" />
-            </form>
 
         {%  endif%}
 

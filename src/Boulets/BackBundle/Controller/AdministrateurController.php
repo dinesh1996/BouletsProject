@@ -38,7 +38,7 @@
                         $utilisateur = $repo->findOneBy(array('mail' => $mail, 'password' => $mdp, 'nom' => $nom));
                         if ($utilisateur) {
                             //Placer l'erreur que les champs mdp et confmdp ne sont pas remplis
-                            $erreur = "Les champs Mot de passe et Confirmation de Mot de passe ne correspondent pas.";
+                            $erreur = "Erreur:L'utilisateur existe déjà.";
                             $response = $this->get('templating')
                                 ->render('BackBundle:Administrateur:create.html.twig', array('error' => $erreur));
                             return new Response($response);
@@ -64,7 +64,7 @@
 
                     } else {
 
-                        $erreur = "Les champs mot de passe et Confirmation de mot de passe ne sont pas les mêmes.";
+                        $erreur = "Erreur:Les champs mot de passe et Confirmation de mot de passe ne sont pas les mêmes.";
                         //Placer l'erreur que les champs mdp et confmdp ne sont pas remplis
                         $response = $this->get('templating')
                             ->render('BackBundle:Administrateur:create.html.twig', array('error' => $erreur));
@@ -74,7 +74,7 @@
                 } else {
 
                     //Placer erreur que les champs ne sont pas tous remplis
-                    $erreur = "Les champs ne sont pas tous remplis.";
+                    $erreur = "Erreur:Les champs ne sont pas tous remplis.";
                     $response = $this->get('templating')
                         ->render('BackBundle:Administrateur:create.html.twig', array('error' => $erreur));
                     return new Response($response);
@@ -90,30 +90,32 @@
         //Update
         public function updateAction(Request $request)
         {
-            if ($request->isMethod('GET')) {
+            if($request->isMethod('GET')){
                 return $this->render('BackBundle:Administrateur:update.html.twig');
 
-            } elseif ($request->isMethod('POST')) {
+            }elseif ($request->isMethod('POST')){
                 $mdp = $request->request->get("mdp");
                 $nom = $request->request->get("nom");
                 $confmdp = $request->request->get("confmdp");
 
-                $repo = $this->getDoctrine()->getRepository('BackBundle:Administrateur');
-                $utilisateur = $repo->findOneBy(array(
-                    'mail' => $this->get('session')->get('mail'),
-                    'nom' => $this->get('session')->get('name')
-                ));
-                $datacontext = $this->getDoctrine()->getEntityManager();
+                $repo= $this->getDoctrine()->getRepository('BackBundle:Administrateur');
+                $utilisateur = $repo->findOneBy( array('mail' => $this->get('session')->get('mail'),'nom' => $this->get('session')->get('name')) );
+                $datacontext= $this->getDoctrine()->getEntityManager();
 
-                if (!empty($nom)) {
+                if(!empty($nom)){
 
+                    $repository= $this->getDoctrine()->getRepository('BackBundle:Salle');
+                    $machines = $repository->findBy(array('administrateur'=>$this->get('session')->get('name')));
+                    for($index =  0;$index<count($machines);$index++){
+                        $machines[$index]->setAdministrateur($nom);
+                    }
                     $utilisateur->setNom($nom);
                     $datacontext->flush();
-                    $this->get('session')->set('name', $nom);
+                    $this->get('session')->set('name',$nom);
 
 
                 }
-                if (!empty($mdp) && !empty($confmdp) && $mdp == $confmdp) {
+                if(!empty($mdp) && !empty($confmdp) && $mdp == $confmdp ){
 
                     $mdp = $mdp . crypt($mdp, CRYPT_BLOWFISH);
                     $mdp = hash('md5', $mdp);
@@ -157,7 +159,7 @@
 
                     } else {
                         //On renvoie vers la page de login dans le cas où on ne trouve pas l'utilisateur en bdd
-                        $erreur = "Mot de passe ou Email incorrect";
+                        $erreur = "Erreur:Mot de passe ou Email incorrect";
                         $response = $this->get('templating')
                             ->render('BackBundle:Administrateur:logIn.html.twig', array('error' => $erreur));
                         return new Response($response);
@@ -192,8 +194,11 @@
             $mail = $session->get('mail');
 
             if (empty($nom)) {
+
                 return $this->redirectToRoute("login");
+
             } elseif (!empty($nom)) {
+
                 $response = $this->get('templating')
                     ->render('BackBundle:Administrateur:profil.html.twig', array('nom' => $nom, 'mail' => $mail));
                 return new Response($response);
@@ -201,47 +206,76 @@
         }
 
         //Renvoie la liste des utilisateurs du site
-        public function allAdminAction()
+        public function allAdminAction(Request $request)
         {
+            $session = $request->getSession();
+            $session->getName();
+            $nom = $session->get('name');
             $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
             $utilisateurs = $repo->findAll();
             $response = $this->get('templating')
-                ->render('BackBundle:Administrateur:list.html.twig', array('utilisateurs' => $utilisateurs));
+                ->render('BackBundle:Administrateur:list.html.twig', array('utilisateurs' => $utilisateurs,'nom'=>$nom));
             return new Response($response);
         }
+
         //Affiche les détails d'un utilisateur autre que celui connecté
         public function AdminDetailsAction(Request $request){
-            $id =  $request->request->get("id");
+
+            $session = $request->getSession();
+            $session->getName();
+            $nom = $session->get('name');
+            $id =  $request->request->get('id');
             $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
+
             if(empty($id)){
+
                 return $this->redirectToRoute("AllAdmin");
+
             }elseif (!empty($id)){
-                $user = $repo->findOneBy(array('id'=>$id));
+
+                $user = $repo->findOneBy( array( 'id' => $id) );
+
                 if($user){
+
                     $response = $this->get('templating')
-                        ->render('BackBundle:Administrateur:adminDetails.html.twig',array('user' => $user));
+                        ->render('BackBundle:Administrateur:adminDetails.html.twig',array('user' => $user,'nom'=>$nom));
                     return new Response($response);
+
                 }else{
-                    return $this->redirectToRoute("AllAdmin");
+
+                  return $this->redirectToRoute("AllAdmin");
+
                 }
+
             }
+
         }
 
-        //Supprime un utilisateur depuis la liste
+        //Supprimer un utilisateur depuis la liste
         public function AdminDeleteAction(Request $request){
-            $id =  $request->request->get("id");
+
+            $id =  $request->request->get('id');
             $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
+
             if(empty($id)){
+
                 return $this->redirectToRoute("AllAdmin");
+
             } elseif (!empty($id)){
+
                 $user = $repo->findOneBy(array('id'=>$id));
+
                 if($user){
+
                     $datacontext= $this->getDoctrine()->getEntityManager();
                     $datacontext->remove($user);
                     $datacontext->flush();
                     return $this->redirectToRoute("AllAdmin");
+
                 }else{
+
                     return $this->redirectToRoute("AllAdmin");
+
                 }
             }
         }

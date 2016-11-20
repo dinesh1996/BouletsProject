@@ -104,6 +104,11 @@ class AdministrateurController extends Controller
 
             if(!empty($nom)){
 
+                $repository= $this->getDoctrine()->getRepository('BackBundle:Machine');
+                $machines = $repository->findBy(array('nom'=>$this->get('session')->get('name')));
+                for($index =  0;$index<count($machines);$index++){
+                    $machines[$index]->setNom($nom);
+                }
                 $utilisateur->setNom($nom);
                 $datacontext->flush();
                 $this->get('session')->set('name',$nom);
@@ -148,10 +153,8 @@ class AdministrateurController extends Controller
                 if($utilisateur){
                     //On crée une nouvelle session
                      $session = $request->getSession();
-                    //$attributeBag = new AttributeBag('hoho');
-                    //$attributeBag->setName('user');
-                    //$session->registerBag($attributeBag);
-                    //On affection à cette session différentes valeur
+
+                    //On affecte à cette session différentes valeurs
                     $session->set('name',$utilisateur->getNom());
                     $session->set('mail',$utilisateur->getMail());
 
@@ -207,11 +210,14 @@ class AdministrateurController extends Controller
         }
     }
     //Renvoie la liste des utilisateurs du site
-    public function allAdminAction(){
+    public function allAdminAction(Request $request){
+        $session = $request->getSession();
+        $session->getName();
+        $nom = $session->get('name');
         $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
         $utilisateurs = $repo->findAll();
         $response = $this->get('templating')
-            ->render('BackBundle:Administrateur:list.html.twig',array('utilisateurs'=> $utilisateurs));
+            ->render('BackBundle:Administrateur:list.html.twig',array('utilisateurs'=> $utilisateurs,'nom'=>$nom));
         return new Response($response);
     }
 }

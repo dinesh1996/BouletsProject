@@ -17,10 +17,12 @@
     {
 
 
-        public function allsallesAction()
+        public function allsallesAction(Request $request)
         {
 
-
+            $session = $request->getSession();
+            $session->getName();
+            $nom = $session->get('name');
             $repo = $this->getDoctrine()->getRepository("BackBundle:Salle");
             $salles = $repo->findBy(array(), array('id' => 'DESC'));
 
@@ -30,7 +32,7 @@
 
 
             $reponse = $this->get('templating')
-                ->render('FrontBundle:Salle:allsalle.html.twig', array('salles' => $salles, 'machines' => $machineIn));
+                ->render('FrontBundle:Salle:allsalle.html.twig', array('salles' => $salles, 'machines' => $machineIn,'nom'=>$nom));
             return new Response($reponse);
 
 
@@ -40,7 +42,9 @@
         public function salleAction(Request $request, $id)
         {
 
-
+            $session = $request->getSession();
+            $session->getName();
+            $nom = $session->get('name');
             if ($request->isMethod('GET')) {
 
 
@@ -53,7 +57,7 @@
 
                 $reponse = $this->get('templating')
                     ->render('FrontBundle:Salle:salleview.html.twig',
-                        array('salle' => $salle, 'machines' => $machineIn));
+                        array('salle' => $salle, 'machines' => $machineIn,'nom'=>$nom));
                 return new Response($reponse);
 
             }
@@ -66,7 +70,9 @@
 
             if ($request->isMethod('POST')) {
 
-
+                $session = $request->getSession();
+                $session->getName();
+                $nom = $session->get('name');
                 $repo = $this->getDoctrine()->getRepository("BackBundle:Salle");
                 $salle = $repo->findBy(array('id' => $id));
 
@@ -77,7 +83,7 @@
 
 
                 $reponse = $this->get('templating')
-                    ->render('FrontBundle:Salle:machineinsalle.html.twig', array('machines' => $machineIn));
+                    ->render('FrontBundle:Salle:machineinsalle.html.twig', array('machines' => $machineIn,'nom'=>$nom));
                 return new Response($reponse);
 
             }

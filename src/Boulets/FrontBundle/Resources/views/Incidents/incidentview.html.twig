@@ -1,35 +1,47 @@
-{% extends "BackBundle::layout.html.twig" %}
+{%extends "BackBundle::layout.html.twig"%}
 
-{% block title %}
-Détails de l'incident
+{%block title%}
+    Description de l'incident
+{%endblock%}
+
+{% block navContent %}
+    {% if nom is not null %}
+        <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+            </a></li>
+    {% elseif nom is null %}
+        <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Sign In
+            </a></li>
+        <li><a href={{ path('admin_create') }}><span class="glyphicon glyphicon-log-out"></span> Sign Up
+            </a></li>
+    {% endif %}
 {% endblock %}
-
-
 
 {% block content %}
 
-
     <div class="container">
         <h1>Détails de l'incident</h1>
+        {% if i is defined %}
+            <p class=" col-md-4">
+                Nom de l'incident: {{ i.nom }}
+            </p>
+
+            <p class=" col-md-4">
+                Ip de la machine : {{ i.ip }}
+            </p>
+
+            <p class=" col-md-4">
+                Nom de la machine impliquée :  {{ i.machine }}
+            </p>
+        {% endif %}
 
         <p class=" col-md-4">
-            Nom de l'incident: {{ i.nom }}
-        </p>
 
-        <p class=" col-md-4">
-            Ip de la machine : {{ i.ip }}
-        </p>
-
-        <p class=" col-md-4">
-            Nom de la machine impliquée :  {{ i.machine }}
-        </p>
-
-
-        <p class=" col-md-4">
-            {% if i.datefin == null %}
-                Date de fin : Non défini
-            {% else %}
-                Date de fin :{{ i.datefin|date('d/m/Y') }}
+            {% if i is defined %}
+                {%  if i.datefin == null %}
+                    Date de fin : Non défini
+                {% else %}
+                    Date de fin :{{ i.datefin|date('d/m/Y') }}
+                {% endif %}
             {% endif %}
         </p>
 
@@ -56,6 +68,4 @@ Détails de l'incident
         </form>
         <form action="../affiche"><input type="submit" class="btn" value="retour"/></form>
     </div>
-
-
 {% endblock %}
