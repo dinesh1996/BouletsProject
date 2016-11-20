@@ -1,8 +1,9 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "BackBundle::layout.html.twig" %}
 
-{%block title%}
-Liste des utilisateurs
-{%endblock%}
+
+{% block title %}
+    Liste des administrateurs
+{% endblock %}
 
 {% block navContent %}
     {% if nom is not null %}
@@ -17,33 +18,37 @@ Liste des utilisateurs
 {% endblock %}
 
 {% block content %}
+
+
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <table class="table table-bordered table-striped table-hover">
-                    <tr>
-                        <th>Nom</th><th>Mail</th>
-                    </tr>
-                    {%for u in utilisateurs%}
-                        <tr>
-                            <td>{{u.nom}}</td>
-                           <td>{{u.mail}}</td>
-                            <td>
-                                <form method="post" action={{ path('admin_details') }}>
-                                    <input type="submit" class="btn btn-primary" value="Details">
-                                    <input type="hidden" name="id" class="btn btn-primary" value="{{ u.id }}">
-                                </form>
-                            </td>
-                            <td>
-                                <form method="post" action={{ path('admin_deleteUser') }}>
-                                    <input type="submit" class="btn btn-primary" value="Supprimer">
-                                    <input type="hidden" name="id" class="btn btn-primary" value="{{ u.id }}">
-                                </form>
-                            </td>
-                        </tr>
-                    {%endfor%}
-                </table>
-            </div>
+
+        <div class="page-header">
+            <h1>Liste des administrateurs
+                <form class="box" action={{ path('admin_create') }}><input class="btn " type="submit"
+                                                                           value="Nouvel Administrateur"/>
+                </form>
+
+            </h1>
         </div>
+
+        {% for u in utilisateurs %}
+
+
+
+            <div class="page-header">
+                <h2>{{ u.nom }}, mail : {{ u.mail }}</h2>
+            </div>
+
+            <form class="col-md-6" action="list/details/{{ u.id }}"><input type="submit" class="btn sub"
+                                                                           value="Détails"/>
+            </form>
+
+            <form class="col-md-6" action="list/delete/{{ u.id }}"><input type="submit" class="btn sub supp "
+                                                                          value="Supprimer"/>
+            </form>
+        {% endfor %}
     </div>
-{%endblock%}
+
+    </div>
+
+{% endblock %}

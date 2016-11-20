@@ -35,6 +35,7 @@
                         $s->setEtat($etat);
                         $s->setNbMachines(0);
 
+
                         $datacontext = $this->getDoctrine()->getEntityManager();
                         $datacontext->persist($s);
                         $datacontext->flush();

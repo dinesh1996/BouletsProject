@@ -98,7 +98,7 @@
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Incidents:createincident.html.twig',
-                            array('salles' => $salles, 'machines' => $machines));
+                            array('salles' => $salles, 'machines' => $machines,'nom'=>$nom));
                     return new Response($reponse);
 
 

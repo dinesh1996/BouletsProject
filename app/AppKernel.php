@@ -5,6 +5,8 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
+
+
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -17,6 +19,7 @@ class AppKernel extends Kernel
             new Boulets\FrontBundle\FrontBundle(),
             new Boulets\BackBundle\BackBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Cron\CronBundle\CronCronBundle(),
         ];
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
@@ -42,4 +45,6 @@ class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
+
+
 }

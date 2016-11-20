@@ -1,8 +1,9 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "BackBundle::layout.html.twig" %}
 
 {%block title%}
     Ajout de la date de fin d'incident
 {%endblock%}
+
 
 {% block navContent %}
     {% if nom is not null %}
@@ -20,15 +21,16 @@
 
     <div class="container">
         <form method="POST" action="">
-            Date de la fin de l'incident<br>
 
-
-            <input type="date" class="form-control"  name="dateend" placeholder="Titre"><br><br>
-            <input class="btn" type="submit">
+            <label for="dateend">Date de la fin de l'incident :</label>
+            <input type="date" class="form-control" name="dateend" placeholder="Titre"/>
+            <input class="btn sub" type="submit"/>
 
         </form>
+        <form action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn"
+                                                                    value="Liste des incidents"/></form>
     </div>
 
 
 
-{%endblock%}
+{% endblock %}

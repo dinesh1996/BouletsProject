@@ -3,7 +3,7 @@
 
 
 {% block title %}
-    Page de creation d'incident
+    Création d'incident
 {% endblock %}
 
 {% block navContent %}
@@ -21,10 +21,16 @@
 
 {% block content %}
 
-    <h1>Page de creation d'incident </h1>
+
+    <div class="page-header">
 
 
-    <h1>Création d'incidents</h1>
+        <h1>Création d'incidents
+            <form class="box" action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn"
+                                                                                    value="Liste des incidents"/></form>
+
+        </h1>
+    </div>
 
     <form method="POST" action="">
         <label for="nom">Titre :</label>
@@ -51,22 +57,16 @@
         <input type="text" class="form-control" name="type" placeholder="Type"><br><br>
 
         <div class="form-group">
-            <label for="explication">Explication:</label>
+            <label for="explication">Explication :</label>
             <textarea class="form-control" rows="5" placeholder="Explication" id="comment" name="text"></textarea>
         </div>
 
 
-        <input class="btn" type="submit">
+        <input class="btn sub " type="submit">
     </form>
 
-    <form action="affiche"><input type="submit" class="btn" value="retour"/></form>
 
 
-
-
-    {% if alerte is defined %}
-        <p>{{ alerte }}</p>
-    {% endif %}
 
 
 

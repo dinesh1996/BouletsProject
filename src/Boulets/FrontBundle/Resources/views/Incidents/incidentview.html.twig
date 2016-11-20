@@ -14,58 +14,55 @@
         <li><a href={{ path('admin_create') }}><span class="glyphicon glyphicon-log-out"></span> Sign Up
             </a></li>
     {% endif %}
+
 {% endblock %}
 
 {% block content %}
 
     <div class="container">
-        <h1>Détails de l'incident</h1>
-        {% if i is defined %}
-            <p class=" col-md-4">
-                Nom de l'incident: {{ i.nom }}
-            </p>
+        <div class="page-header">
+            <h1>Détails de l'incident
+                <form action={{ path('front_indexallincidents') }}><input type="submit" class="btn box"
+                                                                          value="Retour aux incidents"/></form>
+            </h1>
+        </div>
 
-            <p class=" col-md-4">
-                Ip de la machine : {{ i.ip }}
-            </p>
 
-            <p class=" col-md-4">
-                Nom de la machine impliquée :  {{ i.machine }}
-            </p>
-        {% endif %}
+        <p class=" col-md-4"> Id: {{ incident.id }} </p>
+        <p class=" col-md-4">Nom de l'incident: {{ incident.nom }}</p>
+
+        <p class=" col-md-4"> Type : {{ incident.type }} </p>
+
+
+        <p class=" col-md-4">Nom de la machine impliquée : {{ incident.machine }}</p>
+
+        <p class=" col-md-4">Ip de la machine : {{ incident.ip }}</p>
+
+
+        <p class=" col-md-4"> Dans la salle : {{ incident.salle }} </p>
+
+
+        <p class=" col-md-8"> Débuté le : {{ incident.datedebut|date('d/m/Y') }} </p>
+
 
         <p class=" col-md-4">
+            {% if incident.datefin == null %}
 
-            {% if i is defined %}
-                {%  if i.datefin == null %}
-                    Date de fin : Non défini
-                {% else %}
-                    Date de fin :{{ i.datefin|date('d/m/Y') }}
-                {% endif %}
+                Date de fin : Non défini
+
+            {% else %}
+
+                Date de fin :{{ incident.datefin|date('d/m/Y') }}
+
             {% endif %}
         </p>
 
 
+        <p class=" col-md-12"> Explication : {{ incident.text }} </p>
 
-        <p> Id: {{ incident.id }} </p>
-        <p> Nom: {{ incident.nom }}</p>
-        <p> Ip: {{ incident.ip }}</p>
-        <p> Type: {{ incident.type }}</p>
-        <p> Machine: {{ incident.machine }}</p>
-        <p> Salle: {{ incident.salle }}</p>
-        <p> Explication: {{ incident.text }}</p>
-        <p> Commencer le : {{ incident.datedebut|date('d/m/Y') }}</p>
-
-
-        {% if incident.datefin == null %}
-            <p>Fin le: Non défini</p>
-        {% else %}
-            <p> Fin le: {{ incident.datefin|date('d/m/Y') }}</p>
-        {% endif %}
-
-        <form action="../../../back/incident/end/{{ incident.id }} "><input type="submit" class="btn"
+        <form action="../../../back/incident/end/{{ incident.id }} "><input type="submit" class="btn sub"
                                                                             value="Finaliser la fin de cet incident "/>
         </form>
-        <form action="../affiche"><input type="submit" class="btn" value="retour"/></form>
+
     </div>
 {% endblock %}

@@ -77,3 +77,8 @@ admin_logout:
     path: /admin/logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
 
+credit:
+    path: /credit
+    defaults:  { _controller: FrontBundle:Default:credit}
+
+

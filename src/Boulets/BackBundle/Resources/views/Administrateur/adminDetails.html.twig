@@ -1,10 +1,10 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "BackBundle::layout.html.twig" %}
 
-{%block title%}
+{% block title %}
     {% if user is defined %}
         Profil de {{ user.nom }}
     {% endif %}
-{%endblock%}
+{% endblock %}
 
 {% block navContent %}
     {% if nom is not null %}
@@ -19,17 +19,40 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="container">
 
-
         {% if user is defined %}
-            <h1>Nom</h1>
-            {{ user.nom }}
 
-            <h1>Mail</h1>
-            {{ user.mail }}
+            <div class="page-header">
+                <h1> Détails de {{ user.nom }}
 
-        {%  endif%}
+                    <form class="box" action={{ path('admin_create') }}><input class="btn " type="submit"
+                                                                               value="Nouvel Administrateur"/>
+                    </form>
+                </h1>
+            </div>
+
+            <h2>Mail : {{ user.mail }}</h2>
+
+            <form class=" col-md-3" action="{{ path('AllAdmin') }}">
+                <input type="submit" class="btn  sub" value="Liste des administrateurs"/>
+            </form>
+
+            <form class=" col-md-3" action={{ path('front_allsalleaffiche') }}>
+                <input type="submit" class="btn sub " value="DashBoard"/>
+            </form>
+
+            <form class=" col-md-3" action="{{ path('front_indexallincidents') }}">
+                <input type="submit" class="btn  sub" value="Les incidents"/>
+            </form>
+
+
+            <form class=" col-md-3" action={{ path('front_machineall') }}>
+                <input type="submit" class="btn sub " value="Les machines"/>
+            </form>
+
+        {% endif %}
 
     </div>
-{%endblock%}
+{% endblock %}

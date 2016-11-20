@@ -54,10 +54,10 @@ admin_update:
 
 #Route affichant les caractéristiques d'un utilisateur
 admin_details:
-    path: /admin/list/details
+    path: /admin/list/details/{id}
     defaults:  { _controller: BackBundle:Administrateur:AdminDetails}
 
 #Route supprimant l'utilisateur
 admin_deleteUser:
-    path: /admin/list/delete
+    path: /admin/list/delete/{id}
     defaults:  { _controller: BackBundle:Administrateur:AdminDelete}

@@ -6,7 +6,7 @@
 
     <title>{% block title %}Boulets-Project{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
 
     {% block meta %}
     {% endblock %}
@@ -33,13 +33,11 @@
                 <li><a href={{ path('front_indexallincidents') }}>Incidents</a></li>
                 <li><a href={{ path('AllAdmin') }}>Administrateurs</a></li>
                 <li><a href={{ path('admin_profil') }}>Profil</a></li>
-
-                <li><a href={{ path('front_allsalleaffiche') }}>Crédit</a></li>
+                <li><a href={{ path('credit') }}>Crédit</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% block navContent %}
                 {% endblock %}
-
             </ul>
         </div>
     </div>

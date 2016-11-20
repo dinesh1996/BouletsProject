@@ -145,7 +145,6 @@
                         $machineE = $em->getRepository('BackBundle:Machine')->find($id);
 
 
-
                         if ($machineE != null) {
 
 
@@ -211,6 +210,7 @@
                     'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
+                return $this->redirectToRoute("login");
 
             }
 

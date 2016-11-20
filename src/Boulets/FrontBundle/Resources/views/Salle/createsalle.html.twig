@@ -1,8 +1,5 @@
 {% extends "BackBundle::layout.html.twig" %}
 
-
-
-
 {% block title %}
     Création d'une salle
 {% endblock %}
@@ -26,41 +23,37 @@
 
         <div class="page-header">
 
-            <h1>Création d'une salle  <form  class="box" action={{ path('front_allsalleaffiche') }}><input type="submit" class="btn "
-                                                                                                          value="Liste des salles"/></form></h1>
+            <h1>Création d'un salle  <form  class="box" action={{ path('front_allsalleaffiche') }}><input type="submit" class="btn "
+                                                                                                value="Liste des salle"/></form></h1>
 
         </div>
-
-
-
-
-
 
         <form method="POST" action="">
 
 
-            <label for="nom">Nom</label>
-            <input type="text" class="form-control" name="nom" placeholder="Nom de la salle" required/>
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" name="nom" placeholder="Nom de la salle" required/>
 
 
-            <div class="radio active">
-                <label><input type="radio" checked name="etat" value="Ouverte">Ouverte</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="etat" value="Fermée">Fermée</label>
-            </div>
+                <div class="radio active">
+                    <label><input type="radio" checked name="etat" value="Ouverte">Ouverte</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="etat" value="Fermée">Fermée</label>
+                </div>
 
 
-            <input type="hidden"   name="incident"  value="Aucun"/>
 
 
-            <input class="btn sub" type="submit"/>
+                <input type="hidden"   name="incident"  value="Aucun"/>
 
-        </form>
+
+                <input class="btn sub" type="submit"/>
+
+            </form>
 
 
     </div>
-
 
     {% block jsapp %}
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
