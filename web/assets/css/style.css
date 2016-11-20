@@ -1,4 +1,24 @@
+.page-header{
+    padding-bottom: 20px;
+}
 
+
+
+
+.flash-notice{
+
+    padding: 15px 25px;
+    background-color: #f08e13;
+    border-radius:4px;
+    text-align: center;
+    color: white;
+    margin: 4px 2px;
+    font-size: medium;
+    opacity: 0.75 ;
+
+
+
+}
 .btn {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -32,9 +52,9 @@ float: right;
 .sub{
     width: 100%;
 }
-.container{
+.supp{
+    background-color: #ee4646;
 
-    background: url(/web/assets/img/font.png) left top repeat;
 }
 
 

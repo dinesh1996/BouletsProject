@@ -10,7 +10,7 @@
 
 
 {% block title %}
-    Incident Détails
+    Détails de l'incident
 {% endblock %}
 
 
@@ -25,7 +25,7 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>Incident Détails
+            <h1>Détails de l'incident
                 <form action={{ path('front_indexallincidents') }}><input type="submit" class="btn box" value="Retour aux incidents"/></form>
 </h1>
         </div>
@@ -62,12 +62,12 @@
         </p>
 
 
-        <p class=" col-md-12"> Explications : {{ incident.text }} </p>
+        <p class=" col-md-12"> Explication : {{ incident.text }} </p>
 
 
 
         <form   action="../../../back/incident/end/{{ incident.id }} "><input type="submit" class="btn sub"
-                                                                                        value="Finaliser la fin de cette incident "/>
+                                                                                        value="Finaliser la fin de cet incident "/>
         </form>
 
 

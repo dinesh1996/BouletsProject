@@ -216,7 +216,7 @@
                 );
 
 
-                //  return $this->redirectToRoute("login");
+                  return $this->redirectToRoute("login");
 
 
             }
@@ -270,7 +270,7 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
 

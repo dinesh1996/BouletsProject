@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    Modification  de machine
+    Modification  de la salle
 {% endblock %}
 
 
@@ -15,7 +15,7 @@
 
 
 
-            <h1>Modificaation de machine</h1>
+            <h1> Modification de a salle</h1>
 
             <form method="POST" action="">
 
@@ -28,7 +28,7 @@
                     <label><input type="radio" checked name="etat" value="Ouverte">Ouverte</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" name="etat" value="Fermer">Fermer</label>
+                    <label><input type="radio" name="etat" value="Fermée">Fermée</label>
                 </div>
 
 
@@ -37,12 +37,12 @@
                     <select class="form-control" name="incident">
                         <option value="">{{ salle.incident }} (actuellement)</option>
                         <option value=Aucun>Aucun</option>
-                        <option value=Innodation>Innodation</option>
+                        <option value=Inondation>Inondation</option>
                         <option value=Incendie>Incendie</option>
                         <option value=Radioactive>Radioactive</option>
                         <option value=Séismes‎>Séismes‎</option>
                         <option value=Cyclone>Cyclone</option>
-                        <option value=Sunami>Sunami</option>
+                        <option value=Tsunami>Tsunami</option>
 
                     </select>
                 </div>

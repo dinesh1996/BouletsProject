@@ -10,7 +10,7 @@
 
 
 {% block title %}
-    Salle Détails
+    Détails de la salle
 {% endblock %}
 
 
@@ -24,19 +24,21 @@
         </div>
 
 
-        <form class="col-md-3" action="../update/{{ salle.id }} "><input type="submit" class="btn"
-                                                                         value="Modifier la salle"/></form>
 
-        <form class="col-md-3" method="post" action="../../../back/salle/delete/{{ salle.id }} "><input type="submit"
-                                                                                                        class="btn"
-                                                                                                        value="Supprimé la salle"/>
-        </form>
-        <form class="col-md-3" method="post" action="{{ salle.id }}/machines"><input type="submit" class="btn"
+
+        <form class="col-md-3" method="post" action="{{ salle.id }}/machines"><input type="submit" class="btn sub"
                                                                                      value="Machines associées à cette salle"/>
         </form>
 
-        <form class="col-md-3" action="../affiche"><input type="submit" class="btn" value="Liste des salle"/></form>
+        <form class="col-md-3" action="../affiche"><input type="submit" class="btn sub" value="Liste des salles"/></form>
 
+        <form class="col-md-3" action="../update/{{ salle.id }} "><input type="submit" class="btn sub"
+                                                                         value="Modifier la salle"/></form>
+
+        <form class="col-md-3" method="post" action="../../../back/salle/delete/{{ salle.id }} "><input type="submit"
+                                                                                                        class="btn sub supp"
+                                                                                                        value="Supprimer la salle"/>
+        </form>
 
 
         {% set counter = 0 %}

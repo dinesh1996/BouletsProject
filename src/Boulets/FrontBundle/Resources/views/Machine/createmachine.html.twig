@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    Creation de machine
+    Création de machine
 {% endblock %}
 
 
@@ -13,14 +13,14 @@
 
     <div class="page-header">
 
-        <h1>Page de creation de machine <form  action={{ path('front_machineall') }}><input type="submit" class="btn box"
+        <h1>Création de machine <form   class="box" action={{ path('front_machineall') }}><input type="submit" class="btn "
                                                                                 value="Liste des machines"/></form></h1>
 
     </div>
 
 
 
-    <div class="">
+    <div class="container">
 
 
         {% for flash_message in app.session.flashBag.get('Notification') %}

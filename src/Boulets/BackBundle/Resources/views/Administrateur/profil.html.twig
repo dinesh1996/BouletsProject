@@ -5,37 +5,56 @@
 {%endblock%}
 
 {% block content %}
+    {% if nom is defined and mail is defined %}
+
+        {% for flash_message in app.session.flashBag.get('Notification') %}
+            <div class="flash-notice">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
+
+        <div class="page-header ">
+            <h1> Profil de {{ nom }}
+
+
+
+                <form class="col-md-2 box" action={{ path('admin_logout') }}><input class="btn " type="submit"
+                                                                           value="Se deconnecter"/>
+                </form>
+
+                <form class=" col-md-2 box"  action="{{ path('admin_update') }}">
+                    <input type="submit" class="btn  " value="Modifier votre profil " />
+                </form>
+
+            </h1>
+        </div>
+
+
+
+
+
     <div class="container">
 
 
-        {% if nom is defined and mail is defined %}
-        <h1>Nom</h1>
-        {{nom}}
-        <h1>Mail</h1>
-            {{ mail }}
-            <form action={{ path('admin_logout') }}>
-                <input type="submit" class="btn btn-primary" value="Se deconnecter" />
+
+
+            <form class=" col-md-3"  action="{{ path('AllAdmin') }}">
+                <input type="submit" class="btn sub " value="Liste des administrateurs" />
             </form>
 
-
-
-
-            <form action="{{ path('admin_update') }}">
-                <input type="submit" class="btn btn-primary" value="Modifier votre profil " />
+            <form class=" col-md-3 "  action="{{ path('front_allsalleaffiche') }}">
+                <input type="submit" class="btn sub " value="DashBoard" />
             </form>
 
-            <form action="{{ path('front_allsalleaffiche') }}">
-                <input type="submit" class="btn btn-primary" value="DashBoard" />
-            </form>
-
-            <form action={{ path('front_indexallincidents') }}>
-                <input type="submit" class="btn btn-primary" value="Les incidents" />
-            </form>
+        <form class=" col-md-3 "   action={{ path('front_indexallincidents') }}>
+            <input type="submit" class="btn sub " value="Les incidents" />
+        </form>
 
 
-            <form action="{{ path('front_machineall') }}">
-                <input type="submit" class="btn btn-primary" value="Les machines" />
-            </form>
+        <form class=" col-md-3"  action="{{ path('front_machineall') }}">
+            <input type="submit" class="btn sub " value="Les machines" />
+        </form>
 
         {%  endif%}
 

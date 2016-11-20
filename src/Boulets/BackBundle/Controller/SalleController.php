@@ -44,10 +44,11 @@
                         $s = new Salle();
                         $s->setNom($nom);
                         $s->setAdministrateur($admin);
-                        $s->setIncident("");
+                        $s->setIncident($incident);
                         $s->setDatecreation(date_create());
                         $s->setEtat($etat);
-                        $s->setIncident($incident);
+                        $s->setNbMachines(0);
+
 
 
                         $datacontext = $this->getDoctrine()->getEntityManager();
@@ -90,7 +91,7 @@
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
 
@@ -183,7 +184,7 @@
             } else {
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
 
@@ -239,7 +240,7 @@
 
                 $this->addFlash(
                     'Notification',
-                    'Vous devez vous connecté pour accedé à la page demandée'
+                    'Vous devez vous connecter pour accéder à la page demandée'
                 );
 
 

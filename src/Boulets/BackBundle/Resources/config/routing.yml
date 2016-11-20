@@ -1,27 +1,6 @@
+#Routes Machines
 
-
-
-
-
-
-
-
-#ss
-
-
-
-#Routes Machines  fini .....
-
-
-
-
-#bon
-
-
-
-
-
-#Route Supprimer une  machine back fait
+#Route Supprimer une machine back fait
 back_machine_delete:
     path:     /machine/delete/{id}
     defaults: { _controller: BackBundle:Machine:delete }
@@ -30,28 +9,16 @@ back_machine_ping:
     path:     /machine/ping/{id}
     defaults: { _controller: BackBundle:Machine:ping }
 
-
-
-
 #Routes Salles
-
-
-#Supprision d'une salle  ( a refaire ) back
+#Suppression d'une salle  ( à refaire )
 back_deletesalle:
     path:     /salle/delete/{id}
     defaults: { _controller: BackBundle:Salle:delete }
 
-
-
-
-
-
-#Route  Création dee dates de fin d' incidents back
+#Route  Création des dates de fin d'incidents back
 back_incidentend:
     path:     /incident/end/{id}
     defaults: { _controller: BackBundle:Incidents:incidentend }
-
-
 
 #Routes Admin
 
@@ -60,42 +27,37 @@ login:
     path: /admin/login
     defaults: {_controller: BackBundle:Administrateur:login}
 
-
-
 #Route logout  admin back
 admin_logout:
     path: /admin/logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
 
-#Route  Creation d'un   admin back
+#Route  Création d'un admin back
 admin_create:
     path: /admin/create
     defaults: { _controller: BackBundle:Administrateur:create}
-
-
 
 #Route  Affiche profile  admin back
 admin_profil:
     path: /admin/profil
     defaults: { _controller: BackBundle:Administrateur:profil}
 
-
-
-#Route  Affiche tout les  admins back
+#Route  Affiche tous les admins back
 AllAdmin:
     path: /admin/list
     defaults:  { _controller: BackBundle:Administrateur:allAdmin}
 
-
-
-#Route  Mis a jour   admin back
+#Route  Mis à jour admin back
 admin_update:
     path: /admin/update
     defaults:  { _controller: BackBundle:Administrateur:update}
 
+#Route affichant les caractéristiques d'un utilisateur
+admin_details:
+    path: /admin/list/details/{id}
+    defaults:  { _controller: BackBundle:Administrateur:AdminDetails}
 
-
-
-#supp un admin ......
-
-
+#Route supprimant l'utilisateur
+admin_deleteUser:
+    path: /admin/list/delete/{id}
+    defaults:  { _controller: BackBundle:Administrateur:AdminDelete}

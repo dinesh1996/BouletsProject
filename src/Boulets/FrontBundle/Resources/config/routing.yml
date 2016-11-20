@@ -1,116 +1,69 @@
+#Routes Machines
 
-
-
-
-
-#efezfeef
-
-
-#Routes Machines  fini .....
-
-
-
-
-#bon
-
-
-#Route Affiche tout les machines front fait
+#Route Affiche tous les machines front fait
 front_machineall:
     path:     /machine/affiche
     defaults: { _controller: FrontBundle:Machine:allmachines }
 
-
-
-#Route Création  d' machine back c est fait enfin
+#Route Création d'une machine back
 back_machine_create:
     path:     /machine/create
     defaults: { _controller: BackBundle:Machine:create }
 
-
-#Route Mis a jour  d'une  machine (!!!!!a faire) back fait
+#Route Mis à jour d'une machine (à faire) back fait
 back_machine_update:
     path:     /machine/update/{id}
     defaults: { _controller: BackBundle:Machine:update }
-
-
 
 front_indexsalle_machines:
     path:     /salle/details/{id}/machines
     defaults: { _controller: FrontBundle:Salle:machinepre }
 
-
-#Route Affiche details d'un machine (!!!!a faitre) front fait
+#Route Affiche details d'un machine (à faire) front fait
 front_indexmachine:
     path:     /machine/details/{id}
     defaults: { _controller: FrontBundle:Machine:machine }
 
-
 #Routes Salles
 
-
-
-
-#cretation de salle (a refaire ) back fait
+#création de salle (à refaire ) back fait
 back_createsalle:
     path:     /salle/create
     defaults: { _controller: BackBundle:Salle:create }
 
 
-#Mis a jour d'une salle  ( a refaire ) back fait
+#Mis à jour d'une salle  ( à refaire ) back fait
 back_updatesalle:
     path:     /salle/update/{id}
     defaults: { _controller: BackBundle:Salle:update }
 
 
-
-
-#Afficher tout les salle du parc   ( a refaire ) front fait
+#Afficher tous les salle du parc   (à refaire ) front fait
 front_allsalleaffiche:
     path:     /salle/affiche/
     defaults: { _controller: FrontBundle:Salle:allsalles }
 
-
-#Route Affiche details d'une salle (!!!!a faitre) front
+#Route Affiche details d'une salle ( à faire) front
 front_indexsalle:
     path:     /salle/details/{id}
     defaults: { _controller: FrontBundle:Salle:salle }
 
-
-
-
-
-
-
-
-#Routes Inccidents bons
-
+#Routes Incidents
 
 #Route Affiche tout les incidents front
 front_indexallincidents:
     path:     /incident/affiche
     defaults: { _controller: FrontBundle:Incidents:allincidents }
 
-
-
 #Route Affiche details d'un incidents front
 front_indexincident:
     path:     /incident/details/{id}
     defaults: { _controller: FrontBundle:Incidents:incident }
 
-
-
-#Route Création  d' incidents back
+#Route Création  d'incidents back
 back_create_incident:
     path:     /incident/create
     defaults: { _controller: BackBundle:Incidents:create }
-
-
-
-
-
-
-
-
 
 #Routes Admin
 
@@ -119,14 +72,8 @@ login:
     path: /admin/login
     defaults: {_controller: BackBundle:Administrateur:login}
 
-
-
 #Route logout  admin back
 admin_logout:
     path: /admin/logout
     defaults:  { _controller: BackBundle:Administrateur:logout}
 
-
-
-
-#supp un admin ......

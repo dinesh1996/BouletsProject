@@ -1,27 +1,44 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "BackBundle::layout.html.twig" %}
 
-{%block title%}
-
-{%endblock%}
+{% block title %}
+    Liste des administrateurs
+{% endblock %}
 
 {% block content %}
+
+
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <table class="table table-bordered table-striped table-hover">
-                    <tr>
-                        <th>Nom</th><th>Prénom</th><th>Mail</th><th>Création</th>
-                    </tr>
-                    {%for u in utilisateurs%}
-                        <tr>
-                            <td>{{u.nom}}</td>
-                            <td>toto</td>
-                            <td>{{u.mail}}</td>
-                            <td>Taratata</td>
-                        </tr>
-                    {%endfor%}
-                </table>
-            </div>
+
+
+        <div class="page-header">
+            <h1>Liste des administrateurs
+                <form class="box" action={{ path('admin_create') }}><input class="btn " type="submit"
+                                                                           value="Nouvel Administrateur"/>
+                </form>
+
+            </h1>
         </div>
+
+        {% for u in utilisateurs %}
+
+
+
+            <div class="page-header">
+                <h2>{{ u.nom }}, mail : {{ u.mail }}</h2>
+            </div>
+
+            <form class="col-md-6" action="list/details/{{ u.id }}"><input type="submit" class="btn sub"
+                                                                           value="Détails"/>
+            </form>
+
+            <form class="col-md-6" action="list/delete/{{ u.id }}"><input type="submit" class="btn sub supp "
+                                                                          value="Supprimer"/>
+            </form>
+            {% endfor %}
+        </div>
+
+
+
+
     </div>
-{%endblock%}
+{% endblock %}
