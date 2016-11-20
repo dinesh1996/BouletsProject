@@ -13,8 +13,10 @@
 
     <div class="page-header">
 
-        <h1>Création de machine <form   class="box" action={{ path('front_machineall') }}><input type="submit" class="btn "
-                                                                                value="Liste des machines"/></form></h1>
+        <h1>Création de machine
+            <form class="box" action={{ path('front_machineall') }}><input type="submit" class="btn "
+                                                                           value="Liste des machines"/></form>
+        </h1>
 
     </div>
 
@@ -28,7 +30,6 @@
                 {{ flash_message }}
             </div>
         {% endfor %}
-
 
 
         <form method="POST" action="create">

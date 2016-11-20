@@ -31,42 +31,37 @@
         {% for i in incidents %}
 
 
-        <div class="container">
-            <div class="page-header">
-                <h2> Nom de l'incident: {{ i.nom }}, consernant la machine {{ i.machine }}</h2>
+            <div class="container">
+                <div class="page-header">
+                    <h2> Nom de l'incident: {{ i.nom }}, consernant la machine {{ i.machine }}</h2>
+                </div>
+                <div class="">
+
+                    <p class=" col-md-3">
+                        {{ i.id }}
+                    </p>
+
+                    <p class=" col-md-3">
+                        Type: {{ i.type }}
+
+                    </p>
+
+
+                    <p class=" col-md-3">
+                        Date de création : {{ i.datedebut|date('d/m/Y') }}
+
+                    </p>
+
+
+                    <form class="col-md-3" action="details/{{ i.id }}"><input type="submit" class="btn box"
+                                                                              value="Détails"/>
+                    </form>
+                </div>
             </div>
-            <div class="">
-
-                <p class=" col-md-3">
-                    {{ i.id }}
-                </p>
-
-                <p class=" col-md-3">
-                    Type: {{ i.type }}
-
-                </p>
-
-
-                <p class=" col-md-3">
-                   Date de création : {{ i.datedebut|date('d/m/Y') }}
-
-                </p>
 
 
 
-
-
-
-
-                <form class="col-md-3" action="details/{{ i.id }}"><input type="submit" class="btn box"
-                                                                          value="Détails"/>
-                </form>
-            </div>
-        </div>
-
-
-
-            {% endfor %}
+        {% endfor %}
 
 
     </div>

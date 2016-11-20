@@ -1,8 +1,8 @@
-{%extends "BackBundle::layout.html.twig"%}
+{% extends "BackBundle::layout.html.twig" %}
 
-{%block title%}
+{% block title %}
     Modification données du profil
-{%endblock%}
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -15,12 +15,13 @@
             <input type="password" placeholder="Entrez votre mot de passe" class="form-control" name="mdp"/>
             </br>
             <h2>Confirmation Mot de passe</h2>
-            <input type="password" placeholder="Entrez à nouveau votre mot de passe" class="form-control" name="confmdp"/>
+            <input type="password" placeholder="Entrez à nouveau votre mot de passe" class="form-control"
+                   name="confmdp"/>
             </br>
             <button class="btn">Modifier</button>
         </form>
     </div>
-    {% if error is defined%}
+    {% if error is defined %}
         <p style="color: red; "> {{ error }} </p>
-    {% endif  %}
-{%endblock%}
+    {% endif %}
+{% endblock %}

@@ -1,5 +1,5 @@
 <?php
-    
+
     namespace Boulets\BackBundle\Controller;
 
     use Boulets\BackBundle\Entity\Administrateur;
@@ -320,7 +320,7 @@
 
 
                 $repo = $this->getDoctrine()->getRepository("BackBundle:Administrateur");
-                $utilisateurs = $repo->findBy(array(),array('id' => 'DESC'));
+                $utilisateurs = $repo->findBy(array(), array('id' => 'DESC'));
                 $response = $this->get('templating')
                     ->render('BackBundle:Administrateur:list.html.twig', array('utilisateurs' => $utilisateurs));
                 return new Response($response);

@@ -21,8 +21,7 @@
     <div class="container">
 
 
-
-        <h1>Ping Machine  </h1>
+        <h1>Ping Machine </h1>
         {% for flash_message in app.session.flashBag.get('Notification') %}
             <div class="flash-notice">
                 {{ flash_message }}
@@ -31,18 +30,15 @@
 
         {% for p in ping %}
 
-        <p>{{ p }}</p>
+            <p>{{ p }}</p>
         {% endfor %}
 
 
-
-
-
-
-
         <form method="post" action="../../../front/machine/details/{{ machine.id }} "><input type="submit" class="btn"
-                                                                                           value="Détails machine"/></form>
-        <form  class="col-md-3" action={{ path('front_machineall') }}><input type="submit" class="btn" value="Liste des machines"/></form>
+                                                                                             value="Détails machine"/>
+        </form>
+        <form class="col-md-3" action={{ path('front_machineall') }}><input type="submit" class="btn"
+                                                                            value="Liste des machines"/></form>
 
     </div>
 

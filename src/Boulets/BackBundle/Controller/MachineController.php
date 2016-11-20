@@ -149,7 +149,6 @@
                         $machineE = $em->getRepository('BackBundle:Machine')->find($id);
 
 
-
                         if ($machineE != null) {
 
 
@@ -216,7 +215,7 @@
                 );
 
 
-                  return $this->redirectToRoute("login");
+                return $this->redirectToRoute("login");
 
 
             }

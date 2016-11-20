@@ -4,9 +4,9 @@
 
 
 
-{%block title%}
+{% block title %}
     Ajoute de la date de fin d'incident
-{%endblock%}
+{% endblock %}
 
 
 
@@ -16,13 +16,14 @@
         <form method="POST" action="">
 
             <label for="dateend">Date de la fin de l'incident :</label>
-            <input type="date" class="form-control"  name="dateend" placeholder="Titre"/>
+            <input type="date" class="form-control" name="dateend" placeholder="Titre"/>
             <input class="btn sub" type="submit"/>
 
         </form>
-        <form action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn" value="Liste des incidents"/></form>
+        <form action="{{ path('front_indexallincidents') }}"><input type="submit" class="btn"
+                                                                    value="Liste des incidents"/></form>
     </div>
 
 
 
-{%endblock%}
+{% endblock %}
