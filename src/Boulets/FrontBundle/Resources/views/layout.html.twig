@@ -38,7 +38,9 @@
                 <li><a href={{ path('credit') }}>Crédit</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+                {% block navContent %}
+                {% endblock %}
+
             </ul>
         </div>
     </div>
@@ -46,8 +48,17 @@
 <div class="container">
     {% block content %}
     {% endblock %}
-</div>
 
+
+
+</div>
+<div id="footer">
+
+
+     <p>Made by Boulets Creative </p>
+    <p>© 2016-2017 ALL RIGHTS RESERVED</p>
+
+</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

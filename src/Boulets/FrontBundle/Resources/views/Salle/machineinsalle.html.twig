@@ -7,7 +7,16 @@
     Liste de toutes les machines de la salle
 {% endblock %}
 
+      {% block navContent %}
+          {% if nom is not null %}
+              <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+                  </a></li>
+          {% elseif nom is null %}
+              <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Connexion
+                  </a></li>
 
+          {% endif %}
+      {% endblock %}
 {% block content %}
 
 

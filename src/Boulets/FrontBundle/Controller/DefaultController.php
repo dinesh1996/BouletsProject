@@ -12,26 +12,22 @@
     {
 
 
-        public function creditAction()
+        public function creditAction(Request $request)
         {
 
 
+            $session = $request->getSession();
+            $session->getName();
+            $nom = $session->get('name');
 
 
+            $response = $this->get('templating')
+                ->render('FrontBundle:Default:credit.html.twig', array('nom' => $nom));
 
-
-
-
-                $response = $this->get('templating')
-                    ->render('FrontBundle:Default:credit.html.twig');
-
-                return new Response($response);
+            return new Response($response);
 
 
         }
-
-
-
 
 
     }

@@ -98,7 +98,7 @@
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Incidents:createincident.html.twig',
-                            array('salles' => $salles, 'machines' => $machines));
+                            array('salles' => $salles, 'machines' => $machines, 'nom' => $nom));
                     return new Response($reponse);
 
 
@@ -129,7 +129,7 @@
 
 
                     $response = $this->get('templating')
-                        ->render('FrontBundle:Incidents:incidentend.html.twig');
+                        ->render('FrontBundle:Incidents:incidentend.html.twig',array('nom' => $nom));
                     return new Response($response);
                 } elseif ($request->isMethod("POST")) {
 
@@ -162,7 +162,7 @@
                     } else {
 
 
-                        return $this->render('FrontBundle:Incidents:allincidents.html.twig');
+                        return $this->render('FrontBundle:Incidents:allincidents.html.twig',array('nom' => $nom));
 
 
                     }

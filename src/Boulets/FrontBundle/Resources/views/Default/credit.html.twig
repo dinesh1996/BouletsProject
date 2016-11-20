@@ -12,9 +12,6 @@
     {% endblock %}
 
 
-
-
-
 </head>
 
 <body>
@@ -38,52 +35,82 @@
                 <li><a href={{ path('credit') }}>Crédit</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+
+                {% block navContent %}
+                    {% if nom is not null %}
+                        <li><a href={{ path('admin_logout') }}><span class="glyphicon glyphicon-log-out"></span> Déconnexion
+                            </a></li>
+                    {% elseif nom is null %}
+                        <li><a href={{ path('login') }}><span class="glyphicon glyphicon-log-out"></span> Connexion
+                            </a></li>
+
+                    {% endif %}
+                {% endblock %}
+
             </ul>
         </div>
     </div>
 </nav>
 
 
-<div id="two" class="wrapper">
+<div id="wrapper">
 
-        <header>
-            <h2>Ipsum Feugiat</h2>
-            <p>Semper suscipit posuere apede</p>
-        </header>
-        <div class="flex flex-4">
-            <div class="box person">
-                <div class="image round">
-                    <img src="images/pic03.jpg" alt="Person 1" />
-                </div>
-                <h3>Magna</h3>
-                <p>Cipdum dolor</p>
-            </div>
-            <div class="box person">
-                <div class="image round">
-                    <img src="images/pic04.jpg" alt="Person 2" />
-                </div>
-                <h3>Ipsum</h3>
-                <p>Vestibulum comm</p>
-            </div>
-            <div class="box person">
-                <div class="image round">
-                    <img src="images/pic05.jpg" alt="Person 3" />
-                </div>
-                <h3>Tempus</h3>
-                <p>Fusce pellentes</p>
-            </div>
-            <div class="box person">
-                <div class="image round">
-                    <img src="images/pic06.jpg" alt="Person 4" />
-                </div>
-                <h3>Dolore</h3>
-                <p>Praesent placer</p>
-            </div>
-        </div>
+    <div id="title">
+        <h2>Les Boulets</h2>
+        <p>Semper suscipit posuere apede</p>
     </div>
 
 
+    <div class="container">
+
+
+        <div class="person col-lg-3">
+            <div class="image round">
+                <img class=" img-circle" width="168" height="168" src="{{ asset('assets/img/font.png') }}"
+                     alt="Person 1"/>
+            </div>
+            <h3>#Boulet 1</h3>
+            <p>Le leader</p>
+        </div>
+
+
+        <div class="person col-lg-3">
+            <div class="image round">
+                <img class=" img-circle" width="168" height="168" src="{{ asset('assets/img/font.png') }}"
+                     alt="Person 2"/>
+            </div>
+            <h3>#Boulet 2</h3>
+            <p>Vestibulum comm</p>
+        </div>
+        <div class="col-lg-3 person">
+            <div class="image round">
+                <img class=" img-circle" width="168" height="168" src="{{ asset('assets/img/font.png') }}"
+                     alt="Person 3"/>
+            </div>
+            <h3>#Boulet 3</h3>
+            <p>Fusce pellentes</p>
+        </div>
+        <div class="col-lg-3 person">
+            <div class="image round">
+                <img class=" img-circle" width="168" height="168" src="{{ asset('assets/img/font.png') }}"
+                     alt="Person 4"/>
+            </div>
+            <h3>#Boulet 4</h3>
+            <p>Praesent placer</p>
+        </div>
+
+
+        <div class="col-lg-3 " id="down">
+            <div class="image round">
+                <img class=" img-circle" width="168" height="168" src="{{ asset('assets/img/font.png') }}"
+                     alt="Person 5"/>
+            </div>
+            <h3>#Boulet 4</h3>
+            <p>Praesent placer</p>
+        </div>
+
+    </div>
+</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

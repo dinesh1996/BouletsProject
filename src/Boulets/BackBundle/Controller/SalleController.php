@@ -81,7 +81,7 @@
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Salle:createsalle.html.twig',
-                            array('salles' => $salles));
+                            array('salles' => $salles, 'nom' =>$nom ));
                     return new Response($reponse);
 
 
@@ -114,7 +114,7 @@
 
 
                     $reponse = $this->get('templating')
-                        ->render('FrontBundle:Salle:updatesalle.html.twig', array('salle' => $salle));
+                        ->render('FrontBundle:Salle:updatesalle.html.twig', array('salle' => $salle,'nom' => $nom ));
                     return new Response($reponse);
 
 

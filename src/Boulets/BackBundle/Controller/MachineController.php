@@ -83,7 +83,7 @@
 
                     $reponse = $this->get('templating')
                         ->render('FrontBundle:Machine:createmachine.html.twig',
-                            array('salles' => $salles));
+                            array('salles' => $salles, 'nom' => $nom));
                     return new Response($reponse);
 
 
@@ -123,7 +123,7 @@
                     $machine = $machinesR->findOneBy(array('id' => $id));
                     $response = $this->get('templating')
                         ->render('FrontBundle:Machine:updatemachine.html.twig',
-                            array('machine' => $machine, 'salles' => $salles));
+                            array('machine' => $machine, 'salles' => $salles,'nom' => $nom));
                     return new Response($response);
 
                 } elseif ($request->isMethod("POST")) {
@@ -316,7 +316,7 @@
 
                             $response = $this->get('templating')
                                 ->render('FrontBundle:Machine:pingview.html.twig',
-                                    array('ping' => $output, 'machine' => $machine));
+                                    array('ping' => $output, 'machine' => $machine,'nom' => $nom));
                             return new Response($response);
 
                         } else {
