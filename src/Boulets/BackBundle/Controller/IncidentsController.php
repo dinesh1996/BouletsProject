@@ -28,18 +28,18 @@
                     $type = $request->request->get("type");
                     $text = $request->request->get("text");
                     $testdatefin = null;
-                    var_dump($ip);
+
 
                     $repo = $this->getDoctrine()->getRepository("BackBundle:Incident");
                     $incidentP = $repo->findBy(array('nom' => $nom, 'ip' => $ip, 'datefin' => $testdatefin));
                     if ($incidentP == null) {
-                        var_dump($incidentP);
+
 
 
                         $repo = $this->getDoctrine()->getRepository("BackBundle:Machine");
                         $machine1 = $repo->findBy(array('ip' => $ip));
 
-                        var_dump($machine1);
+
                         if (isset($machine1)) {
 
                             $machine = $machine1[0]->getNom();
@@ -59,7 +59,7 @@
 
                             $this->addFlash(
                                 'Notification',
-                                "L'ajoue a bien été effcetué "
+                                "L'ajout a bien été effectué "
                             );
                             return $this->redirectToRoute('front_indexallincidents');
 
@@ -68,7 +68,7 @@
 
                             $this->addFlash(
                                 'Notification',
-                                "L'ajoue n'est pas abouti veuillez resseyer"
+                                "L'ajout n'est pas abouti veuillez resseyer"
                             );
 
 
@@ -80,7 +80,7 @@
                     } else {
                         $this->addFlash(
                             'Notification',
-                            "L'ajoue n'est pas abouti le même incident est déja présent veuillez resseyer"
+                            "L'ajout n'a pas abouti le même incident est déja présent veuillez resseyer"
                         );
 
 
